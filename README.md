@@ -1,18 +1,26 @@
-# Quartz v4
+# Fernando Basso Dev Notes
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+## Intro
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+This is a website where I keep software engineering notes.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+Currently, the source files are on private Gitlab repository and publicly hosted on Gitlab pages:
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+- https://gitlab.com/fernandobasso/devnotes
+- https://fernandobasso.gitlab.io/devnotes
 
-## Sponsors
+## Local website preview
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+Make sure to use the node version found in `cat .nvmrc`, then:
+
+```bash
+$ npm install
+$ npx quartz build --serve
+```
+
+Then point your browser to http://localhost:8080/.
+
+## Publish new content to the website
+
+Commit the changes and push to the `devel` branch.
+The new changes should be publicly available on the website after the [pipeline](https://gitlab.com/fernandobasso/devnotes/-/pipelines) finishes running.

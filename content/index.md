@@ -1,6 +1,14 @@
 ---
-title: Welcome to Quartz
+title: Fernando Basso Dev Notes
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+# Welcome
+
+This is a website where I keep software engineering notes.
+
+Currently, the source files are on private Gitlab repository and publicly hosted on Gitlab pages:
+
+- https://gitlab.com/fernandobasso/devnotes
+- https://fernandobasso.gitlab.io/devnotes
+
+
