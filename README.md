@@ -9,6 +9,10 @@ Currently, the source files are on private Gitlab repository and publicly hosted
 - https://gitlab.com/fernandobasso/devnotes
 - https://fernandobasso.gitlab.io/devnotes
 
+The content is writen in Markdown and can be done in any text editor or in Obsidian (open the directory `content` as an Obsidian vault).
+
+The website is published using [Quartz](https://quartz.jzhao.xyz/) as it has good support for publishing Obsidan notes (search, paths, tags, etc.)
+
 ## Local website preview
 
 Make sure to use the node version found in `cat .nvmrc`, then:
