@@ -4,8 +4,6 @@ tags:
   - bash
   - plugin
 ---
-
-
 ## Vim Resources
 #vim #plugin
 
