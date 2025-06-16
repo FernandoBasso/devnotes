@@ -3,11 +3,6 @@ tags:
   - cmdline
   - grep
 ---
----
-title: The cp Command
-description: Tips, notes, explanations and examples on the usage of the cp command line utility
-----
-
 ## Intro
 
 ```bash
