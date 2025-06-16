@@ -89,3 +89,11 @@ We feel safe moving forward and use the `rm` command on that pattern.
 
 And so that is the tip.
 We can test what our globing and expansion will do with `echo` or `printf` first _before_ using them in a more potentially dangerous command like `rm`, `shred` or others.
+
+## Remove newline
+
+Similar to `tr -d '\n`, we can also do in pure bash:
+
+```bash
+"${var//[$'\t\r\n']}"
+```
