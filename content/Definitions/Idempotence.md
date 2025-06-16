@@ -5,12 +5,22 @@ tags:
 ---
 ## Intro
 
-Idempotency is an an approach in which 
-
-> Idempotence s the property of certain operations in mathematics and computer science whereby they can be applied multiple times without changing the result beyond the initial application.
+> Idempotence is the property of certain operations in mathematics and computer science whereby they can be applied multiple times without changing the result beyond the initial application.
 > 
 > — Wikipedia
 
+## Examples
+
+### DELETE /posts/1
+
+Imagine an HTTP request like this:
+
+```text
+DELETE /posts/1
+```
+
+If that request is successful, issuing that same request again will not change the state of the system.
+If the post was deleted, that post doesn't exist any longer in the system and performing that request again will not change anything in the system in question.
 
 ## Resources
 
