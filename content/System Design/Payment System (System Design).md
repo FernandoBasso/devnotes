@@ -44,7 +44,7 @@ These **incompatible messages** are also known as **poison pill errors**.
 
 Save those in a DLQ for debugging later.
 
-## Handling transient errors/faults
+### Handling transient errors/faults
 
 Linear or exponential back-off retries.
 
@@ -54,5 +54,42 @@ Exponential back-off retry function: $f(x) = 2^x$, where $x$ represents the retr
 - Retry 2 after 4 seconds: $f(2) = 2^2$
 - Retry 3 after 8 seconds: $f(3) = 2^3$
 - Retry 4 after 16 seconds: $f(4) = 2^4$
+
+We don't want clients hammering a service already facing issues and contribute even more to the problem.
+
+Add an element of randomness if two or more clients are accessing the same problematic service so they don't perform the request at the exact same time.
+
+### Timeout pattern
+If an outbound request doesn't complete by the service within X time, abort.
+
+
+### Fallback
+
+If payment would fail because fraud-check service is down, instead of losing the sale and the customer, we apply a business rule like “if the order is <= $ 100, go ahead and accept the risk and complete the order”. It is a compromise already decided at the business level.
+
+### Handling persistent (non-transient) failures
+
+Failures that could last for minutes to days.
+
+If data sent by sender is not compatible with what the receiver wants, retrying will simply result in the same error. These are known as poison-pill errors. Save those messages into a dead-letter queue for later inspection.
+
+If a service we need is down, store the message in a persistent queue so it can be retried later when the service is back working fine.
+
+### Idempotency
+
+implement idempotent operations to avoid charging the user multiple times, sending the same comms multiple times, etc.
+
+Idempotency key (usually an UUID).
+Generated at the client and expires after a certain amount of time.
+Sent in HTTP headers.
+
+The PSP can make use of the unique constraint on relation DBs to enforce that the payment is not duplicated.
+
+Idempotency in this case ensures _exactly once_ guarantee.
+
+```
+$ echo hello
+$ exit 0
+```
 
 ## The End
