@@ -56,6 +56,7 @@ Exponential back-off retry function: $f(x) = 2^x$, where $x$ represents the retr
 - Retry 4 after 16 seconds: $f(4) = 2^4$
 
 We don't want clients hammering a service already facing issues and contribute even more to the problem.
+See [Retry Strategy](Retry%20Strategy.md).
 
 Add an element of randomness if two or more clients are accessing the same problematic service so they don't perform the request at the exact same time.
 
