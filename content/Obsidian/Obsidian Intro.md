@@ -19,10 +19,6 @@ tags:
 We can type `[[`  to have the editor suggest files, and if Wikilinks are turned off, it will still convert the link to the other files to markdown.
 
 ![obisidian wikilinks off](obsidian-wikilinks-off.png)
-
-## The End
-
-![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
 ## Git plugin
 
 I use this date format:
@@ -31,5 +27,12 @@ I use this date format:
 ddd, MMM Do, YYYY, hh:mm
 ```
 
-
 ![obsidian git plugin commit date format](obsidian-git-plugin-commit-date-format.png.png)
+
+The commit message is created like this:
+
+> Save notes on Mon, Jun 16th, 2025, 08:52
+
+## The End
+
+![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
