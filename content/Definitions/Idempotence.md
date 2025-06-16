@@ -9,6 +9,10 @@ tags:
 > 
 > — Wikipedia
 
+
+Another way to put it is to say that:
+
+> An idempotent operation has no additional effect if it is called more than once with the same input parameters.
 ## Examples
 
 ### DELETE /posts/1
