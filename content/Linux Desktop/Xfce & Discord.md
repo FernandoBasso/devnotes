@@ -3,7 +3,7 @@ tags:
   - xfce
   - discord
 ---
-## Ayatana Indicator & Discord tray icon missing
+[]()## Ayatana Indicator & Discord tray icon missing
 2025-06-17
 
 > [!NOTE] Didn't work...
