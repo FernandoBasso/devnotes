@@ -39,3 +39,5 @@ On Wayland with Gnome, `lg` (looking glass) can be used.
 Open Gnome's command runner with `Alt+F2`, type `lg` and click on the “Windows” tab and look for the “wmclass” property.
 
 ![Gnome looking glass WM_CLASS](gnome-looking-glass-wmclass.png)
+
+- https://askubuntu.com/questions/367396/what-does-the-startupwmclass-field-of-a-desktop-file-represent
