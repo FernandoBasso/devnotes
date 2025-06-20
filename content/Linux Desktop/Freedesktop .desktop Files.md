@@ -38,3 +38,4 @@ For the `StartupWMClass`, on Xorg we can type `xprop WM_CLASS` and then click on
 On Wayland with Gnome, `lg` (looking glass) can be used.
 Open Gnome's command runner with `Alt+F2`, type `lg` and click on the “Windows” tab and look for the “wmclass” property.
 
+![Gnome looking glass WM_CLASS](gnome-looking-glass-wmclass.png)
