@@ -3,10 +3,11 @@ tags:
   - xfce
   - discord
 ---
-[]()## Ayatana Indicator & Discord tray icon missing
+## Xubuntu Xfce & Discord Tray Icon
+
 2025-06-17
 
-> [!NOTE] Didn't work...
+> [!ERROR] DID NOT WORK 😭
 > This solution did not work for Xubuntu 25.04 and Xfce 4.20.
 
 ![discord ayatana app indicator](discord-ayatana-tray-icon.png)
@@ -21,4 +22,13 @@ Dropbox requires App indicator support to display the Dropbox tray icon. Dropbox
 
 - https://superuser.com/questions/1779520/how-can-i-debug-a-discord-icon-being-sometimes-missing-from-the-xfce-panel
 - https://forum.xfce.org/viewtopic.php?id=18005 
+
+## Arch Linux Gnome & Dropbox Tray Icon
+
+2025-06-20
+
+- https://help.dropbox.com/installs/dropbox-desktop-app-for-linux
+- https://extensions.gnome.org/extension/615/appindicator-support/
+
+![gnome appindicator support extension](gnome-appindicator-support-extension.png)
 

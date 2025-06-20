@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+##
+# Runs optipng on all .png files.
+#
+optipng -o7 $(git status --short --porcelain | grep '\.png$' | tr -s ' ' | cut -d ' ' -f 2)
+
+#
+# vim: set filetype=bash
+#
