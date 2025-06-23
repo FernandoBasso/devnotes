@@ -1,0 +1,42 @@
+---
+tags:
+  - curl
+  - cmdline
+---
+## Intro & Resources
+
+- http://curl.haxx.se/
+- https://mastodon.social/@bagder (cURL author & maintainer)
+
+## --help
+
+Help by categories:
+
+```bash
+$ curl --help category
+ auth        Authentication methods
+ connection  Manage connections
+ curl        The command line tool itself
+ deprecated  Legacy
+ dns         Names and resolving
+ file        FILE protocol
+ ftp         FTP protocol
+ global      Global options
+ http        HTTP and HTTPS protocol
+ imap        IMAP protocol
+ ldap        LDAP protocol
+ output      Filesystem output
+ pop3        POP3 protocol
+ post        HTTP POST specific
+ proxy       Options for proxies
+ scp         SCP protocol
+ sftp        SFTP protocol
+ smtp        SMTP protocol
+ ssh         SSH protocol
+ telnet      TELNET protocol
+ tftp        TFTP protocol
+ timeout     Timeouts and delays
+ tls         TLS/SSL related
+ upload      Upload, sending data
+ verbose     Tracing, logging etc
+```
