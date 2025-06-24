@@ -9,9 +9,9 @@ Currently, the source files are on private Gitlab repository and publicly hosted
 - https://gitlab.com/fernandobasso/devnotes
 - https://fernandobasso.gitlab.io/devnotes
 
-The content is writen in Markdown and can be done in any text editor or in Obsidian (open the directory `content` as an Obsidian vault).
+The content is written in Markdown and can be done in any text editor or in Obsidian (open the directory `content` as an Obsidian vault).
 
-The website is published using [Quartz](https://quartz.jzhao.xyz/) as it has good support for publishing Obsidan notes (search, paths, tags, etc.)
+The website is published using [Quartz](https://quartz.jzhao.xyz/) as it has good support for publishing Obsidian notes (search, paths, tags, etc.)
 
 ## Local website preview
 
@@ -28,3 +28,11 @@ Then point your browser to http://localhost:8080/.
 
 Commit the changes and push to the `devel` branch.
 The new changes should be publicly available on the website after the [pipeline](https://gitlab.com/fernandobasso/devnotes/-/pipelines) finishes running.
+
+## Optimize images before committing
+
+Make sure to run this script whenever there are new images to be committed:
+
+```bash
+$ ./optimg.sh
+```
