@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "https://fernandbasso.gitlab.io/devnotes",
+    baseUrl: "https://fernandobasso.gitlab.io/devnotes",
     ignorePatterns: ["_private", "_drafts", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
