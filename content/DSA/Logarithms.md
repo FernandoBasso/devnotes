@@ -41,3 +41,20 @@ Types of algorithms that sometimes involves logarithmic time and/or space comple
 - Certain searching algorithms have logarithmic time complexity.
 - Sorting algorithms (especially some of the most efficient ones).
 - Recursive algorithms sometimes have logarithmic space complexity.
+
+If we divide 4096 by 2, take that result and divide by 2 again, and so on and so forth, how many times it takes to get to 1?
+
+- $\frac{4096}{2} = 2048$
+- $\frac{2048}{2} = 1024$
+- $\frac{1024}{2} = 512$
+- $\frac{512}{2} = 256$
+- $\frac{256}{2} = 128$
+- $\frac{128}{2} = 64$
+- $\frac{64}{2} = 32$
+- $\frac{32}{2} = 16$
+- $\frac{16}{2} = 8$
+- $\frac{8}{2} = 4$
+- $\frac{4}{2} = 2$
+- $\frac{2}{2} = 1$
+
+It takes 12 operations to reach 1.
