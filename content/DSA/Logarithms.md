@@ -58,3 +58,15 @@ If we divide 4096 by 2, take that result and divide by 2 again, and so on and so
 - $\frac{2}{2} = 1$
 
 It takes 12 operations to reach 1.
+
+In Node 22:
+
+```
+Math.log2(4096)
+12
+```
+
+Also see:
+
+- [Search Algorithms](Search%20Algorithms.md)
+- [Binary Search](Binary%20Search.md)
