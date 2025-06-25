@@ -14,6 +14,9 @@ At most $\log_{2}(n)$  attempts will be needed.
 And $\log_{2}(4096) = 8$.
 That is way better than potentially having to try 4096 times until the item is found or the end of the input collection is exhausted completely.
 
+> [!WARNING] Sorted input
+> Remember that the binary search algorithm can only be used if the input collection is sorted.
+
 ## Steps
 
 To calculate the mid point:
@@ -32,12 +35,20 @@ var val = xs[mid];
 
 Then, if `val` is the value we are looking for, return `true`  or the index where the value was found and we are done.
 
-If `val > mid`, set `lo` to `mid + 1` (`+ 1` to avoid considering `mid` again as we already know it is not the value we are looking for).
+If `val > xs[mid]`, set `lo` to `mid + 1` (`+ 1` to avoid considering `mid` again as we already know it is not the value we are looking for).
 
-If `val < mid`, set `hi` to `mid`.
+If `val < xs[mid]`, set `hi` to `mid`.
+
+Continue repeating that while `lo < hi`.
+If we don't return `true` or the index of where the value was found in the array, the loop stop executing so just return `false` (or `-1` index) at the end of the function.
+
+An index of `-1` is sometimes called a _sentinel (or signal) value_ as it signifies the searched-for value was not found between index `[0 .. n)`.
+
+- https://en.wikipedia.org/wiki/Sentinel_value
 
 > [!TIP] Intervals and ranges
 > When dealing with ranges, most languages treat the left/lower value as _inclusive_, and the right or higher value _exclusive_.
 >
+> **Be very careful with the intervals to avoid off-by-one errors**. For example, we do `while (lo < hi)`, not `while (lo <= hi)`.
+>
 > See [Intervals](Intervals.md).
-
