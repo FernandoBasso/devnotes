@@ -30,7 +30,7 @@ log(bools);
 //=> [ false, false, false ]
 ```
 
-This is similar to Python:
+This is similar to this Python snippet:
 
 ```python
 memo = [False] * 3
