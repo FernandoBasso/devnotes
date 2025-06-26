@@ -12,6 +12,7 @@ Display only applications from the current workspace (`dconf-editor`):
 
 ![Gnome App Switcher (alt+tab) only display current workspace applications](gnome-app-switcher-alt-tab-only-current-worskpace.png)
 
+
 Look for these settings in `dconf-editor` or from the command line:
 
 ```text
