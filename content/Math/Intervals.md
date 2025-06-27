@@ -1,3 +1,10 @@
+---
+tags:
+  - math
+  - interval
+  - programming-language
+---
+## Intro to intervals and ranges
 
 The symbol for the open interval is the left parenthesis “(” if the interval is open on the left, and the right parenthesis “)” if the interval is open on the right.
 
@@ -17,7 +24,8 @@ With LaTex notation we use something these:
 \mathclose{)}
 ```
 
+## Resources
+
 - https://www.mathsisfun.com/sets/intervals.html
 
-Given the expression $-(x)$, how to simplify it by removing the parenthesis?
 

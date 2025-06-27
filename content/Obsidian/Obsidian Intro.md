@@ -32,7 +32,9 @@ The commit message is created like this:
 > Save notes on Mon, Jun 16th, 2025, 08:52
 
 ## Sign commits with GPG
-2025-06-27 10:27
+Created: 2025-06-27 10:27
+
+#gpg #commit #git
 
 Most of my repos include this as part of the git config:
 
