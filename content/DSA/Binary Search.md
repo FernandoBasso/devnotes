@@ -15,7 +15,7 @@ And $\log_{2}(4096) = 8$.
 That is way better than potentially having to try 4096 times until the item is found or the end of the input collection is exhausted completely.
 
 > [!WARNING] Sorted input
-> Remember that the binary search algorithm can only be used if the input collection is sorted.
+> Remember that the binary search algorithm can only be used if the input collection is sorted
 
 ## Steps
 
@@ -24,7 +24,7 @@ $$mid = \lfloor(lo + (hi - lo)) \div{2}\rfloor$$
 In JavaScript:
 
 ```javascript
-var mid = Math.floor((lo + (hi - lo)) / 2);
+var mid = lo + Math.floor((hi - lo) / 2);
 ```
 
 Then, to get the value at the mid point:
