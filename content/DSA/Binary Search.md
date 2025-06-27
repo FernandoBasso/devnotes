@@ -43,9 +43,9 @@ var val = xs[mid];
 
 Then, if `val` is the value we are looking for, return `true`  or the index where the value was found and we are done.
 
-If `val > xs[mid]`, set `lo` to `mid + 1` (`+ 1` to avoid considering `mid` again as we already know it is not the value we are looking for).
+Else, if `val > xs[mid]`, set `lo` to `mid + 1` (`+ 1` to avoid considering `mid` again as we already know it is not the value we are looking for).
 
-If `val < xs[mid]`, set `hi` to `mid`.
+Otherwise, `val < xs[mid]`, set `hi` to `mid`.
 
 Continue repeating that while `lo < hi`.
 If we don't return `true` or the index of where the value was found in the array, the loop stop executing so just return `false` (or `-1` index) at the end of the function.
