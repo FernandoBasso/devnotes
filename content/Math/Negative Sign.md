@@ -31,16 +31,17 @@ In the second example, if we “invert the sign of the value inside the parenthe
 ## Eval expression - b to the 2nd power
 
 Given that $a = 5$ and $b = 1$, evaluate:
-$$5(a^2 - b^2)$$
+$$a^2 - b^2$$
 
 First of all, is $- b^2$ the same as $(-b)^2$ or the same of $-(b^2)$? The latter is correct. That is, $- b^2$ is the same as $-(b^2)$. We'll first evaluate $b^2$ (because of the precedence of the parentheses), and _only then_ apply the minus sign.
 
-$$\begin{align}
-r &= 5(a^2 - b^2)\\
-r &= 5(5^2 - (1^2))\\
-r &= 5((5 * 5) - (1 * 1))\\
-r &= 5(25 - (1))\\
-r &= 5(25 - 1)\\
-r &= 5(24)\\
-r &= 120
-\end{align}$$
+$$
+\begin{align}
+r &= a^2 - b^2\\
+r &= 5^2 - (1^2)\\
+r &= (5 * 5) - (1 * 1)\\
+r &= 25 - (1)\\
+r &= 25 - 1\\
+r &= 524)\\
+\end{align}
+$$

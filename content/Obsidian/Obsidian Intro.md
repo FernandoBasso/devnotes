@@ -31,6 +31,22 @@ The commit message is created like this:
 
 > Save notes on Mon, Jun 16th, 2025, 08:52
 
+## Sign commits with GPG
+2025-06-27 10:27
+
+Most of my repos include this as part of the git config:
+
+```bash
+git config --local user.name 'Fernando Basso'
+git config --local user.email me@example.org
+git config --local commit.gpgsign true
+git config --local user.signkey my-gpg-key
+```
+
+On Arch Linux, the Git plugin for Obsidian worked out of the box. On macOS, I had to follow these instructions:
+
+https://publish.obsidian.md/git-doc/Integration+with+other+tools#GPG+Signing
+
 ## The End
 
 ![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
