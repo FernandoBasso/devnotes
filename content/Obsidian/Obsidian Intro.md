@@ -37,16 +37,47 @@ The commit message is created like this:
 Most of my repos include this as part of the git config:
 
 ```bash
-git config --local user.name 'Fernando Basso'
-git config --local user.email me@example.org
-git config --local commit.gpgsign true
-git config --local user.signkey my-gpg-key
+$ git config --local user.name 'Fernando Basso'
+$ git config --local user.email me@example.org
+$ git config --local commit.gpgsign true
+$ git config --local user.signkey my-gpg-key
 ```
 
 On Arch Linux, the Git plugin for Obsidian worked out of the box. On macOS, I had to follow these instructions:
 
 https://publish.obsidian.md/git-doc/Integration+with+other+tools#GPG+Signing
 
+```bash
+$ which gpg
+/opt/homebrew/bin/gpg
+
+$ git config --local gpg.program /opt/homebrew/bin/gpg
+```
+
+Could also be a single line like this:
+
+```bash
+$ git config --local gpg.program "$(which gpg)"
+```
+
+Check the resulting configuration with:
+
+```
+$ git config --list --local | grep gpg
+commit.gpgsign=true
+gpg.program=/opt/homebrew/bin/gpg
+```
+
+Or
+
+```
+$ grep gpg .git/config 
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+```
+
+After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
 ## The End
 
 ![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
