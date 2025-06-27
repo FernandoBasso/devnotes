@@ -1,9 +1,16 @@
+---
+tags:
+  - math
+  - nagative
+  - expression
+  - minus
+---
+## Intro
+
 In this post we'll cover some examples of how to deal with negative sign (minus) when evaluating and simplifying expressions.
 ## Simplify by removing parenthesis
-2025-06-27 08:52
 
 How to simplify (remove the parenthesis) in this expression:
-
 $$-(x)$$
 A lone $-$ can be thought as $-1$, as 1 is the identity property of multiplication.
 It means that multiplying $x$ by 1 yields $x$.
@@ -13,7 +20,8 @@ So we can think of $-(x)$ as $-1(x)$.
 
 If we evaluate $-1 \times x$, the result is $-x$.
 
-We can think of a mental shortcut for situations like this: when there is a negative sign in front of parenthesis, drop the negative sign _and_ the parenthesis and invert the sign of the value that was inside the parenthesis.
+> [!TIP] Jedi Mind trick
+> A mental shortcut for situations like this: when there is a negative sign in front of parenthesis, drop the negative sign _and_ the parenthesis, _then_ invert the sign of the value that was inside the parenthesis.
 
 So:
 
