@@ -4,13 +4,13 @@ tags:
   - du
 ---
 
-> ![NOTE]
+> [!NOTE]
 > Unless otherwise noted, assume the examples work on GNU coreutils `du`.
 
 ## Sort
 
-The sort examples check the disk usages of a `.git/` directory.
-## Sort by disk usage in descending order
+The sort examples below check the disk usages of a `.git/` directory.
+### Sort by disk usage in descending order
 
 ```bash
 $ du ./.git | sort -nr
