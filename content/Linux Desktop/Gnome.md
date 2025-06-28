@@ -36,3 +36,9 @@ $ gnome-control-center sound
 
 Can also be searched:
 ![search gnome control center for sound configs](search-gnome-control-center-sound.png)
+
+## Dock Volumes and Drives
+
+Open `dconf-editor`, search for  “show-mount” and play with the available options.
+![dconf-editor show-mounts on Gnome dash-to-dock](dconf-editor-show-mounts-gnome-dash-to-dock.png)
+
