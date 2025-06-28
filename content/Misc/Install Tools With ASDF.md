@@ -11,6 +11,12 @@ tags:
 
 Follow [ASDF Getting Started](https://asdf-vm.com/guide/getting-started.html) first.
 
+> [!NOTE] A note on dependencies
+>
+> Sometimes, especially if a tool needs to be compiled (instead of downloading a ready-to-use binary), it is necessary to install one ore more dependencies. These dependencies may or may not be already installed on your system.
+>
+>Therefore, when we mention dependencies that need to be installed, it doesn't mean your system doesn't already have them installed. On the opposite side, your system may be missing dependencies not mentioned here. In case of problems or errors, take a look at the logs install whatever is necessary to successfully installing and using your tools.
+ 
 ## Go
 
 ### Install Go on Ubuntu
