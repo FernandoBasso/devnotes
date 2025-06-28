@@ -27,3 +27,12 @@ current-workspace-only
 
 See:
 - https://askubuntu.com/questions/464946/force-alt-tab-to-switch-only-on-current-workspace-in-gnome-shell
+
+## Sound
+
+```
+$ gnome-control-center sound
+```
+
+Can also be searched:
+![search gnome control center for sound configs](search-gnome-control-center-sound.png)
