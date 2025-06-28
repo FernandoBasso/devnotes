@@ -5,6 +5,10 @@ tags:
   - unicode
   - emoji
 ---
+## Intro
+
+Also see [Unicode & UTF-8](Unicode%20&%20UTF-8.md).
+
 ## Ubuntu
 
 Ubuntu 2025.04 with most Unicode fonts already installed:
