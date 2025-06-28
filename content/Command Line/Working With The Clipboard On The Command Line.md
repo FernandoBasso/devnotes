@@ -8,8 +8,10 @@ Some involve scripting, other involve copying and pasting the contents of the cl
 Let's see some examples.
 
 On Linux desktop environments and window managers running on Xorg, tools like `xsel` and `xclip` can be used.
-If using Wayland, `wl-clipboard` is the alternative.
-macOS comes with `pbcopy` and `pbpaste`.
+
+If using Wayland, `wl-clipboard` is the alternative. It provides the commands `wl-copy` and `wl-paste`.
+
+macOS comes with `pbcopy` and `pbpaste`. “pb” standing for “paste buffer”.
 
 Linuxes complying with the Free Desktop spec should feature two main selections: primary and clipboard.
 The primary selection is the one that you can paste with the middle mouse click.
