@@ -17,3 +17,38 @@ $ tar \
 $ du -h myapp-poc1.tar
 800K	myapp-poc1.tar
 ```
+
+
+## Download with wget to STDIN and un-tar 
+#tar #stdin #stdout
+
+Download with `wget`, output to STDIN, and feed that to `tar` (tar reads from STDIN, not from a file on disk) for unpacking:
+
+```bash
+$ wget \
+    https://example.org/downloads/file.tar.gz \
+    -O - \
+    | tar -xzvf -
+```
+
+The option `-O -` is the same as `--output-document=-`. It means “dump to STDOUT” (instead of to a file on disk).
+
+Then we use `tar` with these options:
+
+- `-x`: extract the archive.
+- `-z`: using `gzip`.
+- `-v`: verbose.
+- `-f`: “read from _this_ file”. In this case, `-` which means STDIN.
+
+## Download with wget to STDIN and un-tar to a specific directory
+#tar #stdin #stdout #directory
+```bash
+$ wget \
+    https://example.org/downloads/file.tar.gz \
+    -O - \
+    | tar -xzvf - -C ~/Public/
+```
+
+The `wget` command downloads a `.tar.gz` file and dumps it to STDIN. That result is then piped to `tar`, that reads the STDIN and un-tar the contents.
+
+The `-C ~/Public/` means ”change directory to `$HOME/Public/`, so that the contents will be extracted to that directory. It requires that the directory already exists.
