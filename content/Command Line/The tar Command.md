@@ -19,7 +19,7 @@ $ du -h myapp-poc1.tar
 ```
 
 
-## Download with wget to STDIN and un-tar 
+## Download with wget to STDIN and untar 
 #tar #stdin #stdout
 
 Download with `wget`, output to STDIN, and feed that to `tar` (tar reads from STDIN, not from a file on disk) for unpacking:
@@ -42,6 +42,7 @@ Then we use `tar` with these options:
 
 ## Download with wget to STDIN and un-tar to a specific directory
 #tar #stdin #stdout #directory
+
 ```bash
 $ wget \
     https://example.org/downloads/file.tar.gz \
