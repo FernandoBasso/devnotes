@@ -83,3 +83,13 @@ After this, committing from Obsidian Git plugin worked fine and with my GPG sign
 ## The End
 
 ![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
+
+## Search and Replace
+
+### Tabs
+
+As of 2025, looks like Obsidian search and replace does _not_ support regular expressions. Therefore, we cannot search for `\t` and replace with two or four empty spaces.
+
+What we can do, however, is to search by the ASCII or Unicode codepoint for tab: `0009`. On your operating system, figure out how to input Unicode code points, search for the tab codepoint, and replace with whatever you need.
+
+See [Unicode & UTF-8](Unicode%20&%20UTF-8.md).
