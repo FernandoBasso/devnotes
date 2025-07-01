@@ -22,8 +22,7 @@ A 32-bit is 4 bytes * 8 = 32.
 
 A 64-bit is 8 bytes * 8 = 64.
 
-`a[0]` is 0 to 31 bits.
-Bit 34 to 63 is `a[1]`.
+`a[0]` is 0 to 31 bits. Bit 34 to 63 is `a[1]`.
 
 4 bytes, 32 bit number.
 
@@ -42,21 +41,19 @@ ArrayBuffer { [Uint8Contents]: <00 00 00 00 00 00>, byteLength: 6 }
 Uint8Array(6) [ 255, 0, 0, 0, 0, 0 ]
 ```
 
-With arrays, _insert_ means _overwrite_, or “update the value at the given index”.
-An array index is replaced with whatever previous value was there (`\0`, `NUL`).
-It doesn’t “grow” the array.
+With arrays, _insert_ means _overwrite_, or “update the value at the given index”. An array index is replaced with whatever previous value was there (`\0`, `NUL`). It doesn’t “grow” the array.
 
-`arr + width_of_the_type + offset`
+```
+arr + width_of_the_type + offset
+```
 
-_delete_ means “replace with `\0` (or `NUL`).
-It doesn’t _shrink_ the array.
+_Delete_ means “replace with `\0` (or `NUL`). It doesn’t _shrink_ the array. `NUL` means “NOT something” in this “very real spot”.
 
-`NUL` means “NOT something” in this “very real spot”.
 ## Big O of array operations
 
-- GET: O(1)
-- SET: O(1)
-- DELETE: O(1).
+- GET: $O(1)$.
+- SET: $O(1)$.
+- DELETE: $O(1)$.
 
 It is basically the `type_width * offset`. Constant time.
 

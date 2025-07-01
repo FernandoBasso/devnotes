@@ -24,7 +24,7 @@ In JavaScript:
 var mid = Math.floor(lo + (hi - lo) / 2);
 ```
 
-> [!NOTE] Alternative expression
+> [!NOTE] Alternative expression to calculate the mid point
 > Because `lo` is an integer, we can floor `(hi - lo) / 2` and _then_ add that result to `lo`. That is, these two expressions evaluate to the same floored integer result:
 > - $mid = \lfloor lo + (hi - lo) / 2\rfloor$
 > - $mid = lo + \lfloor (hi + lo) / 2 \rfloor$
@@ -60,3 +60,78 @@ An index of `-1` is sometimes called a _sentinel (or signal) value_ as it signif
 > **Be very careful with the intervals to avoid off-by-one errors**. For example, we do `while (lo < hi)`, not `while (lo <= hi)`.
 >
 > See [Intervals](Intervals.md).
+
+
+## Binary Search Number in TypeScript
+
+### Unit Tests
+
+```typescript
+import { search } from "./search";
+
+describe("Binary Search", () => {
+  it("should find nothing if input is empty", () => {
+    expect(search(1, [])).toBe(false);
+  });
+
+  it("should find the value on the very middle the first time", () => {
+    expect(search(5, [1, 3, 5, 7, 9])).toBe(true);
+  });
+
+  it("finds the value on the middle of the first left half", () => {
+    expect(search(2, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+
+  it("finds the value on the left of the first left half", () => {
+    expect(search(1, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+
+  it("finds the value on the right of the first left half", () => {
+    expect(search(3, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+
+  it("finds the value on the middle of the first right half", () => {
+    expect(search(6, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+
+  it("finds the value on the left of the first right half", () => {
+    expect(search(5, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+
+  it("finds the value on the right of the first right half", () => {
+    expect(search(7, [1, 2, 3, 4, 5, 6, 7])).toBe(true);
+  });
+});
+```
+
+### Solution
+
+```typescript
+const log = console.log.bind(console);
+const floor = Math.floor.bind(Math);
+
+/**
+ * Binary-searches the haystack for the needle.
+ *
+ * ASSUME: The input is sorted.
+ */
+export function search(
+  needle: number,
+  haystack: Array<number>,
+): boolean {
+  let lo: number = 0;
+  let hi: number = haystack.length;
+  let val: number;
+  var c = 0;
+  do {
+    let mid: number = floor(lo + (hi - lo) / 2);
+    val = haystack[mid];
+
+    if (val === needle) return true;
+    else if (needle < val) hi = mid;
+    else lo = mid + 1;
+  } while (lo < hi);
+
+  return false;
+}
+```

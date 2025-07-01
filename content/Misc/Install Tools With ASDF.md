@@ -19,7 +19,7 @@ Follow [ASDF Getting Started](https://asdf-vm.com/guide/getting-started.html) fi
  
 ## Go
 
-### Install Go on Ubuntu
+### Install Go on Linux
 
 Install Go and set it as a default for new shells:
 
@@ -31,7 +31,7 @@ $ asdf set --home golang 1.24.4
 
 ## Node.js
 
-### Install Node.js with asdf on Ubuntu
+### Install Node.js with asdf on Linux
 
 Install Node.js and set it as a default for new shells:
 
@@ -43,11 +43,11 @@ $ asdf set --home nodejs 24.3.0
 ```
 
 ## Ruby
-### Install Ruby with asdf on Ubuntu
+### Install Ruby with asdf on Linux
 
 Unpack the [asdf binary](https://github.com/asdf-vm/asdf/releases) into a directory on your path (I use `$HOME/bin/`).
 
-Install the required dependencies:
+Install the required dependencies on Ubuntu (on Arch Linux, the `base-devel` package was enough,):
 
 ```bash
 $ sudo apt install --yes \
