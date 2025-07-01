@@ -12,7 +12,7 @@ A binary search is a means of always dividing the input in halves, and either go
 Suppose the input contains 4096 elements. At most $\log_{2}(n)$  attempts will be needed. And $\log_{2}(4096) = 8$. That is way better than potentially having to try 4096 times until the item is found or the end of the input collection is exhausted completely.
 
 > [!WARNING] Sorted input
-> Remember that the binary search algorithm can only be used if the input collection is sorted in ascending order.
+> Remember that the binary search algorithm can only be used if the input collection is sorted. It can be in ascending or descending order, by the algorithm has to adjust the comparisons accordingly.
 ## Steps
 
 To calculate the mid point:
@@ -27,7 +27,7 @@ var mid = Math.floor(lo + (hi - lo) / 2);
 > [!NOTE] Alternative expression to calculate the mid point
 > Because `lo` is an integer, we can floor `(hi - lo) / 2` and _then_ add that result to `lo`. That is, these two expressions evaluate to the same floored integer result:
 > - $mid = \lfloor lo + (hi - lo) / 2\rfloor$
-> - $mid = lo + \lfloor (hi + lo) / 2 \rfloor$
+> - $mid = lo + \lfloor (hi - lo) / 2 \rfloor$
 >
 > After flooring, the result is an integer, and an integer added to another integer will result in an integer still.
 >
@@ -122,7 +122,6 @@ export function search(
   let lo: number = 0;
   let hi: number = haystack.length;
   let val: number;
-  var c = 0;
   do {
     let mid: number = floor(lo + (hi - lo) / 2);
     val = haystack[mid];
