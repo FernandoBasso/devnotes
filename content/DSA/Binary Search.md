@@ -119,14 +119,16 @@ export function search(
   needle: number,
   haystack: Array<number>,
 ): boolean {
-  let lo: number = 0;
-  let hi: number = haystack.length;
-  let val: number;
+  let lo: number = 0,
+    hi: number = haystack.length,
+    val: number,
+    mid: number;
+
   do {
-    let mid: number = floor(lo + (hi - lo) / 2);
+    mid = floor(lo + (hi - lo) / 2);
     val = haystack[mid];
 
-    if (val === needle) return true;
+    if (needle === val) return true;
     else if (needle < val) hi = mid;
     else lo = mid + 1;
   } while (lo < hi);
