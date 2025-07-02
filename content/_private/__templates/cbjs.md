@@ -1,0 +1,3 @@
+```javascript
+<% tp.file.cursor() %>
+```

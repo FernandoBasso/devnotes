@@ -6,6 +6,33 @@ tags:
   - while
   - range
 ---
+
+## Infinite loop
+
+### JavaScript while and do while
+
+```javascript
+while (1) {
+  // Loop forever.
+}
+
+while (true) {
+  // Loop forever.
+}
+
+do {
+  // Loop forever.
+} while (1);
+
+do {
+  // Loop forever.
+} while (1);
+```
+
+### Go
+
+
+
 ## do while
 
 In JavaScript:
