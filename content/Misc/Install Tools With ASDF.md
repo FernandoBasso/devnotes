@@ -75,3 +75,12 @@ $ asdf set --home ruby 3.4.4
 ```
 
 If we want to set some other version, like 3.3.3, then remove the 3.4.4 from `~/.tools-versions` first.
+
+## Haskell & Stack
+
+```
+$ asdf plugin add haskell
+$ asdf list all haskell
+$ asdf install haskell 9.12.2
+$ asdf set --home haskell 9.12.2
+```
