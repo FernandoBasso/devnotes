@@ -5,7 +5,7 @@ tags:
   - package-manager
   - search
 ---
-## Search By Package name.
+## Search By Package name
 
 The default `pacman` search returns packages that partially match either either the package name or the package description. For example `pacman --sync --search emote` will return a lot of stuff that contains the word “remote”.
 

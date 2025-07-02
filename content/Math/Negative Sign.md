@@ -33,8 +33,16 @@ In the second example, if we “invert the sign of the value inside the parenthe
 Given that $a = 5$ and $b = 1$, evaluate:
 $$a^2 - b^2$$
 
-First of all, is $- b^2$ the same as $(-b)^2$ or the same of $-(b^2)$? The latter is correct. That is, $- b^2$ is the same as $-(b^2)$. We'll first evaluate $b^2$ (because of the precedence of the parentheses), and _only then_ apply the minus sign.
+First of all, is $- b^2$ the same as $(-b)^2$ or the same of $-(b^2)$? The latter is correct. That is, $- b^2$ is the same as $-(b^2)$. We'll first evaluate $b^2$. Remember the PEMDAS/BODMAS rules:
 
+- Parentheses/Brackets.
+- Exponents/Orders (like squares, cubes, etc.).
+- Multiplication and Division (from left to right).
+- Addition and Subtraction (from left to right).
+
+So, in $-b²$ , $b²$ has higher precedence than $-b$ (remember from above that $-b$ is the same as $-1 \times b$). That is, $b$ raised to the 2nd power has higher precedence than $-1$ times $b$.
+
+We can use parentheses in $-(b²)$ to illustrate and make the precedence clear:
 $$
 \begin{align}
 r &= a^2 - b^2\\
