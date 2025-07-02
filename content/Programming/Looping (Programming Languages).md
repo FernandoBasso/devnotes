@@ -55,11 +55,11 @@ With recursive function invocation:
 
 ```go
 func f(i int8) {
-	f(i)
+  f(i)
 }
 
 func main() {
-	f(1)
+  f(1)
 }
 ```
 
