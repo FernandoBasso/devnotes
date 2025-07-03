@@ -215,26 +215,55 @@ func TestBinarySearch(t *testing.T) {
 }
 ```
 
-### Solution
+### Solution with if, else if, else
 
 ```go
 package binarysearchint
 
-func Search(needle int, haystack []int) bool {
-  var lo = 0
-  var hi = len(haystack)
+// Search performs a binary search of x in xs.
+func Search(x int, xs []int) bool {
+	lo := 0
+	hi := len(xs)
+	var mid int
+	var val int
+
+	for lo < hi {
+		mid = lo + (hi-lo)/2
+		val = xs[mid]
+
+		if x == val {
+			return true
+		} else if x < val {
+			hi = mid
+		} else {
+			lo = mid + 1
+		}
+	}
+
+	return false
+}
+```
+
+### Solution with switch case
+
+```go
+// Search performs a binary search of x in xs.
+func Search(x int, xs []int) bool {
+  lo := 0
+  hi := len(xs)
   var mid int
   var val int
 
   for lo < hi {
     mid = lo + (hi-lo)/2
-    val = haystack[mid]
+    val = xs[mid]
 
-    if needle == val {
+    switch {
+    case x == val:
       return true
-    } else if needle < val {
+    case x < val:
       hi = mid
-    } else {
+    default:
       lo = mid + 1
     }
   }
@@ -242,4 +271,3 @@ func Search(needle int, haystack []int) bool {
   return false
 }
 ```
-

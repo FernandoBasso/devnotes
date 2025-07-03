@@ -28,4 +28,3 @@ With LaTex notation we use something these:
 
 - https://www.mathsisfun.com/sets/intervals.html
 
-
