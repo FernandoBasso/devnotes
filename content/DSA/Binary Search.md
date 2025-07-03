@@ -59,7 +59,7 @@ An index of `-1` is sometimes called a _sentinel (or signal) value_ as it signif
 >
 > **Be very careful with the intervals to avoid off-by-one errors**. For example, we do `while (lo < hi)`, not `while (lo <= hi)`.
 >
-> See [Intervals](Intervals.md).
+> See [Intervals and Ranges in Math and Programming](Intervals%20and%20Ranges%20in%20Math%20and%20Programming.md).
 
 
 ## Binary Search Number in TypeScript
