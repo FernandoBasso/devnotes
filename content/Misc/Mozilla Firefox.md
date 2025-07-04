@@ -10,6 +10,7 @@ tags:
 - `Ctrl+l @tabs <search>`
 - `Ctrl+l % <search>`
 
+- https://support.mozilla.org/en-US/kb/search-open-tabs-firefox
 ## Search for Bookmarks
 
 - `Ctrl+l @bookmars <search>
