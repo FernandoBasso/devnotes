@@ -17,6 +17,8 @@ Follow [ASDF Getting Started](https://asdf-vm.com/guide/getting-started.html) fi
 >
 >Therefore, when we mention dependencies that need to be installed, it doesn't mean your system doesn't already have them installed. On the opposite side, your system may be missing dependencies not mentioned here. In case of problems or errors, take a look at the logs install whatever is necessary to successfully installing and using your tools.
  
+> [!WARNING] Versions
+> The versions used as examples in this pages are just _examples_. Make sure to install the versions you want or need.
 ## Go
 
 ### Install Go on Linux
@@ -83,4 +85,8 @@ $ asdf plugin add haskell
 $ asdf list all haskell
 $ asdf install haskell 9.12.2
 $ asdf set --home haskell 9.12.2
+
+$ asdf plugin add stack
+$ asdf install stack latest
+$ asdf set --home stack latest
 ```
