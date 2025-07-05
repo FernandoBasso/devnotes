@@ -14,4 +14,5 @@ If the data is sorted, there are some optimizations that can be implemented to m
 
 - See [Logarithms](Logarithms.md) as it is important for certain types of search algorithms.
 - See [Arrays](Arrays.md) for a linear search example.
+- TODO: Linear Search.
 - See [Binary Search](Binary%20Search.md).
