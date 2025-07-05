@@ -104,7 +104,7 @@ describe("Binary Search", () => {
 });
 ```
 
-### Solution
+### Solution with do while
 
 ```typescript
 const log = console.log.bind(console);
@@ -125,17 +125,57 @@ export function search(
   mid: number;
 
   do {
-  mid = floor(lo + (hi - lo) / 2);
-  val = haystack[mid];
-
-  if (needle === val) return true;
-  else if (needle < val) hi = mid;
-  else lo = mid + 1;
+	  mid = floor(lo + (hi - lo) / 2);
+	  val = haystack[mid];
+	
+	  if (needle === val) return true;
+	  else if (needle < val) hi = mid;
+	  else lo = mid + 1;
   } while (lo < hi);
 
   return false;
 }
 ```
+
+### Solution with recursion and self-invoking function
+
+This solution follows the exact same algorithmic approach as the `do/while` solution, but it translates the loop into a recursive function call.
+
+```typescript
+const floor = Math.floor.bind(Math);
+const log = console.log.bind(console);
+
+/**
+ * Binary-searches the haystack for the needle.
+ *
+ * ASSUME: The input is sorted.
+ */
+export function search(
+  needle: number,
+  haystack: Array<number>,
+): boolean {
+  return (function run(
+    x: number,
+    xs: Array<number>,
+    lo: number,
+    hi: number,
+  ): boolean {
+    if (lo >= hi)
+      return false;
+
+    const mid = floor(lo + (hi - lo) / 2);
+    const val = haystack[mid];
+
+    if (needle === val)
+      return true;
+    else if (needle < val)
+      return run(x, xs, lo, mid);
+    else
+      return run(x, xs, mid + 1, hi);
+  })(needle, haystack, 0, haystack.length);
+}
+```
+
 
 ## Binary Search Int in Go
 
