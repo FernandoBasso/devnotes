@@ -1,0 +1,192 @@
+---
+tags:
+  - go
+  - unit-test
+---
+Go ships with the 'testing' package. Example:
+
+```go
+:filename: hello_test.go
+package hello
+
+import "testing"
+
+func TestHelloWorld(t *testing.T) {
+    expected := "Hello, World!"
+    if observed := HelloWorld(); observed != expected {
+        t.Fatalf("HelloWorld() = %v, want %v", observed, expected)
+    }
+}
+```
+
+> [!NOTE] Test file extension
+> Make sure to end your file name with `_test.go`. Read `go help test` for details.
+
+Then run with:
+
+```bash
+$ go test
+```
+
+Or test a specific package:
+
+```bash
+$ go test hello
+```
+
+Or using the `-v` flag to also the list of tests descriptors:
+
+```bash
+$ go test -v
+$ go test -v hello
+```
+
+Or to run tests that match a specific description, use `-run <description>`:
+
+```bash
+$ go test -v -cover -run 'Triangle'
+```
+
+## Test single \_test.go file
+
+Go needs to compile `.go` files that are need for a given test file.
+For example, if we try to test `builder_test.go`, depending on how we run the test command, `go` fails to find the pieces of implementation used in the tests.
+
+```bash
+$ go test -v ./libhouse/builder_test.go
+# command-line-arguments [command-line-arguments.test]
+libhouse/builder_test.go:10:14: undefined: getBuilder
+libhouse/builder_test.go:18:20: undefined: House
+FAIL    command-line-arguments [build failed]
+FAIL
+```
+
+But we can run tests in the entire `libhouse` package (as other necessary `.go` files will also be processed) and filter specific tests we want with `-run TestName` instead:
+
+```text
+$ go test -v ./libhouse -run TestBuilder
+=== RUN   TestBuilder
+=== RUN   TestBuilder/returns_a_normal_builder
+--- PASS: TestBuilder (0.00s)
+    --- PASS: TestBuilder/returns_a_normal_builder (0.00s)
+PASS
+ok      main/libhouse   0.002s
+```
+
+A similar thing happens with `go run`.
+We may get those ‘undefined’ error messages unless we run a command in such a way that `go run` is able to process all the necessary files.
+
+## Subtests (or subcases) leaking state?
+
+Consider testing a counter singleton with a test file like this one:
+
+``` go
+package singleton
+
+import "testing"
+
+func TestGetInstance(t *testing.T) {
+    t.Run("create instance correctly", func(t *testing.T) {
+        counter := GetInstance()
+
+        if counter == nil {
+            t.Error("Expected Singleton instance, got nil")
+        }
+    })
+
+    t.Run("always returns he same reference", func(t *testing.T) {
+        ref1 := GetInstance()
+        ref2 := GetInstance()
+
+        if ref1 != ref2 {
+            t.Error("Counters are not the same reference to the same instance")
+        }
+    })
+
+    t.Run("returns correct value on first call", func(t *testing.T) {
+        count := GetInstance().AddOne()
+
+        if count != 1 {
+            t.Errorf("Want 1 for first call, got %d", count)
+        }
+    })
+
+    t.Run("returns correct value on each subsequent call", func(t *testing.T) {
+        counter := GetInstance()
+
+        _ = counter.AddOne()
+        valueForCall2 := counter.AddOne()
+
+        if valueForCall2 != 2 {
+            t.Errorf("Want 2 for second call, got %d", valueForCall2)
+        }
+    })
+}
+```
+
+Basically, `GetInstance()` returns an instance of a counter singleton, and each time `AddOne()` is invoked on that instance, it increments and returns the next value of the counter.
+
+But the last subtest fails because the value of the counter is 3, not 2!
+
+And the problem is that the previous subtest invokes `AddOne()` once, and value of counter in the next subtest already starts at 1 (not 0).
+
+This is not a problem with the singleton itself, which is supposed to be shared anyway (“Hey, that is what a singleton should do, right?”), but they way tests and subtests work in Go.
+The tests and subtests **do not** run like if they were individual programs (like in some other testing libraries in other languages).
+In the tests above, `counter`, `ref1` and `ref2` are all the same reference even though they are on their own blocks.
+So the `counter` we assigned in the first subtest creates an instance in memory which is shared with the other subtests.
+
+Initially, we could think each test and each subtest should behave like its own, individual program, with its own memory allocation.
+But that is not the case.
+In reality, all tests of a single package behave like a single, individual program.
+And that is so true we can even define a `TestMain` for every individual package.
+
+## stretchr/testify package
+
+<https://github.com/stretchr/testify>
+
+Install or update:
+
+``` go
+$ go get github.com/stretchr/testify
+```
+
+From now on, we should have both `assert` and `require` available for importing in our test files:
+
+``` go
+package mypkg
+
+import (
+  "testing"
+  "github.com/stretchr/testify/require"
+  "github.com/stretchr/testify/assert"
+)
+```
+
+> [!NOTE] Run go mod tidy
+> If we simply add the import (without manually installing the package with `go get` first), and then we run `go mod tidy`, the package will get installed and added to `go.mod`.
+
+## Keep getting “run go mod tidy”
+
+Try to run the tests:
+
+```text
+$ go test -v .../.
+go: updates to go.mod needed; to update it:
+	go mod tidy
+```
+
+Then run `go mod tidy` _and_ the tests again, just to keep getting the same message that we should run `go mod tidy`.
+
+The problem is the syntax `.../.`, which should be `./...` instead 😅.
+
+```text
+$ go test -v ./...
+(runs fine now)
+```
+
+## References
+
+- https://pkg.go.dev/testing>
+- https://ieftimov.com/posts/testing-in-go-subtests/
+- `go help test` on the command line (which mentions `./...` among other things.
+- https://pkg.go.dev/cmd/go (which also mentions `./...` among other things).
