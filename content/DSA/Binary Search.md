@@ -11,6 +11,8 @@ A binary search is a means of always dividing the input in halves, and either go
 
 Suppose the input contains 4096 elements. At most $\log_{2}(n)$  attempts will be needed. And $\log_{2}(4096) = 8$. That is way better than potentially having to try 4096 times until the item is found or the end of the input collection is exhausted completely.
 
+The time complexity of the binary search is $O(\log_{2}(n))$, which is much more performant than linear search, which has time complexity of $O(n)$.
+
 > [!WARNING] Sorted input
 > Remember that the binary search algorithm can only be used if the input collection is sorted. It can be in ascending or descending order, by the algorithm has to adjust the comparisons accordingly.
 ## Steps
@@ -312,30 +314,29 @@ func Search(x int, xs []int) bool {
 }
 ```
 
-
 ### Recursion
 
 ```go
 func run(x int, xs []int, lo int, hi int) bool {
-	if lo >= hi {
-		return false
-	}
+  if lo >= hi {
+    return false
+  }
 
-	mid := lo + (hi-lo)/2
-	val := xs[mid]
+  mid := lo + (hi-lo)/2
+  val := xs[mid]
 
-	if x == val {
-		return true
-	} else if x < val {
-		return run(x, xs, lo, mid)
-	} else {
-		return run(x, xs, mid+1, hi)
-	}
+  if x == val {
+    return true
+  } else if x < val {
+    return run(x, xs, lo, mid)
+  } else {
+    return run(x, xs, mid+1, hi)
+  }
 }
 
 // Search performs a binary search of x in xs.
 func Search(needle int, haystack []int) bool {
-	return run(needle, haystack, 0, len(haystack))
+  return run(needle, haystack, 0, len(haystack))
 }
 ```
 
