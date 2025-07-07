@@ -35,6 +35,9 @@ For comparison, consider an input size of 8912:
 - $\log_{2}(8912) \thickapprox{14}$.
 
 Performing 95 operations is much better than performing 8912 operations!
+
+Notice how we “break one ball” to find a ball where it breaks by doing the initial jumps, then we go back to the last known good floor and start testing again until we break the second ball. This is the idea behind “using the two balls” for a more optimal solution.
+
 ## TypeScript
 
 ### Unit Tests
