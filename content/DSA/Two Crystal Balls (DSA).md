@@ -105,3 +105,7 @@ if (require.main === module) {
 }
 ```
 
+
+## Variations & Similar Problems
+
+- https://www.mathsisfun.com/puzzles/dropping-balls-solution.html
