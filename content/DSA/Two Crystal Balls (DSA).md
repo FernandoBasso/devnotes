@@ -6,6 +6,9 @@ tags:
 ---
 ## Problem Statement
 
+> [!NOTE] a.k.a.
+> This problem is sometimes known as dropping eggs, or dropping balls.
+
 Given two crystal balls and a building of $n$ floors, find the critical floor number in which, if dropped from there, the ball breaks. For example, if dropped from the floor 12 the ball does not break, but it does break if dropped from floor 13, then return 13. Assume the ball breaks on any floors above the critical one as well.
 
 If no floor causes the ball to break, return -1.
@@ -84,14 +87,13 @@ export function twoCrystalBalls(floors: Array<number>): number {
       ? i = len
       : i + jumpSize;
 
-    if (i === len)
+    if (i === len || floors[i])
       break;
-
-    if (floors[i]) {
-      i -= jumpSize;
-      break;
-    }
   }
+
+  // Go back to previous known good point where the ball
+  // does not break.
+  i -= jumpSize;
 
   for (; i < len; ++i)
     if (floors[i])
