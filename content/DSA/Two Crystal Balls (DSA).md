@@ -77,7 +77,7 @@ const sqrt = Math.sqrt.bind(Math);
  * Returns the floor in which the crystal ball breaks or -1 if
  * there is no floor in which it breaks.
  */
-export function twoCrystalBalls(floors: Array<number>): number {
+export function twoCrystalBalls(floors: Array<boolean>): number {
   const len = floors.length,
         jumpSize = floor(sqrt(floors.length));
   let i = 0;
@@ -107,6 +107,14 @@ if (require.main === module) {
 }
 ```
 
+The `while` loop above can be simplified and rewritten to a `for` loop:
+
+```typescript
+for (; i < len; i += jumpSize) {
+  if (floors[i])
+    break;
+}
+```
 
 ## Variations & Similar Problems
 
