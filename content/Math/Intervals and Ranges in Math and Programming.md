@@ -88,6 +88,10 @@ $$
 
 In programming languages, the closed and open nature of the intervals is commonly seen in for loops. Given a collection (like an array) of length $n$, we sum from 0 up to, but not including $n$.
 
+> [!TIP] Iteration over array elements or indexes?
+>
+> Keep in mind that depending on the kind of iteration syntax used in any given programming language, we do not necessarily iterate over the elements of the array, but over the indexes of the array, and given the index, we then access the element.
+
 Let's examine a simple JavaScript program to sum from 1 to 4.
 
 ```javascript
@@ -116,6 +120,8 @@ $$
 \mathopen{[}i_{0}, i_{1}, i_{2}, ..., i_{n}\mathclose{)}
 $$
 Where $i$ represents an index position and $n$ represents the array length. Note that the interval is closed on the left so that the index 0 is included, but open in the right so the index $n$ is _not_ included such that we don't fall of the right edge of the array index and end up with an _off-by-one_ error.
+
+> There are only two hard things in computing: naming things, cache invalidation, and off-by-one errors.
 
 ## Resources
 
