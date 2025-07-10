@@ -13,6 +13,8 @@ $$
 
 That is, if each element is less than or equal to the element that comes after it, then the collection is sorted (in ascending order).
 
+Another thing to consider is that a collection of zero or one element is sorted by definition.
+
 ## ECMAScript default sort()
 
 Deno REPL sorting examples:

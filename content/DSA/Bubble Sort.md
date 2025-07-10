@@ -53,8 +53,9 @@ the first ieration:
 
 [1, 3, 2, 4, 5]
           ^
-4 < 5, do not swap, advance the cursor.
-Next step is just the end again. Nothing else to do.
+We are done as we know the previous iteration placed
+the larger value at the end, so there is no need
+to compare the last-but-one value with the last one.
 ```
 
 Note how now 4 and 5 are correctly positioned in ascending order at the end (or top of the array). Continue with next iteration with the current state of the array:
@@ -75,118 +76,37 @@ Current state of the array from the second iteration:
 3 < 4, do not swap, cursor++. At this point, the array
 is already sorted, but our algorithm will continue in
 the same fashion.
+
+Also, because this was the third iteration, we do not need to
+compare again with the last and last-but-one indexes. Those
+were previously already sorted.
 ```
 
-It is not so hard to understand the workings of this naive, non-optimized implementation of bubble sort. There are optimizations that can be added on top of it which will be covered later on in this post.
+## TypeScript Solution
 
-A naive implementation always loops from beginning to end. This is one possible implementation in JavaScript:
+```typescript
+function swap(xs: Array<Number>, i1: number, i2: number): void {
+  let tmp = xs[i1];
+  xs[i1] = xs[i2];
+  xs[i2] = tmp;
+}
 
-```javascript
-function sortAsc(xs) {
+/**
+ * Bubble-sorts the input in place.
+ */
+export function bubbleSort(xs: Array<number>): Array<number> {
   const len = xs.length;
 
-  for (let i = 0; i < len; ++i) {
-    for (let j = 0; j < len; ++j) {
-      log(xs, xs[j], xs[j + 1]);
+  for (let i = 0; i < len - 1; ++i)
+    for (let j = 0; j < len - 1 - i; j++)
       if (xs[j] > xs[j + 1])
         swap(xs, j, j + 1);
-    }
-  }
 
   return xs;
 }
-
-//=> [ "b", "a", "d", "c", "e" ] b a
-//=> [ "a", "b", "d", "c", "e" ] b d
-//=> [ "a", "b", "d", "c", "e" ] d c
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] e undefined
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] c d
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] e undefined
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] c d
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] e undefined
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] c d
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] e undefined
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] c d
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] e undefined
 ```
 
-Note there are always four logs between each `undefined`. It means the iteration is working over on values that have already been previously bubbled up to the top, so, unnecessary and useless work is being performed. It always compares each element from beginning to end:
-
-```
-[ "a", "b", "c", "d", "e" ]
-  ----------------------- compares all these elements on every pass
-```
-
-## Shrinking Set Optimization
-
-The problems outlined can be handled such that the algorithm doesn’t work over elements that have already been bubbled up to the top so that each iteration works on an ever shrinking portion of the array.
-
-- Start looping from the end of array towards the beginning with an `i` pointer.
-- Inner loop with `j` pointer until `i - 1`.
-- If `arr[j] > arr[j + 1]`, swap (note we are comparing an element with right sibling.
-- Return sorted array.
-
-Improved bubble sort approach:
-
-```javascript
-function sortAsc(xs) {
-  const len = xs.length;
-
-  for (let i = len - 1; i >= 0; --i) {
-    for (let j = 0; j < i; ++j) {
-      if (xs[j] > xs[j + 1])
-        swap(xs, j, j + 1);
-    }
-  }
-
-  return xs;
-}
-
-//=> [ "b", "a", "d", "c", "e" ] b a
-//=> [ "a", "b", "d", "c", "e" ] b d
-//=> [ "a", "b", "d", "c", "e" ] d c
-//=> [ "a", "b", "c", "d", "e" ] d e
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] c d
-//=> [ "a", "b", "c", "d", "e" ] a b
-//=> [ "a", "b", "c", "d", "e" ] b c
-//=> [ "a", "b", "c", "d", "e" ] a b
-```
-
-Compared to to the previous solution, this one requires a lot less iterations.
-
-```text
-[ "b", "a", "d", "c", "e" ]
-  ----------------------
-
-[ "b", "a", "d", "c", "e" ]
-  ------------------
-
-[ "b", "a", "d", "c", "e" ] swaps d and c
-  -------------
-
-[ "b", "a", "c", "d", "e" ] swaps b and a
-  --------
-
-[ "a", "b", "c", "d", "e" ]
----
-```
-
-Twenty 25 passes on the first, naive approach, and only five passes on this improved, “shrinking set” approach.
+Note how we write `len - 1`. That is important otherwise when we do `j + 1` we would end up in an out-of-bounds error which would cause different problems in different languages.
 
 ## No Swaps Optimization
 
@@ -197,10 +117,10 @@ There is a simple check that can be done to determine if the algorithm could sto
 ```tsx
 function swap(
   xs: number[],
-  idx1: number,
-  idx2: number,
+  i1: number,
+  i2: number,
 ): void {
-  [xs[idx1], xs[idx2]] = [xs[idx2], xs[idx1]];
+  [xs[i1], xs[i2]] = [xs[i2], xs[i1]];
 }
 
 /**
