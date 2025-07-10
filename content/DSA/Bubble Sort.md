@@ -97,7 +97,7 @@ function swap(xs: Array<Number>, i1: number, i2: number): void {
 export function bubbleSort(xs: Array<number>): Array<number> {
   const len = xs.length;
 
-  for (let i = 0; i < len - 1; ++i)
+  for (let i = 0; i < len; ++i)
     for (let j = 0; j < len - 1 - i; j++)
       if (xs[j] > xs[j + 1])
         swap(xs, j, j + 1);
@@ -106,7 +106,7 @@ export function bubbleSort(xs: Array<number>): Array<number> {
 }
 ```
 
-Note how we write `len - 1`. That is important otherwise when we do `j + 1` we would end up in an out-of-bounds error which would cause different problems in different languages.
+Note how we write `len - 1`. That is important otherwise when we do `j + 1` we would end up in an out-of-bounds error at the end of the first iteration which would cause different problems in different languages.
 
 ## No Swaps Optimization
 
