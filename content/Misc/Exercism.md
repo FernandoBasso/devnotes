@@ -41,7 +41,7 @@ Then configure the auth token and the workspace:
 
 ```bash
 $ exercism configure --token='my token'
-$ exercism configure --workspace="$HOME/source/exercism"
+- [ ] $ exercism configure --workspace="$HOME/source/exercism"
 ```
 
 - https://exercism.org/cli-walkthrough
