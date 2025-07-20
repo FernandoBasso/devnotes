@@ -91,7 +91,7 @@ $ asdf install stack latest
 $ asdf set --home stack latest
 ```
 
-## Clojure, clj, lein
+## Clojure, clj, lein, clj-kondo
 #clojure #clj #lein #leiningen
 
 ```bash
@@ -112,3 +112,9 @@ $ asdf set --home leiningen latest
 
 We should now have `lein` command available. Try `lein repl`.
 
+```bash
+$ asdf plugin add clj-kondo
+$ asdf list all clj-kondo
+$ asdf install clj-kondo latest
+$ asdf set --home clj-kondo latest
+```

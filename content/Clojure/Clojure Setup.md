@@ -12,3 +12,8 @@ description: My notes, tips and ideas on the Closure programming language.
 - https://wiki.archlinux.org/title/Clojure
 
 See [Install Tools With ASDF](Install%20Tools%20With%20ASDF.md).
+
+
+## Static Analyzer & Linters
+
+- https://cljdoc.org/d/clj-kondo/
