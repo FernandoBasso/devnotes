@@ -29,3 +29,6 @@ Clojure has `not=` for _not equal_ (instead of `!=` ).
 > So, `not=` is not strange. Just different than in some other languages that use `!=`. Keep an open mind.
 
 
+## Links and Resources
+
+- https://clojure.org/guides/equality
