@@ -24,7 +24,7 @@ Clojure has `not=` for _not equal_ (instead of `!=` ).
 
 > [!NOTE] `not=` is not “wrong” or “strange”
 >
-> Haskell has `/=` for _not equal_. And remember that standard SQL _not equal_ is `<>`, even though some DB vendors support the non-standard `!=`.
+> Haskell has `/=` for _not equal_. And remember that standard SQL _not equal_ is `<>` ( even though some DB vendors support the non-standard `!=`).
 >
 > So, `not=` is not strange. Just different than in some other languages that use `!=`. Keep an open mind.
 
