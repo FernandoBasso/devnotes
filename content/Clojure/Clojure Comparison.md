@@ -10,13 +10,13 @@ tags:
 
 `==` is not strict on the type. `(== 1 1.0)` is considered equal as the types are ignored. It is similar to `==` in ECMAScript and PHP.
 
-> [!NOTE] Fun fact about ECMAScript committee on equality operators
->
-> Douglas Crockford said that the ECMAScript committee tried to change the spec make `==` type-strict and `===` non-type-strict, but Microsoft at the time said they could not break language in a non-backwards-compatible way (and therefore break websites) so it was never “fixed”.
-
 > [!WARNING]
 >
 > Clojure has `=` and `==`. ECMAScript has `==` and `===`. In Clojure, the shorter operator is type-strict, while in ECMAScript the longer operator is type-strict. Conversely, in Clojure, the longer operator is non-type-script while in ECMAScript the shorter operator is non-type-strict.
+
+> [!NOTE] Fun fact about ECMAScript committee on equality operators
+>
+> Douglas Crockford said that the ECMAScript committee tried to change the spec make `==` type-strict and `===` non-type-strict, but Microsoft at the time said they could not break language in a non-backwards-compatible way (and therefore break websites) so it was never “fixed”.
 
 ## Not Equal
 
