@@ -3,6 +3,7 @@ tags:
   - clojure
   - programming-language
   - text-editor
+description: My notes, tips and ideas on the Closure programming language.
 ---
 ## Intro
 
