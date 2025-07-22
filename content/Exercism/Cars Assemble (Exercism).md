@@ -88,3 +88,8 @@ java.lang.Double
 user=> (float? (* 1 1.1))
 true
 ```
+
+### Other Interesting Solutions
+
+- https://exercism.org/tracks/clojure/exercises/cars-assemble/solutions/amirci
+
