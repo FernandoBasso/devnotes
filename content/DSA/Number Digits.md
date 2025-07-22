@@ -149,8 +149,35 @@ At each iteration of the loop, `n` is relieved of its last digit, and `digits` g
 
 ### JavaScript
 
-```js
---8<-- "docs/algorithms/number-digits/numToDigits.js"
+```javascript
+const abs = Math.abs.bind(Math);
+
+/**
+ * Turns a number into an array of its digits.
+ *
+ * @category List
+ * @signature number -> Number[]
+ * @param {number} num
+ * @returns {number[]}
+ * @example
+ * numToDigits(-1894);
+ * // → [1, 9, 8, 4]
+ */
+function numToDigits(num) {
+  var n = abs(num);
+  var digits = [];
+
+  while (n >= 10) {
+    var last = n % 10;
+    n = n / 10 | 0;
+
+    digits.unshift(last);
+  }
+
+  digits.unshift(n | 0);
+
+  return digits;
+}
 ```
 
 ## Take first digit from number
@@ -159,8 +186,22 @@ Keep dividing the number by 10 while the number is greater than 10 and then, if 
 
 ### JavaScript
 
-```js
---8<-- "docs/algorithms/number-digits/getFirstDigit.js"
+```javascript
+/**
+ * Returns the first digit of a number.
+ *
+ * @category math
+ * @sig Number -> Number
+ * @param {number} num
+ * @returns {number}
+ */
+function getFirstDigit(num) {
+  if (num < 0) throw new RangeError('num must be >= 0');
+
+  var x = num;
+  while (x >= 10) x /= 10;
+  return x | 0;
+}
 ```
 
 ## Take last digit from number
@@ -183,8 +224,25 @@ $ node --interactive
 No matter the length of the number, it always works.
 No loop or conversion to string with some split is necessary.
 
-```js
---8<-- "docs/algorithms/number-digits/getLastDigit.js"
+```javascript
+/**
+ * Returns the last digit of a number.
+ *
+ * The number must not contain a decimal place. That is, 35.7 is an
+ * invalid input for this function and will result an exception, while
+ * 357 is valid, and will return 7.
+ *
+ * @category math
+ * @signature Number -> Number
+ * @param {number} num
+ * @returns {number}
+ */
+function getLastDigit(num) {
+  if (!Number.isInteger(num))
+    throw new RangeError('num must be an integer');
+
+  return num % 10;
+}
 ```
 
 ## Take first n digits from number
@@ -259,10 +317,46 @@ $ node --interactive
 
 ### JavaScript
 
-```js
---8<-- "docs/algorithms/number-digits/takeDigits.js"
+```javascript
+const abs = Math.abs.bind(Math);
+const pow = Math.pow.bind(Math);
+
+/**
+ * Take the first `len` digits from `num`.
+ *
+ * Negative numbers are treated as positive.
+ *
+ * If the number of digits in `num` is less than or equal to
+ * `len`, simply return `num`.
+ *
+ * @example
+ * takeDigits(1984, 4);
+ * // → 1984
+ *
+ * takeDigits(-1984, 2);
+ * // → 19
+ *
+ * @param {number} num
+ * @param {number} len
+ * @returns {number}
+ */
+function takeDigits(num, len) {
+  if (typeof len !== "number" || len < 1)
+    throw new RangeError("len must be a number >= 1");
+
+  if (num === 0) return num;
+
+  var n = abs(num);
+  var numDigits = countDigits(n);
+
+  if (numDigits <= len)
+    return n | 0;
+
+  return (n / pow(10, numDigits - len)) | 0;
+}
 ```
 
+Note that we use `countDigits()` which was defined earlier.
 ## Drop first n digits from number
 
 For this we can make use of powers of 10 mixed with taking the last digit in a loop.
@@ -290,10 +384,49 @@ out  = 5 * 10 ** 1 + out     -> 53
 
 ### JavaScript
 
-```js
---8<-- "docs/algorithms/number-digits/dropDigits.js"
+```javascript
+const abs = Math.bind.abs(Math);
+
+/**
+ * Drops the first `len` digits from `num`.
+ *
+ * @example
+ * dropDigits(1234, 2);
+ * // → 34
+ *
+ * dropDigits(123, 3);
+ * // → 123
+ *
+ * dropDigits(123, 4);
+ * // → 123
+ *
+ * @param {number} num The number to drop the first `len` digits from.
+ * @param {number} len The number of digits to drop from the beginning
+ *   of the number. It has to be less than the number of digits in the
+ *   number.
+ * @returns {number} The number with `len` digits dropped from its
+ *   beginning or the unmodified number if `len` is less than the number
+ *   of digits in the input number.
+ */
+function dropDigits(num, len) {
+  var n = abs(num);
+
+  if (countDigits(n) <= len) return n;
+
+  var out = 0;
+  var numLen = countDigits(n);
+
+  for (var exp = 0; exp < numLen - len; ++exp) {
+    var last = n % 10 * 10 ** exp;
+    var n = n / 10 | 0;
+    out = last + out;
+  }
+
+  return out;
+}
 ```
 
+Note that we use `countDigits()` which was defined earlier.
 ## References
 
 - [How do I determine the number of digits of an integer in C? (StackOverflow)](https://stackoverflow.com/questions/1068849/how-do-i-determine-the-number-of-digits-of-an-integer-in-c).

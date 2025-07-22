@@ -8,6 +8,7 @@ tags:
 - `M-x column-number-mode RET`
 
 
+## fill-column
 
 - https://stackoverflow.com/questions/3566727/how-to-set-the-default-width-of-fill-mode-to-80-with-emacs
 
