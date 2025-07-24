@@ -38,6 +38,8 @@ v4
 
 ## Append to a Vector
 
+To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, followed by the vector we want to append items to, followed by one or more elements.
+
 ```clojure
 ;;;;
 ;; Add 1 2 3 to an empty vector.
@@ -45,6 +47,9 @@ v4
 (conj (vector) 1 2 3)
 ;=> [1 2 3]
 
+;;;;
+;; Add 1 2 3 to an empty vector with literal vector syntax.
+;;
 (conj [] 1 2 3)
 ;=> [1 2 3]
 
