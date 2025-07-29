@@ -18,3 +18,8 @@ See [Install Tools With ASDF](Install%20Tools%20With%20ASDF.md).
 ## Static Analyzer & Linters
 
 - https://cljdoc.org/d/clj-kondo/
+
+
+## Videos
+
+[Expert to Expert: Rich Hickey and Brian Beckman - Inside Clojure](https://www.youtube.com/watch?v=wASCH_gPnDw)
