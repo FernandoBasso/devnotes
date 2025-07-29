@@ -9,7 +9,7 @@ tags:
 - https://tsdh.org/index.html
 - https://planet.emacslife.com/
 - https://www.reddit.com/r/emacs/
-
+- https://emacsredux.com/ (Bozhidar Batsov, Projectile, CIDER)
 ## Videos
 
 #emacs #devops
