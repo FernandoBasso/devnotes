@@ -4,6 +4,7 @@ tags:
   - sequence
   - math
   - dsa
+description: Example implementation of generating the Fibonacci sequence using a few different languages and programming paradigms.
 ---
 
 ## Intro
@@ -28,7 +29,7 @@ An input like 99 (or maybe less) takes forever complete, or never completes depe
 ### v2
 
 ```clojure
-(defn fib
+(defn fibi
   "Fibonacci using iteration for better performance."
   ([n] (fibi 0N 1N n))
   ([cur nxt n]

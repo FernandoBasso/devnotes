@@ -38,6 +38,8 @@ v4
 
 ## Append to a Vector
 
+Appending to a vector is $O(1)$.
+
 To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, followed by the vector we want to append items to, followed by one or more elements.
 
 ```clojure
@@ -61,7 +63,11 @@ To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, follo
 
 ## Prepend to a Vector
 
+Inserting at beginning of a vector is $O(n)$.
+
 ```clojure
 (apply vector 5 [1 3])
 ;=> [5 1 3]
 ```
+
+- https://stackoverflow.com/questions/4095714/what-is-the-idiomatic-way-to-prepend-to-a-vector-in-clojure
