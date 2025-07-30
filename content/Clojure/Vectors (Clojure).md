@@ -3,6 +3,7 @@ tags:
   - clojure
   - vector
   - dsa
+description: Notes and examples on Clojure vectors.
 ---
 ## Create a Vector
 
