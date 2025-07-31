@@ -144,10 +144,10 @@ On VS Code, in the user `settings.json`, because I use the vim extensions, I hav
 
 ## Some Useful Unicode Chars and Symbols
 
-- INFINITY ∞: 0x221e ++&infin;++
+- INFINITY ∞: 0x221e, `&infin;`
 - LAMBDA λ: 0x03bb
 -  BOTTOM ⊥: 0x22a5
-- Symbol For Horizontal Tabulation ␉: 0x2409
+- Horizontal Tabulation ␉: 0x2409
 - Empty Set ∅: 0x2205
 
 I sometimes use the Empty Set ∅ (0x2205) on `psql` to more clearly visualize NULL values:
