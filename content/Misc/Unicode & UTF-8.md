@@ -171,3 +171,73 @@ ON col_a = col_b;
      ∅ |   108
 (5 rows)
 ```
+
+ ## Useful Characters
+
+```
+—     2013   (dash, not a minus)
+✓     2712
+✔     2713
+✖     2715
+✗     2716
+💩    0f4a9
+‽     202d
+λ     02bb
+←     2189
+↑     2190
+→     2191
+↓     2192
+☺     262a
+☻     262b
+♩     2668      QUARTER NOTE
+♪     265A      EIGHTH NOTE
+♫     265B      BEAMED EIGHTH NOTES
+♭     265D      MUSIC FLAT SIGN
+♮     265E      MUSIC NATURAL SIGN
+♯     265F      MUSIC SHARP SIGN
+«     ab        LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+»     bb        RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+¼     bc        VULGAR FRACTION ONE QUARTER
+½     bd        VULGAR FRACTION ONE HALF
+¾     be        VULGAR FRACTION THREE QUARTERS
+
+⍽     236d      shouldered open box, indicates NBSP.
+·     b6        interpunct &middot;
+␠     2419      control
+```
+
+♯ ♩ ♪ E laiá! ♫ ♭ ♮
+
+
+## Whitespace Character
+
+https://en.wikipedia.org/wiki/Whitespace_character
+
+
+## Subscripts
+
+In vim/nvim, we can insert subscripts for digits from 0 to 9 using digraphs.
+
+`Ctrl+k` followed by `<digit>`s.
+
+For example, to write N₇, one would type `N` followed by `Ctrl+k 7s`.
+
+If not using vim, or another subscript is needed, like in maths where we sometimes write sequences like `T1 | T2 | Tₙ` to indicate that the sequence continues, then the unicode code point can be used.
+
+In the case of ₙ, the code point is 0x2299 (hex).
+
+And can be typed in vim with `Ctrl+v u 2099`.
+
+## Bash
+
+Bash accepts the `-e` option to enable parsing of unicode code points:
+
+```
+$ echo '\u2713'
+\u2713
+
+$ echo -e '\u2713'
+✔
+```
+
+https://stackoverflow.com/questions/602911/how-do-you-echo-a-4-digit-unicode-character-in-bash
