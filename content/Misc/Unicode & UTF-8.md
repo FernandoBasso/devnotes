@@ -5,6 +5,7 @@ tags:
   - ascii
   - character-set
   - font
+description: Notes, tips and useful examples on Unicode and UTF-8 on a few editors and situations.
 ---
 
 ## Resources
