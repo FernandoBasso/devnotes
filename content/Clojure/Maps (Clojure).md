@@ -117,6 +117,37 @@ When attempting to retrieve the value for a keyword that does not exist in the m
 ;=> nil
 ```
 
+## Default values
+
+We define a map which contains an `:x` key, but not a `:y` one.
+
+```clojure
+(def m {:x 1})
+
+(get m :y 2)
+;=> 2
+
+(m :y 2)
+;=> 2
+```
+
+Here we supply 2 as a default value for 2 so we can add `:x` and `:y` (1 and 2):
+
+```clojure
+(+ (m :x) (m :y 2))
+;=> 3
+```
+
+This produces an error (TODO: Explain why):
+
+```clojure
+(def m {:x 1})
+
+(+ (m :x) (m :y))
+; Cannot invoke "Object.getClass()" because "x" is null
+```
+
+
 ## Nested Maps (Jedi Example)
 
 ```clojure
