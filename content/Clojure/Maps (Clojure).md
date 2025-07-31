@@ -124,8 +124,7 @@ When attempting to retrieve the value for a keyword that does not exist in the m
   {:name
    {
     :first "Aayla"
-    :last "Secura"
-    }
+    :last "Secura"}
    :skill "Lightsaber"
    :power 100})
 ```
