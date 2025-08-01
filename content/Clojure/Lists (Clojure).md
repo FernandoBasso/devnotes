@@ -4,6 +4,7 @@ tags:
   - list
   - data-structure
   - dsa
+description: Notes and examples on Clojure lists.
 ---
 ## Create lists
 #list #quote
