@@ -29,7 +29,7 @@ No matter the syntax used to create the list, they are the same:
 ;=> true
 ```
 
-Note that when the list is printed in the REPL, the “quoting” is not printed:
+Note that when the list is printed in the REPL, the “quoting” is not present in the output:
 
 ```clojure
 xs
@@ -67,4 +67,15 @@ Unlike some other data structures that return `nil` if the index or key cannot b
 ```clojure
 (nth xs 3)
 ;~ Unhandled java.lang.IndexOutOfBoundsException
+```
+
+## Add an element to a list
+#list #prepend #conj
+
+Use `conj` to add an element to a list. `conj` appends to a vector, but _prepends_ to a list. The time complexity of `conj` on lists is $O(1)$, just as when used with vectors.
+
+```clojure
+(def nums '(20 30 40))
+(conj nums 10)
+;=> (10 20 30 40)
 ```
