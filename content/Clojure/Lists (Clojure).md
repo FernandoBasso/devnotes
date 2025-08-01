@@ -7,7 +7,7 @@ tags:
 ---
 ## Intro
 
-To create a list, add the values inside parenthesis and quote the list with `(quote)` or  `'` as in Lisp or Scheme:
+To create a list, enclose the values in parenthesis and quote the list with `(quote)` or  `'` as in Lisp or Scheme:
 
 ```clojure
 (def xs '(10 20 30))
@@ -45,3 +45,5 @@ xs
 names
 ;=> ("Aayla" "Ahsoka" "Leia")
 ```
+
+No `'` in front of the opening parenthesis in the outpt.
