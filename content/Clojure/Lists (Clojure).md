@@ -46,4 +46,4 @@ names
 ;=> ("Aayla" "Ahsoka" "Leia")
 ```
 
-No `'` in front of the opening parenthesis in the outpt.
+No `'` in front of the opening parenthesis in the REPL's output.
