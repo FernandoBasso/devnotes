@@ -6,6 +6,7 @@ tags:
 description: Notes and examples on Clojure vectors.
 ---
 ## Create a Vector
+#vector #collection #data-structure
 
 ```clojure
 ;;;;
@@ -38,6 +39,7 @@ v4
 ```
 
 ## Append to a Vector
+#vector #conj #append
 
 Appending to a vector is $O(1)$.
 
@@ -63,6 +65,7 @@ To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, follo
 ```
 
 ## Prepend to a Vector
+#vector #prepend #apply
 
 Inserting at beginning of a vector is $O(n)$ time complexity.
 
