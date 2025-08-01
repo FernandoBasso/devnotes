@@ -203,7 +203,7 @@ ON col_a = col_b;
 
 ⍽     236d      shouldered open box, indicates NBSP.
 ·     b6        interpunct &middot;
-␠     2419      control
+␠     2420      SYMBOL FOR SPACE
 ```
 
 ♯ ♩ ♪ E laiá! ♫ ♭ ♮

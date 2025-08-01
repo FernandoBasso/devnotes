@@ -153,8 +153,7 @@ This produces an error (TODO: Explain why):
 ```clojure
 (def jedi
   {:name
-   {
-    :first "Aayla"
+   {:first "Aayla"
     :last "Secura"}
    :skill "Lightsaber"
    :power 100})
@@ -171,4 +170,16 @@ Retrieving the values of some keywords. Note that `:name` is a nested map:
 
 (jedi :power)
 ;=> 100
+```
+
+Because :name returns the nested map, we can retrieve that, and from that retrieve `:first` and `:last`.
+
+```clojure
+;;;;
+;;
+((jedi :name) :first)
+;=> "Aayla"
+
+((get jedi :name) :last)
+;=> "Secura"
 ```
