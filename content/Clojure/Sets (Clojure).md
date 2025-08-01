@@ -41,3 +41,42 @@ But duplicate keys with the literal syntax causes an error:
 ;~ java.lang.IllegalArgumentException: Duplicate key: 1
 ```
 
+## Add to a set with conj
+#set #conj
+
+
+```clojure
+(def hs1 #{:x :y})
+hs
+#{:y :x}
+
+(conj hs1 :z)
+;=> #{:y :z :x}
+```
+
+But if we try to add a value that already exists, it will not add a duplicate value:
+
+```clojure
+(def hs1 #{:x :y})
+hs
+#{:y :x}
+
+(conj hs1 :z)
+;=> #{:y :z :x}
+
+(def hs2 (conj hs1 :x))
+hs2
+;=> #{:y :x}
+```
+
+## Set from other data structures
+#set #vector
+
+Create a hash set from a vector. Note the duplicates in the vector become a single value in the resulting hash set:
+
+```clojure
+(def hs (set [1 1 1 2 1 1 2]))
+hs
+;=> #{1 2}
+```
+
