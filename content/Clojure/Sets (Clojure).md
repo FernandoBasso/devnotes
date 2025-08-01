@@ -80,3 +80,16 @@ hs
 ;=> #{1 2}
 ```
 
+## Check if a value exists in a set with contains?
+#set #contains
+
+```clojure
+(def hs #{1 2 3 5 7 9})
+
+(contains? hs 4)
+;=> false
+
+(contains? hs 7)
+;=> true
+```
+
