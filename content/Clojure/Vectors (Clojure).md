@@ -65,7 +65,7 @@ To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, follo
 ```
 
 ## Prepend to a Vector
-#vector #prepend #apply
+#vector #prepend #apply #into
 
 Inserting at beginning of a vector is $O(n)$ time complexity.
 
