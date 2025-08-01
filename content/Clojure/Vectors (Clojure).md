@@ -64,11 +64,21 @@ To append to a vector we use `conj` (conjoin). The basic syntax is `conj`, follo
 
 ## Prepend to a Vector
 
-Inserting at beginning of a vector is $O(n)$.
+Inserting at beginning of a vector is $O(n)$ time complexity.
+
+With `apply vector`. Note unlike `conj`, first the new value to prepend, then the existing vector.
 
 ```clojure
 (apply vector 5 [1 3])
 ;=> [5 1 3]
 ```
+
+Or with `into`. Note the value 5 is made a vector:
+
+```clojure
+(into [5] v)
+;=> [5 1 3]
+```
+
 
 - https://stackoverflow.com/questions/4095714/what-is-the-idiomatic-way-to-prepend-to-a-vector-in-clojure
