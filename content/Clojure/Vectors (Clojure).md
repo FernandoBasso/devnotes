@@ -76,7 +76,7 @@ With `apply vector`. Note unlike `conj`, first the new value to prepend, then th
 ;=> [5 1 3]
 ```
 
-Or with `into`. Note the value 5 is made a vector. So first the new value `[5]` (as a vector itself) to be preppended, then the existing vector:
+Or with `into`. Note the value 5 is made a vector. So first the new value `[5]` (as a vector itself) to be prepended, then the existing vector:
 
 ```clojure
 (into [5] v)
