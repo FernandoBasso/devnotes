@@ -71,3 +71,36 @@ For source code blocks, always include classes like these on the
 - `lang-haskell`
 - `lang-javascript`
 - `lang-diff`
+
+## CSS
+
+Given the CSS classes suggested above, these CSS styles provide a good visual result when reviewing the notes:
+
+```css
+.tags {
+  font-family: 'Ubuntu Mono', 'PT Mono', Monospace';
+  color: #888
+}
+
+.front,
+.back {
+  font-family: 'Source Code Pro', 'Ubuntu Mono', 'PT Mono', arial, 'liberation sans';
+  font-size: 16px;
+  line-height: 1.6em;
+  text-align: left;
+  color: black;
+}
+
+code:not(pre *) {
+  border: 1px solid #ccc;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+pre {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+```
+
