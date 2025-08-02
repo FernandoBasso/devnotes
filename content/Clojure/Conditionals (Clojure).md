@@ -14,3 +14,4 @@ tags:
 - `(or)` returns `nil`.
 - `(and)` returns `false`.
 
+`or` short-circuits and returns at the first non-falsey value. `and`, by definition, _has_ to evaluate all its exprs.
