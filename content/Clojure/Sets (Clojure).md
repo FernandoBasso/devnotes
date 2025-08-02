@@ -80,8 +80,10 @@ hs
 ;=> #{1 2}
 ```
 
-## Check if a value exists in a set with contains?
+## Check if a value exists in a set
 #set #contains
+
+### Using contains?
 
 ```clojure
 (def hs #{1 2 3 5 7 9})
@@ -93,3 +95,54 @@ hs
 ;=> true
 ```
 
+Note that a boolean is returned.
+### Using get
+
+```clojure
+(def hs #{1 2 3 5 7 9})
+
+(get hs 4)
+;=> nil
+
+(get hs 7)
+;=> 7
+
+(def names #{"Aayla" "Ahsoka"})
+
+(get names "Leia")
+;=> nil
+
+(get names "Ahsoka")
+;=> "Ahsoka"
+```
+
+Note that `nil` is returned when the value doesn't exist in the set, or the value is returned when the does exist in the set. It is of the utmost important that we keep this in mind. Consider, if we check whether the set contains `nil`,  then using `get` is confusing because it will return `nil` (as `nil` exists in the set). The same when checking whether `false` exists in the set. If it does, it returns `false`. These cases may be confusing. Of course, we could resort to `contains?` instead of `get` for situations like these.
+
+### Using the set as a function
+
+```clojure
+(def names #{"Aayla" "Ahsoka"})
+
+(names "Leia")
+;=> nil
+
+(names "Aayla")
+;=> "Aayla"
+```
+
+Similar to using `get`, it either returns `nil` or the value. And the same considerations about `nil` and `false` must be accounted for.
+### Using a keyword as a function
+
+If the set contains keywords we want to look for, then we can use the keyword as a function and the set as an argument:
+
+```clojure
+(def ks #{:force :power :level})
+
+(:points ks)
+;=> nil
+
+(:power ks)
+;=> :power
+```
+
+It returns `nil` if the keyword does not exist in the set, or the keyword if it does.
