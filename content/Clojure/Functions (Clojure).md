@@ -61,6 +61,32 @@ vs
 (+ 1 2 3 4)
 ```
 
+## Arity overloading
+
+It is possible to define a function which will behave differently depending on the number of arguments passed:
+
+```clojure
+(defn say
+  "Returns a message to who, making use of msg and punct if provided;
+  else fills in some defaults."
+  ([who]
+   (str "Hello, " name "."))
+  ([who msg]
+   (str msg who "."))
+  ([who msg punct]
+   (str msg who punct)))
+
+(say "Aayla Secura")
+;=> "Hello, Aayla Secura!"
+
+(say "Yoda", "I bow before your might, ")
+;=> "I bow before your might, Yoda."
+
+(say "Luke" "Use the force, " "!")
+;=> "Use the force, Luke!!!!"
+```
+
+
 ## Conditionally choose function to apply
 
 ### or example
