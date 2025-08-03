@@ -112,4 +112,4 @@ This is how it evaluates:
 (1 10 20)
 ```
 
-`(or nil false 1) returns 1, and 1 is not a function.
+`(or nil false 1)` returns 1, and 1 is not a function.
