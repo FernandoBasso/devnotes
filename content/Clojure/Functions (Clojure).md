@@ -86,6 +86,29 @@ It is possible to define a function which will behave differently depending on t
 ;=> "Use the force, Luke!!!!"
 ```
 
+## Rest parameters
+
+Rest parameters are a way to define variadic functions that take zero or more required parameters, followed by zero or more non-required parameters.
+
+```clojure
+(ns fns
+  (:require [clojure.string :refer [join]]))
+
+(defn buy
+  "Returns an intro text informing about the items to buy."
+  [intro & rest]
+  (str intro (join ", " rest) "."))
+
+(buy "Please buy: " "milk" "oranges" "coffee")
+;=> "Please buy: milk, oranges, coffee."
+
+(buy "Buy some " "coffee")
+;=> "Buy some coffee."
+```
+
+In this example, `intro` is a required parameter. `rest` can be zero or more parameters. Note that rest parameters a collected into a vector.
+
+TODO.
 
 ## Conditionally choose function to apply
 
