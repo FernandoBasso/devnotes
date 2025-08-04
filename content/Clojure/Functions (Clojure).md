@@ -108,7 +108,21 @@ Rest parameters are a way to define variadic functions that take zero or more re
 
 In this example, `intro` is a required parameter. `rest` can be zero or more parameters. Note that rest parameters a collected into a vector.
 
-TODO.
+In this other example, however, only rest params are used. Note we still need the `&` to be present:
+
+```clojure
+(ns fns
+  (:require [clojure.string :refer [capitalize]]))
+
+(defn list-of-items
+  "Creates a list of items."
+  [& items]
+  (map #(capitalize %) items))
+
+(list-of-items "milk" "butter" "bred")
+;=> ("Milk" "Butter" "Bred")
+```
+
 
 ## Conditionally choose function to apply
 

@@ -93,3 +93,15 @@ As of 2025, looks like Obsidian search and replace does _not_ support regular ex
 What we can do, however, is to search by the ASCII or Unicode codepoint for tab: `0009`. On your operating system, figure out how to input Unicode code points, search for the tab codepoint, and replace with whatever you need.
 
 See [Unicode & UTF-8](Unicode%20&%20UTF-8.md).
+
+## Dictionary words
+
+When I add a word to the dictionary, where is it stored? It it be backed up to migrate to a new machine?
+
+Yes, the added words are stored in the global Obsidian dictionary. On Linux, it is:
+
+```text
+$HOME/.config/obsidian/Custom Dictionary.txt
+```
+
+
