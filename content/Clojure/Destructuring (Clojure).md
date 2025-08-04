@@ -28,7 +28,7 @@ We could assign to `a`, `b` and `c` as concisely as this:
 60
 ```
 
-It is possible to destructure from a vector or a list.
+It is possible to destructure from a vector or a list. Maps too, which a slightly different syntax.
 ## Destructuring function parameters
 
 Destructuring is specially useful when dealing with function parameters. Let's see how it works by implementing the function `car`.
