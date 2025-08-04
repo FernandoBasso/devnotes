@@ -66,3 +66,51 @@ It is also possible to bind certain values to names, and collect the remaining a
 ```
 
 We used the underscore `_` to bind the first value, but as we don't intend to use it for this example, we don't give it a meaningful name (this is a common pattern in some languages, including Haskell).
+
+## Destructuring a map
+#destructuring #map
+
+```clojure
+(defn treasure-location
+  "Returns the treasure location with latitute and longitude."
+  [{lat :lat lng :lng}]
+  (format "Latitude: %.2f, Longitude: %.2f." lat lng))
+
+(treasure-location {:id "0xff" :lat 21.13 :lng 77.91})
+;=> "Latitude: 21.13, Longitude: 77.91."
+```
+
+In this example lat maps to :lat and lng maps to :lng, which look like they are the same name. But the name we bind does not have to be the same as the map key.
+
+```clojure
+(defn loc
+  "Returns the location."
+  [{lat :latitude lng :longitude}]
+  (format
+   "Go to latitude %.2f and longitude %.2f to find the treasure."
+   lat
+   lng))
+
+(loc {:latitude 21.23 :longitude 77.91})
+;=> "Go to latitude 21.23 and longitude 77.91 to find the treasure."
+```
+
+The map passes :latitude and :longitude, but we bind them to lat and lng, which are not the “same names”.
+
+## Destructuring a map with :keys short syntax
+#destructuring #keys #map
+
+Using the `:keys` shorter syntax for breaking keywords out of a map when performing destructuring.
+
+```clojure
+(defn loc
+  "Returns a string announcing the treasure location."
+  [{:keys [lat lng]}]
+  (format
+   "The treasure is located at latitude %.2f, longitude %.2f."
+   lat
+   lng))
+
+(loc {:id "0xff" :lat 21.47 :lng 88.79})
+;=> "The treasure is located at latitude 21.47, longitude 88.79."
+```
