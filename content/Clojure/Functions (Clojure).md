@@ -88,7 +88,7 @@ It is possible to define a function which will behave differently depending on t
 
 ## Rest parameters
 
-Rest parameters are a way to define variadic functions that take zero or more required parameters, followed by zero or more non-required parameters.
+Rest parameters are a way to define variadic functions that take zero or more required parameters, followed by zero or more non-required parameters. Rest parameters are stored as a list.
 
 ```clojure
 (ns fns
