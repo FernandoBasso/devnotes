@@ -104,7 +104,7 @@ Yes, the added words are stored in the global Obsidian dictionary. On Linux, it 
 $HOME/.config/obsidian/Custom Dictionary.txt
 ```
 
-On macOS, probably inside this directory
+On macOS, probably inside this directory:
 
 ```text
 $HOME/Library/Application Support/obsidian/
