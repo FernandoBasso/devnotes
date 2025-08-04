@@ -44,3 +44,25 @@ Another example:
 (say-hi "Yoda" "Leia" "Luke")
 ;=> ("Hi, Yoda.\n" "Hi, Leia.\n" "Hi, Luke.\n")
 ```
+
+## Anonymous functions with #(%1 %2 ...)
+
+If the anonymous function takes more than one single argument, multiple arguments can be denoted with `%1`, `%2`, etc.
+
+```clojure
+(#(str %1 " and " %2) "oil" "water")
+;=> "oil and water"
+
+(#(str %1 ", ", %2 " and " %3) "x" "y" "z")
+;=> "x, y and z"
+```
+
+## Anonymous functions with #(rest params)
+#lambda #rest #parameter #argument
+
+Rest parameters can be collected with `%&`:
+
+```clojure
+(#(apply + %&) 1 2 3)
+6
+```
