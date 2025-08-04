@@ -158,7 +158,7 @@ The equality is true, so it evals the next expression `+`, which is a function, 
 30
 ```
 
-### Be careful
+### Don't try to apply non-function expressions as functions
 
 The resulting expression has to evaluate to a function, otherwise, there will be a disturbance in the force:
 
