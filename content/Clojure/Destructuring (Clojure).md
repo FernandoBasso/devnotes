@@ -80,7 +80,7 @@ We used the underscore `_` to bind the first value, but as we don't intend to us
 ;=> "Latitude: 21.13, Longitude: 77.91."
 ```
 
-In this example lat maps to :lat and lng maps to :lng, which look like they are the same name. But the name we bind does not have to be the same as the map key.
+In this example lat maps to `:lat` maps to `lat` and `lng` maps to `:lng`, which looks like they are the same name. But the name we bind to does not have to be the same as the map key. For example, we can bind the map key `:latitude` to the local name `lat` and the map key `:longitude` to the local name `lng`:
 
 ```clojure
 (defn loc
