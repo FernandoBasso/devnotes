@@ -6,6 +6,7 @@ tags:
   - conditional
   - if
   - when
+description: Notes and examples on conditionals in Clojure.
 ---
 ## or, and
 
