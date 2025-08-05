@@ -6,7 +6,7 @@ tags:
   - dsa
 description: Notes and examples on Clojure sets.
 ---
-[]()## Intro
+## Intro
 #set #dsa
 
 Clojure contains hash sets and ordered sets. Unless otherwise noted, consider the following examples to be about hash sets (non-ordered sets).
