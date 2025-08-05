@@ -4,10 +4,14 @@
 
 This is a website where I keep software engineering notes.
 
-Currently, the source files are on private Gitlab repository and publicly hosted on Gitlab pages:
+Currently, the source files are on a Gitlab repository and hosted on Gitlab pages:
 
 - https://gitlab.com/fernandobasso/devnotes
 - https://fernandobasso.gitlab.io/devnotes
+
+I also have it on Github as a copy:
+
+- https://github.com/FernandoBasso/devnotes
 
 The content is written in Markdown and can be done in any text editor or in Obsidian (open the directory `content` as an Obsidian vault).
 
