@@ -19,6 +19,23 @@ See [Install Tools With ASDF](Install%20Tools%20With%20ASDF.md).
 
 - https://cljdoc.org/d/clj-kondo/
 
+### cljfmt
+
+- https://github.com/weavejester/cljfmt
+
+Add to something like this to `project.clj`:
+
+```
+:plugins [[dev.weavejester/lein-cljfmt "0.13.1"]]
+```
+
+Then run this from the command line shell:
+
+```bash
+$ lein cljfmt check
+```
+
+It will install the necessary stuff and check the files. Replace `check` with `fix` to fix the files in place instead of just checking for formatting problems.
 
 ## Videos
 
