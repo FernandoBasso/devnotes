@@ -80,6 +80,11 @@ $ grep gpg .git/config
 ```
 
 After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
+
+## Push to multiple remotes
+
+Follow the steps described in [Push to multiple remotes at once](Git%20Remotes.md#Push%20to%20multiple%20remotes%20at%20once).
+
 ## The End
 
 ![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)

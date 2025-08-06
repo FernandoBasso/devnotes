@@ -23,11 +23,10 @@ $ git remote set-url myrepos --add \
     git@github.com/example/repo.git
 ```
 
-
 We then set the pseudo-remote “myrepos” as the default target by pushing with these options:
 
 ```bash
 git push --set-upstream myrepos HEAD
 ```
 
-`HEAD` is the current branch. It could be `devel`, `main` or any other branch we want to push and track.
+`HEAD` is the current branch. It could be `devel`, `main` or any other branch we want to push and track. It will sequentially push the refs to those two remotes.
