@@ -31,10 +31,6 @@ From emacs, `C-h i m Emacs RET] m Pages RET`.
 
 * [Pages :: Emacs Manual](https://www.gnu.org/software/emacs/manual/html_node/emacs/Pages.html).
 
-#### Further tips
-
-TODO
-
 ### Vim
 
 In vim, the digraph is `FF`, or with which means we can insert them with `CTRL-K FF`. Or, insert the char with `CTRL-V CTRL-L`.
