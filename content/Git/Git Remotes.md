@@ -4,7 +4,7 @@ tags:
   - remote
 description: Notes and examples on working with Git remotes.
 ---
-## Push to multiple remotes at once
+## Push to multiple remotes sequentially
 
 Suppose we have the remotes `gh` and `gl`. To push to both, we would do something like this:
 

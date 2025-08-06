@@ -17,6 +17,13 @@ tags:
 We can type `[[`  to have the editor suggest files, and if Wikilinks are turned off, it will still convert the link to the other files to markdown.
 
 ![obisidian wikilinks off](obsidian-wikilinks-off.png)
+
+And it is possible to link to specific headings within a document. Type `[[`, let the completion show up, select the document, and then type `#` to let the heading completion kick in.
+
+> [!TIP] Rename documents and headings
+>
+> Links and references are updated automatically if we use Obsidian “Rename” and Rename (document) or “Rename this heading” facilities. So remember to renamed documents and headings with those instead of simply manually editing the text.
+
 ## Git plugin
 
 I use this date format:
@@ -83,7 +90,7 @@ After this, committing from Obsidian Git plugin worked fine and with my GPG sign
 
 ## Push to multiple remotes
 
-Follow the steps described in [Push to multiple remotes at once](Git%20Remotes.md#Push%20to%20multiple%20remotes%20at%20once).
+Follow the steps described in [Push to multiple remotes sequentially](Git%20Remotes.md#Push%20to%20multiple%20remotes%20sequentially). After that is done, the next time we push from the Obsidian Git plugin, it will honor the default target we set and the push will be performed in the multiple remotes that have been set. 
 
 ## The End
 
