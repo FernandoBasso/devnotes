@@ -73,6 +73,7 @@ Or an example that creates [URL slugs](https://en.wikipedia.org/wiki/Clean_URL) 
    (map #(.toLowerCase %) last-names)))
 
 (slugify [] [])
+;;=> ()
 
 (slugify (take 2 first-names) (take 2 last-names))
 ;;=> ("aayla-secura" "ahsoka-tano")
