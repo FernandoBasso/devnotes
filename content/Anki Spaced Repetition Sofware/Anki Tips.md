@@ -104,3 +104,13 @@ pre {
 }
 ```
 
+
+## Add-Ons (Plugins)
+
+### anki-slideshow
+
+A PhD (medicine) student who writes a lot of sotware, including this one:
+
+> Anki-Slideshow: Publish Anki flashcards to the web
+
+- https://tedpak.com/2013/10/30/exporting-anki-flashcards-to-the-web.html

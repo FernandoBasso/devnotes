@@ -202,7 +202,7 @@ ON col_a = col_b;
 ␠     2420      SYMBOL FOR SPACE
 ```
 
-♯ ♩ ♪ E laiá! ♫ ♭ ♮
+♯  ♪ Esperaça num mundo melhor, e cerveja pra comemorar ♫ ♭ ♮
 
 
 ## Whitespace Character

@@ -11,6 +11,8 @@ The `map` function works over _sequence abstractions_ (see [Clojure Sequences](C
 
 ## Basic examples
 
+Initially, we can think of using `map` to apply _one_ function to a collection of values, generating a new, modified collection of values.
+
 Map `inc` over a collection.
 
 ```clojure
@@ -30,11 +32,11 @@ Map `inc` over a collection.
 (map #(inc (second %)) {:a 1 :b 2 :c 3})
 ;;=> (2 3 4)
 ;;
-;; Remember that seq turns the map
+;; Remember that seq turns the map:
 ;;
 ;;   {:a 1 :b 2 :c 3}
 ;;
-;; into
+;; into:
 ;;
 ;;   ([:a 1] [:b 2] [:c 3])
 ;;;;
@@ -81,3 +83,8 @@ Or an example that creates [URL slugs](https://en.wikipedia.org/wiki/Clean_URL) 
 (slugify first-names last-names)
 ;;=> ("aayla-secura" "ahsoka-tano" "leia-organa")
 ```
+
+## map multiple functions over a single value
+
+Besides mapping a *single* function over *multiple* values, we can also map _multiple_ functions over a _single_ value.
+[a]()
