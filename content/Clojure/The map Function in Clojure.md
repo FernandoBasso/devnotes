@@ -87,4 +87,35 @@ Or an example that creates [URL slugs](https://en.wikipedia.org/wiki/Clean_URL) 
 ## map multiple functions over a single value
 
 Besides mapping a *single* function over *multiple* values, we can also map _multiple_ functions over a _single_ value.
-[a]()
+
+TODO
+### Map multiple functions over multiple values
+
+```clojure
+(def sum #(reduce + %))
+
+(def avg #(/ (sum %) (count %)))
+
+(defn stats
+  "Returns a collection with the count of the elements, their
+   sum, and the average."
+  [vals]
+  (map #(% vals) [count sum avg]))
+
+(def xs [1 2 3 4])
+
+(count xs)
+;;=> 4
+
+(sum xs)
+;;=> 10
+
+(avg xs)
+;;=> 5/2
+
+(stats xs)
+;;=> (4 10 5/2)
+;;
+;; Four elements, their sum is 10, and the average is 0.5.
+;;;;
+```
