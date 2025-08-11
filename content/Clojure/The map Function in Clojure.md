@@ -4,6 +4,8 @@ tags:
   - map
   - function
   - collection
+  - functional-programming
+description: Notes and examples on the map function in Clojure.
 ---
 ## Intro
 
