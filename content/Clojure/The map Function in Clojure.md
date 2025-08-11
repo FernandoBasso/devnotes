@@ -119,3 +119,22 @@ TODO
 ;; Four elements, their sum is 10, and the average is 0.5.
 ;;;;
 ```
+
+Note we passed `stats` a vector `xs` containing four elements. Inside `stats`, however, we map `#(% vals)` giving the anonymous function a vector with three (function) elements: `[count sum avg]`. That is why the resulting array contains three elements, instead of four. Let's give `stats` input of some other lengths:
+
+```clojure
+(stats [5 4 1 9 5 8 3 9])
+;;=> (8 44 11/2)
+;;
+;; 8 elements, their sum is 44, and their average is 11/2.
+;;;;
+
+(stats [7])
+;;=> (1 7 7)
+;;
+;; 1 element, sum to 7, and the average is 7.
+;;;;
+```
+
+So as we see, the collection length output is the same as that of the number of functions passed to `map`.
+
