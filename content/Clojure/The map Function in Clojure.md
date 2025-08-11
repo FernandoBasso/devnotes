@@ -84,6 +84,35 @@ Or an example that creates [URL slugs](https://en.wikipedia.org/wiki/Clean_URL) 
 ;;=> ("aayla-secura" "ahsoka-tano" "leia-organa")
 ```
 
+## Combine the values of two vectors
+
+Given two numeric collections of the same length, for each corresponding pair of elements, return a hash-map with each x and y keys and their values, and the sum of each x and y pair.
+
+```clojure
+(def xs [1 2 3 4])
+(def ys [10 20 30 40])
+
+(defn combine
+  "Returns a map with x, y and their sum."
+  [x y]
+  {:x x
+   :y y
+   :sum (+ x y)})
+
+(defn report
+  "Returns a collection of maps of all xs, ys and their sums."
+  [xs ys]
+  (map combine xs ys))
+
+(report xs ys)
+;;=> ({:x 1, :y 10, :sum 11}
+;;=>  {:x 2, :y 20, :sum 22}
+;;=>  {:x 3, :y 30, :sum 33}
+;;=>  {:x 4, :y 40, :sum 44})
+```
+
+Note that `combine` takes two arguments, and we do pass two collections when we do `(map combine xs ys)`.
+
 ## map multiple functions over a single value
 
 Besides mapping a *single* function over *multiple* values, we can also map _multiple_ functions over a _single_ value.
@@ -137,4 +166,3 @@ Note we passed `stats` a vector `xs` containing four elements. Inside `stats`, h
 ```
 
 So as we see, the collection length output is the same as that of the number of functions passed to `map`.
-
