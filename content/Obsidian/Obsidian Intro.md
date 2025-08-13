@@ -92,9 +92,17 @@ After this, committing from Obsidian Git plugin worked fine and with my GPG sign
 
 Follow the steps described in [Push to multiple remotes sequentially](Git%20Remotes.md#Push%20to%20multiple%20remotes%20sequentially). After that is done, the next time we push from the Obsidian Git plugin, it will honor the default target we set and the push will be performed in the multiple remotes that have been set. 
 
-## The End
+## Templater plugin
 
-![bash-intro-command-line-help-null](bash-intro-command-line-help-null.png)
+After installing Templater, open Obsidian Hotkeys settings and set a key binding for “Templater: Open insert template modal”:
+
+
+![Obsidian Templater plugin Shortcut Settings](obisidan-templater-shortcuts-settings-2025-08-13.png)
+
+In this case it was set to `Opt + e`. I set it to `Alt + e` on Linux.
+
+![](Pasted%20image%2020250813081537.png)
+
 
 ## Search and Replace
 
