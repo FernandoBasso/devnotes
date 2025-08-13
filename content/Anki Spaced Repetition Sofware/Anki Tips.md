@@ -72,6 +72,20 @@ For source code blocks, always include classes like these on the
 - `lang-javascript`
 - `lang-diff`
 
+Code blocks use this markup:
+
+```text
+<div class="code-block">
+  <pre><code class="lang-some-lang">Start code on this line
+right after the closing >
+and close the tags on the same line
+as the last line
+of code.
+like this.</code></pre>
+```
+
+Why we start and end code on the same line as the tags has to do with the way HTML engines handle whitespace (new lines, space, tabs). This avoids having strange empty space when the text is rendered.
+
 ## CSS
 
 Given the CSS classes suggested above, these CSS styles provide a good visual result when reviewing the notes:
