@@ -171,6 +171,10 @@ ON col_a = col_b;
  ## Useful Characters
 
 ```
+‘     0x2018 LEFT SINGLE QUOTATION MARK
+’     0X2019 RIGHT SINGLE QUOTATION MARK
+“     0x201c LEFT DOUBLE QUOTATION MARK
+”     0x201c RIGHG DOUBLE QUOTATION MARK
 —     2013   (dash, not a minus)
 ✓     2712
 ✔     2713

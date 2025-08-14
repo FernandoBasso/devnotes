@@ -45,3 +45,13 @@ The classic example is to apply some arithmetic operation to a collection of zer
 ```
 
 The examples with an empty input collection return 0 and 1 respectively because that is what `+` and `*` return as their “identity”. See [Identity Property or Neutral Value of an Operation](Identity%20Property%20or%20Neutral%20Value%20of%20an%20Operation.md).
+
+## Reduce maps
+
+### Jedi master names
+
+Given a collection of jedi masters:
+
+```clojure
+
+```

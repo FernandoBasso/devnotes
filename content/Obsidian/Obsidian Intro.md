@@ -101,8 +101,9 @@ After installing Templater, open Obsidian Hotkeys settings and set a key binding
 
 In this case it was set to `Opt + e`. I set it to `Alt + e` on Linux.
 
-![](Pasted%20image%2020250813081537.png)
+And remember to tick Automatic jump to cursor in the Templater settings:
 
+![Obsidian Templater plugin automatic jump to cursor setting](obsidian-templater-automatic-jump-to-cursor-setting.png)
 
 ## Search and Replace
 
