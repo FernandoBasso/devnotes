@@ -86,7 +86,22 @@ $ grep gpg .git/config
 	program = /opt/homebrew/bin/gpg
 ```
 
-After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
+Then install `pinentry-mac`, and set it to `~/.gnupg/gpg-agent.conf`:
+
+```text
+echo $(brew --prefix)/bin/pinentry-mac >> ~/.gnupg/gpg-agent
+/opt/homebrew/bin/pinentry-mac
+
+killall gpg-agent
+```
+
+It may also be necessary to set “Additional environment variables” in the Git plugin and set it to something like:
+
+```text
+GNUPGHOME=/Users/your-user/.gnupg
+```
+
+Quit and repon Obsidian. After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
 
 ## Push to multiple remotes
 
