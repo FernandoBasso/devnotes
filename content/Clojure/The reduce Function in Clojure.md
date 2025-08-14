@@ -50,8 +50,15 @@ The examples with an empty input collection return 0 and 1 respectively because 
 
 ### Jedi master names
 
-Given a collection of jedi masters:
+Given a collection of jedi masters hash-maps:
 
 ```clojure
-
+(def jedi-masters
+  [{:name "Yoda" :skill "The Force" :power 90}
+   {:name "Ahsoka Tano" :skill "Mind Control" :power 85}
+   {:name "Aayla Secura" :skill "Lightsaber" :power 84}])
 ```
+
+And we want to return a modified collection of those hash-maps where the power is increased by 2:
+
+
