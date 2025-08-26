@@ -28,4 +28,4 @@ Note that in this case, both `head` and `tail` point to the new node, as the que
 - Point `tail.next` to the `newNode`.
 - Increment `length`.
 
-Note that the algorithm works whether the queue contains a single element (in which case both `head` and `tail` point to the same element), or a queue with more than one element (in which case `head` and `tail` _do not_ point to the same element). It works in both cases because the algorithm only has to concern itself with fiddling with the `tail`. The `head` remains untouched.
+Note that the algorithm works whether the queue contains a single element (in which case both `head` and `tail` point to the same element), or it contains more than one element (in which case `head` and `tail` _do not_ point to the same element). It works in both cases because the algorithm only has to concern itself with fiddling with the `tail`. The `head` remains untouched.
