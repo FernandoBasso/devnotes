@@ -18,6 +18,8 @@ Keyboard:
 
 `META` can also be gotten by typing and releasing `Esc` or `Ctrl+[`.
 
+The place in the text where the cursor is is called “point“, because that is is the point where the cursor is in the text 😉.
+
 `C-x C-c` to close Emacs.
 
 `C-g` to quit or cancel a partially entered command.
@@ -41,4 +43,10 @@ Keyboard:
 > [!INFO] meta vs control
 >
 > > Notice the parallel between `C-f` and `C-b` on the one hand, and `M-f` and `M-b` on the other hand.  Very often *meta* characters are used for operations related to the units defined by language (words, sentences, paragraphs), while _control_ characters operate on basic units that are independent of what you are editing (characters, lines, etc).
+
+`C-a` and `C-e` move to the beginning and end of a line.
+
+`M-a` and `M-e` moves to the beginning and end of a sentence.
+
+
 
