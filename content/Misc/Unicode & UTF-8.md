@@ -206,8 +206,9 @@ ON col_a = col_b;
 ␠     2420      SYMBOL FOR SPACE
 ```
 
-♯  ♪ Esperaça num mundo melhor, e cerveja pra comemorar ♫ ♭ ♮
+♯ ♪ Esperança num mundo melhor, e cerveja pra comemorar ♫ ♭ ♮
 
+♯ ♪ Eu prefiro ser... essa metamorfose ambulante ♫ ♭ ♮
 
 ## Whitespace Character
 

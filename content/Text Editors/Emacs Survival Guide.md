@@ -48,5 +48,7 @@ The place in the text where the cursor is is called “point“, because that is
 
 `M-a` and `M-e` moves to the beginning and end of a sentence.
 
+`M-<` (meta less-than, on some keyboards, needs `Shift` to type `<`) to move to the beginning of the buffer, and `M->` (meta more-than) to move to the end of the buffer.
+
 
 
