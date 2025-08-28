@@ -34,3 +34,8 @@ $ emacs -f auto-package-update-now
 
 $ emacs --eval '(progn (sit-for 2) (auto-package-update-now))'
 ```
+
+# Resources
+
+- https://www.nongnu.org/nethack-el/
+- https://www.nethack.org/
