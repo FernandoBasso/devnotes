@@ -34,7 +34,7 @@ Time complexity: $O(1)$.
 > [!NOTE]
 >  `push(val)` returns the new size, while `pop()` returns the node.
 
-T.C. $O(1)$.
+Time complexity: $O(1)$.
 
 - If the stack is empty, return `null`.
 - Let `oldTop` be a reference to the current top.
