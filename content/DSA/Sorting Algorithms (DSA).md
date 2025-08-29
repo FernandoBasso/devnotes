@@ -64,4 +64,4 @@ That is what we want! To compare in descending order, just do `y - x` instead.
 > [!NOTE]
 > This is not a complete or definitive list of sorting algorithms.
 
-- [Bubble Sort](Bubble%20Sort.md)
+- [Bubble Sort (DSA)](Bubble%20Sort%20(DSA).md)

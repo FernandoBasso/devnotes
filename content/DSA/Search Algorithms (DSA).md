@@ -12,7 +12,7 @@ Two main search algorithms:
 
 If the data is sorted, there are some optimizations that can be implemented to make searching faster.
 
-- See [Logarithms](Logarithms.md) as it is important for certain types of search algorithms.
-- See [Arrays](Arrays.md) for a linear search example.
+- See [Logarithms (DSA)](Logarithms%20(DSA).md) as it is important for certain types of search algorithms.
+- See [Arrays (DSA)](Arrays%20(DSA).md) for a linear search example.
 - TODO: Linear Search.
-- See [Binary Search](Binary%20Search.md).
+- See [Binary Search (DSA)](Binary%20Search%20(DSA).md).

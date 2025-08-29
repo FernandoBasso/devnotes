@@ -68,5 +68,5 @@ Math.log2(4096)
 
 Also see:
 
-- [Search Algorithms](Search%20Algorithms.md)
-- [Binary Search](Binary%20Search.md)
+- [Search Algorithms (DSA)](Search%20Algorithms%20(DSA).md)
+- [Binary Search (DSA)](Binary%20Search%20(DSA).md)

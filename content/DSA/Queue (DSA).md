@@ -2,6 +2,7 @@
 tags:
   - dsa
   - queue
+description: Concepts, explanations and practical code examples about the queue data structure.
 ---
 ## Intro to Queues
 
@@ -13,7 +14,7 @@ Queues are a linked list behind the scenes, but it restricts what can be done wi
 
 The space complexity of a queue is $O(n)$.
 
-All the operations have $O(1)$ time complexity if the queue is implemented using linked lists. If the queue is implemented using arrays, then some operation may have $O(n)$ time complexity. If for example, the head is returned and removed using an operation like `shift()` in JavaScript, which causes all the elements to be moved “to the left” by one index, which also means that operation is $O(n)$ time complexity.
+All the operations have $O(1)$ time complexity if the queue is implemented using linked lists. If the queue is implemented using arrays, then some operation may have $O(n)$ time complexity. If for example, the head is returned and removed using an operation like `shift()` in JavaScript,o which causes all the elements to be moved “to the left” by one index, which also means that operation is $O(n)$ time complexity.
 ## enqueue(val)
 
 The enqueue operation appends a new value to the end of the queue and increases the queue length by 1.
