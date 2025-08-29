@@ -17,7 +17,16 @@ Insertion `push(val)` and removal `pop()` in a stack should have $(O(1)$ time co
 
 Search and access is $O(n)$ but if searching and getting values from a stack is what is needed, then consider some other data structure.
 
-## push(val)
+## Using linked lists
+
+We can implement stack using linked lists using a node with a `next` property, or with a `prev` property.
+
+### push(val)
+
+![Stack (DSA) push(val) using linked lists](stack-push-val-linked-list.png)
+
+## Using arrays
+### push(val)
 
 Time complexity: $O(1)$.
 
@@ -33,6 +42,8 @@ Time complexity: $O(1)$.
 
 > [!NOTE]
 >  `push(val)` returns the new size, while `pop()` returns the node.
+
+### pop()
 
 Time complexity: $O(1)$.
 
@@ -50,7 +61,7 @@ Time complexity: $O(1)$.
 > `pop()` returns the node, while `push(val)` returns the new size.
 
 
-## JavaScript
+### JavaScript using arrays
 
 ```javascript
 class Node {
