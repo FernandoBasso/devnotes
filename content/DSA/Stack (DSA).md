@@ -7,6 +7,10 @@ description: Concepts, explanations and practical code examples about the stack 
 
 ## Intro
 
+> [!INFO] Slides
+>
+> [My stack slides on Google Docs](https://docs.google.com/presentation/d/1r-Ktl8b3KYatBVAXjVEk-Z413SMsPIjoBH8Mth4x4q4)
+
 Stack is a concept. Last in, first out (LIFO). Contrast stacks with queues, with are first in, first out (FIFO).
 
 The *insert* operation is generally known as *push*, and the *delete* operation is known as _pop_.
@@ -21,7 +25,7 @@ Search and access is $O(n)$ but if searching and getting values from a stack is 
 
 ## Using linked lists
 
-We can implement stack using linked lists using a node with a `next` property, or with a `prev` property.
+We can implement stack with linked lists and a node with a `next` property, or with a `prev` property. In these next examples, let's use `prev` (instead of `next`). The idea is that a new node added will become the new “top” element, and its `prev` property points to the node that was the “top” element just before the new “top” was pushed to the stack.
 
 ### push(val)
 
