@@ -7,15 +7,17 @@ description: Concepts, explanations and practical code examples about the stack 
 
 ## Intro
 
-Stack is a concept. Last in, first out (LIFO).
+Stack is a concept. Last in, first out (LIFO). Contrast stacks with queues, with are first in, first out (FIFO).
+
+The *insert* operation is generally known as *push*, and the *delete* operation is known as _pop_.
 
 Can be implemented with array `push()` and `pop()` (or similar methods/functions, depending on the programming language).
 
-Yet, as we need only order but not indexes for stacks, we are probably better of by making use a a singly or doubly linked list.
+Yet, as we need only order but not indexes for stacks, it is possible to implement a stack using a a singly or doubly linked list, especially if the programming language we are implement the stack in does not support dynamic arrays (which can grow on demand, vs in languages where we have to define the size of the array before hand).
 
 Insertion `push(val)` and removal `pop()` in a stack should have $(O(1)$ time complexity.
 
-Search and access is $O(n)$ but if searching and getting values from a stack is what is needed, then consider some other data structure.
+Search and access is $O(n)$ but if searching and getting values from a stack is what is needed, then consider some other data structure, as stack are meant to have fast $O(1)$ time complexity on its standard operations. If searching and getting from the “middle” is needed, consider using some other data structure instead.
 
 ## Using linked lists
 
