@@ -31,6 +31,14 @@ We can implement stack with linked lists and a node with a `next` property, or w
 
 ![Stack (DSA) push(val) using linked lists](stack-push-val-linked-list.png)
 
+1. Let `node` be a new node constructed from the value passed.
+2. Then, if the stack is empty:
+	1. Point `top` to `node`.
+3. Otherwise, if the stack is not empty:
+	1. Point `node.prev` to the current `top`.
+	2. Point `top` to `node` so `node` becomes the new `top`.
+4. Increment `size`.
+
 ## Using arrays
 ### push(val)
 
