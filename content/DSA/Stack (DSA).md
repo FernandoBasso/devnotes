@@ -64,6 +64,8 @@ Push inserts a value to the top of the stack and returns void.
 4. Increment `size` by 1.
 5. Return void.
 
+**Time complexity**: $O(1)$.
+
 ### pop(): T | null
 
 1. If  `top` is `null`, then return `null`.
@@ -71,6 +73,8 @@ Push inserts a value to the top of the stack and returns void.
 3. Point `top` to `top.prev` to make `top.prev` become the new `top`.
 4. Decrement `size` by 1.
 5. Return `currentTop.value`.
+
+**Time complexity**: $O(1)$.
 
 ### size(): int
 
