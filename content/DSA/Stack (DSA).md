@@ -27,9 +27,33 @@ Search and access is $O(n)$ but if searching and getting values from a stack is 
 
 We can implement stack with linked lists and a node with a `next` property, or with a `prev` property. In these next examples, let's use `prev` (instead of `next`). The idea is that a new node added will become the new “top” element, and its `prev` property points to the node that was the “top” element just before the new “top” was pushed to the stack.
 
-### push(val)
+### Value container
+
+Internally, we'll use a container to store the value and the pointer to the previous item on the stack:
+
+```typescript
+type Node<T> = {
+  value: T | null;
+  prev: Node<T> | null;
+};
+```
+
+This `Node` example is a recursive data structure as `prev` points to `Node<T>`.
+### Constructor
+
+The constructor is generic over a given type `T` and creates an empty stack.
+
+```typescript
+const stack = new Stack<string>();
+```
+
+If desirable, the constructor could be implemented to accept a variadic number of arguments or a collection and create a non-empty stack, maintaining the order of the passed-in arguments.
+
+### push(val): void
 
 ![Stack (DSA) push(val) using linked lists](stack-push-val-linked-list.png)
+
+Push inserts a value to the top of the stack and returns void.
 
 1. Let `node` be a new node constructed from the value passed.
 2. Then, if the stack is empty:
@@ -37,7 +61,20 @@ We can implement stack with linked lists and a node with a `next` property, or w
 3. Otherwise, if the stack is not empty:
 	1. Point `node.prev` to the current `top`.
 	2. Point `top` to `node` so `node` becomes the new `top`.
-4. Increment `size`.
+4. Increment `size` by 1.
+5. Return void.
+
+### pop(): T | null
+
+1. If  `top` is `null`, then return `null`.
+2. Let `currentTop` be a reference to `top`.
+3. Point `top` to `top.prev` to make `top.prev` become the new `top`.
+4. Decrement `size` by 1.
+5. Return `currentTop.value`.
+
+### size(): int
+
+`size()` returns an integer indicating how many elements are in the stack. Returns 0 (zero) if the stack is empty.
 
 ## Using arrays
 ### push(val)
