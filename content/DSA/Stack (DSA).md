@@ -76,6 +76,14 @@ Push inserts a value to the top of the stack and returns void.
 
 `size()` returns an integer indicating how many elements are in the stack. Returns 0 (zero) if the stack is empty.
 
+**Time complexity**: $O(1)$. We can keep an internal counter that gets updated when elements are pushed or popped from the stack. This way, when the `size()` is requested, there is no need to walk the stack and count how many elements it contains. We can simply return the value of this internal counter.
+
+### isEmpty(): bool
+
+Returns a boolean indicating whether the stack is empty or not. The stack is empty if its `top` is `null` or its internal length/size counter is 0 (zero).
+
+**Time complexity**: $O(1)$.
+
 ## Using arrays
 ### push(val)
 
