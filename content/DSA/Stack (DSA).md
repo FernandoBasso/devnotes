@@ -29,16 +29,17 @@ We can implement stack with linked lists and a node with a `next` property, or w
 
 ### Value container
 
-Internally, we'll use a container to store the value and the pointer to the previous item on the stack:
+Internally, we'll use a container which is generic over  `T` to store the value and the pointer to the previous item on the stack:
 
 ```typescript
-type Node<T> = {
+type TNode<T> = {
   value: T | null;
-  prev: Node<T> | null;
+  prev: TNode<T> | null;
 };
 ```
 
-This `Node` example is a recursive data structure as `prev` points to `Node<T>`.
+This is an example of a recursive data structure because `prev` points to `TNode<T>`.
+
 ### Constructor
 
 The constructor is generic over a given type `T` and creates an empty stack.
