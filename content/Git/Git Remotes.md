@@ -30,3 +30,5 @@ git push --set-upstream myrepos HEAD
 ```
 
 `HEAD` is the current branch. It could be `devel`, `main` or any other branch we want to push and track. It will sequentially push the refs to those two remotes.
+
+From now on (unless a new default target is set), a simple `git push myrepos HEAD` will push the commits of the current branch to both `gh` and `gl` remotes.

@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.hasTag("dsa")
+    order:
+      - file.name
+      - tags
+    sort:
+      - property: tags
+        direction: ASC
+    columnSize:
+      note.tags: 331
+  - type: cards
+    name: Card
+    cardSize: 240
+    imageFit: contain
+    image: file.file
