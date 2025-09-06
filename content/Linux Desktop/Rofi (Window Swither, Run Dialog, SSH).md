@@ -3,6 +3,7 @@ tags:
   - linux
   - desktop
   - rofi
+description: Notes, tips and examples on installing, configuring and using Rofi on Arch Linux.
 ---
 ## Intro
 

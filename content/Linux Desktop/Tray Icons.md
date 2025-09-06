@@ -2,6 +2,7 @@
 tags:
   - xfce
   - discord
+description: Notes, tips, fixes and ideas on tray icons in Linux with Xfce, Gnome, etc.
 ---
 ## Xubuntu Xfce & Discord Tray Icon
 

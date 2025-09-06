@@ -2,6 +2,7 @@
 tags:
   - desktop
   - freedesktop
+description: Notes, tips and examples on working with .desktop files on Linux.
 ---
 
 ## Intro

@@ -2,6 +2,7 @@
 tags:
   - arch-linux
   - nvidia
+description: Notes, tips and examples about NVidia, gaming and related topics on Arch Linux
 ---
 
 ## Cannot access tty

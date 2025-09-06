@@ -1,6 +1,7 @@
 ---
 tags:
   - arch-linux
+description: Notes, tips and examples on installing, configuring and using Arch Linux.
 ---
 # VLC
 

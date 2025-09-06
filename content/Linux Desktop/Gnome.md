@@ -5,6 +5,7 @@ tags:
   - gnome
   - window-manager
   - desktop-environment
+description: Notes, tips and examples about Gnome Desktop Environment.
 ---
 # Alt+Tab (App Switcher)
 

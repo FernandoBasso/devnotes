@@ -3,6 +3,7 @@ tags:
   - linux
   - desktop
   - emoji
+description: Notes, tips and examples on installing and using Emoji pickers and tools on Linux.
 ---
 
 # Emoji pickers for Linux

@@ -4,6 +4,7 @@ tags:
   - pacman
   - package-manager
   - search
+description: Notes, tips and examples on managing packages on Arch Linux with pacman and related tools
 ---
 ## Search By Package name
 
