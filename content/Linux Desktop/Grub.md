@@ -34,6 +34,8 @@ New optional dependencies for grub
 
 Run:
 
+Mount root partition to `/mnt`, then mount EFI special partition to `/mnt/boot` before running `arch-chroot /mnt`.
+
 ```text
 $ sudo grub-install \
     --target=x86_64-efi \
@@ -61,4 +63,30 @@ Check GRUB_DISABLE_OS_PROBER documentation entry.
 
 Adding boot menu entry for UEFI Firmware Settings ...
 done
+```
+
+## Lukus & cryptosetup
+
+```text
+$ lsblk 
+NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+sda           8:0    0 931.5G  0 disk  
+├─sda1        8:1    0   100M  0 part  
+├─sda2        8:2    0 488.2G  0 part  
+└─sda3        8:3    0 443.2G  0 part  
+zram0       252:0    0     4G  0 disk  [SWAP]
+nvme0n1     259:0    0 953.9G  0 disk  
+├─nvme0n1p1 259:1    0     1G  0 part  /boot
+├─nvme0n1p2 259:2    0  89.4G  0 part  
+│ └─root    253:0    0  89.4G  0 crypt /
+└─nvme0n1p3 259:3    0 863.5G  0 part  
+  └─home    253:1    0 863.4G  0 crypt /home
+```
+
+
+Mount encrypted partition:
+
+```text
+$ sudo cryptosetup luksOpen /dev/nvme0n1p1 mycryptoroot
+$ sudo mount /dev/mapper/mycruptoroot /mnt
 ```
