@@ -2,8 +2,8 @@
 tags:
   - bash
   - builtin
+description: Concepts, notes, examples and tips on Bash built-in commands
 ---
-
 ## Intro
 
 A “built-in” is a command provided by the shell itself, not a program stored somewhere in the path.

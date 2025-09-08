@@ -88,5 +88,5 @@ Mount encrypted partition:
 
 ```text
 $ sudo cryptosetup luksOpen /dev/nvme0n1p1 mycryptoroot
-$ sudo mount /dev/mapper/mycruptoroot /mnt
+$ sudo mount /dev/mapper/mycruptoroot /mnto
 ```

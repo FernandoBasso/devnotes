@@ -5,6 +5,7 @@ tags:
   - man
   - info
   - help
+description: Concepts, notes, examples and tips on man, info and help utilities for reading documentation about tools, commands and programs on Unix-like systems.
 ---
 It is good habit read man pages, help pages, and info pages instead of immediately jumping to a web search (or AI nowadays).
 
@@ -14,7 +15,7 @@ It is good habit read man pages, help pages, and info pages instead of immediate
 ## help
 
 > [!TIP]
-> Read the document about *built-ins*. `built-ins-page`.
+> Read the document about *built-ins*. More on [Bash Built-in Commands](Bash%20Built-in%20Commands.md).
 
 Shells have built-in commands.
 Some of Bash's built-ins include commands like `help`, `pwd`, `type`, and `cd`.
