@@ -7,6 +7,22 @@ tags:
 
 Recursion is an approach where a function calls itself again, in a sort of a loop, until a certain state, called _the base case_ is reached thus causing the function to return the value of computation and stop recurring.
 
+## Pre and post steps
+
+When dealing with recursion, _and we don't return from the recursive call itself_, we can make use of the pre and post steps, and the recursive call itself:
+
+```text
+function f(xs, acc, g) {
+  if (empty(xs)) return acc;
+
+  // Do something before recursing (pre step).
+  
+  f(cdr(xs), g(car(xs)), g);
+  
+  // Do something after the recursion (post step).
+}
+```
+
 ## Sum to
 
 ```typescript
@@ -40,3 +56,4 @@ RangeError: Maximum call stack size exceeded
 ```
 
 “Expected” because ECMAScript runtimes do not support tail optimization (TCO), and there is a relatively “small” stack size for recursion.
+

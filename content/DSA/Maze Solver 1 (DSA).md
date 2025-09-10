@@ -59,3 +59,11 @@ But we _cannot always_ move in those direction at will, as we cannot move:
 - It is a point we have been before.
 
 Those are base cases which mean the path we were exploring didn't get us to an exit, and therefore we must stop and “return” so another path can be explored.
+
+
+Loop:
+
+When a 2D array is traversed, either the columns or the rows can be visited first.
+
+
+When the function is recursing, it is not known what happens after the recursive call
