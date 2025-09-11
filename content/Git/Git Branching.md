@@ -3,6 +3,7 @@ tags:
   - git
   - branch
   - cmdline
+description: Notes,  tips and examples on git branching commands.
 ---
 ## Git Branching
 
