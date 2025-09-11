@@ -22,7 +22,7 @@ description: The classic "filter and sum" coding examples which is commonly used
 ;;=> 4
 ```
 
-## Using the thread last operator
+### Using the thread last operator
 
 ```clojure
 (defn filter-sum
