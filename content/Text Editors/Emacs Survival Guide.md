@@ -47,3 +47,31 @@ The place in the text where the cursor is is called “point“, because that is
 `M-a` and `M-e` moves to the beginning and end of a sentence.
 
 `M-<` (meta less-than, on some keyboards, needs `Shift` to type `<`) to move to the beginning of the buffer, and `M->` (meta more-than) to move to the end of the buffer.
+
+## Finding docs and help
+
+### isearch-describe-key C-h k
+
+`C-h k` followed by some keybinding, like `C-x C-s` shows the documentation of that keybinding, including to which function it is bound to.
+
+Some commands take a prefix, like `C-u C-SPC` (`pop-mark`). But if we try `C-h k C-u C-SPC`, the help will show up right after we type `C-u` and *before* we have the chance to complete with `C-SPC`. It happens that the use of prefixes (`C-u`, `M-some-number`) is generally documented in the normal command without the prefix. So for `C-c C-SPC`, we should look for the help text of `C-SPC` without the `C-u` first. So, instead of `C-h k C-u C-SPC`, we type `C-h k C-SPC`.
+
+![Emacs C-h k prefix argument help example](emacs-c-h-k-prefix-argument-help-example.png)
+
+We also find 
+## Go to definition
+
+By default `M-.` is invokes `xref-find-definitions`, which is a “go to definition“. It will cause point to jump to the definition, be it in the same file or some other file (LSP may be involved to make it work depending on our emacs setup and programming language in question).
+
+To go back to the previous jump mark, use `C-u C-SPC` (`set-mark-command`), or `C-x C-SPC` or `C-x C-@` (`pop-global-mark)` if the jump involves different files/buffers. 
+
+Read more:
+
+- `C-h k M-.` or `C-h f xref-find-definitions`.
+- `C-h k C-SPC` or `C-h f set-mark-command`.
+- `C-h k C-x C-SPC` or `C-h f pop-global-mark`.
+
+Packages that could help jumping around:
+
+- https://github.com/gilbertw1/better-jumper
+- https://github.com/emacs-evil/goto-chg
