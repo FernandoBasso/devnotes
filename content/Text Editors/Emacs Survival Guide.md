@@ -37,18 +37,13 @@ The place in the text where the cursor is is called “point“, because that is
 `M-b` and `M-f` moves the cursor back and forth by one _word_.f
 
 > [!NOTE] Screen edges and scrolling
->
 > When the cursor is at the edge of the screen, most these movement keybindings will scroll the screen in some appropriate way so that the cursor and the text surrounding it is still visilbe.
 
 > [!INFO] meta vs control
->
-> > Notice the parallel between `C-f` and `C-b` on the one hand, and `M-f` and `M-b` on the other hand.  Very often *meta* characters are used for operations related to the units defined by language (words, sentences, paragraphs), while _control_ characters operate on basic units that are independent of what you are editing (characters, lines, etc).
+> Notice the parallel between `C-f` and `C-b` on the one hand, and `M-f` and `M-b` on the other hand.  Very often *meta* characters are used for operations related to the units defined by language (words, sentences, paragraphs), while _control_ characters operate on basic units that are independent of what you are editing (characters, lines, etc).
 
 `C-a` and `C-e` move to the beginning and end of a line.
 
 `M-a` and `M-e` moves to the beginning and end of a sentence.
 
 `M-<` (meta less-than, on some keyboards, needs `Shift` to type `<`) to move to the beginning of the buffer, and `M->` (meta more-than) to move to the end of the buffer.
-
-
-
