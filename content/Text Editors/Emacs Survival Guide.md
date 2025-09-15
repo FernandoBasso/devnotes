@@ -58,7 +58,6 @@ Some commands take a prefix, like `C-u C-SPC` (`pop-mark`). But if we try `C-h k
 
 ![Emacs C-h k prefix argument help example](emacs-c-h-k-prefix-argument-help-example.png)
 
-We also find 
 ## Go to definition
 
 By default `M-.` is invokes `xref-find-definitions`, which is a “go to definition“. It will cause point to jump to the definition, be it in the same file or some other file (LSP may be involved to make it work depending on our emacs setup and programming language in question).
