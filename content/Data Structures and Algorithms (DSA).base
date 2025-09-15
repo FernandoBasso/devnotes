@@ -1,9 +1,6 @@
 views:
   - type: table
     name: Table
-    filters:
-      and:
-        - file.hasTag("dsa")
     order:
       - file.name
       - tags

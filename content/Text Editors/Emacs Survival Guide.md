@@ -2,6 +2,7 @@
 tags:
   - emacs
   - keybindings
+description: Notes and practical examples on the most common and useful tasks while working on a programming project using Emacs.
 ---
 
 ## Notes from the Emacs tutorial
@@ -56,7 +57,7 @@ The place in the text where the cursor is is called “point“, because that is
 
 Some commands take a prefix, like `C-u C-SPC` (`pop-mark`). But if we try `C-h k C-u C-SPC`, the help will show up right after we type `C-u` and *before* we have the chance to complete with `C-SPC`. It happens that the use of prefixes (`C-u`, `M-some-number`) is generally documented in the normal command without the prefix. So for `C-c C-SPC`, we should look for the help text of `C-SPC` without the `C-u` first. So, instead of `C-h k C-u C-SPC`, we type `C-h k C-SPC`.
 
-![Emacs C-h k prefix argument help example](emacs-c-h-k-prefix-argument-help-example.png)
+![Emacs C-h k prefix argument help example](../__assets/emacs-c-h-k-prefix-argument-help-example.png)
 
 ## Go to definition
 
