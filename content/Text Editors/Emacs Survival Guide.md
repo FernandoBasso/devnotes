@@ -76,3 +76,7 @@ Packages that could help jumping around:
 
 - https://github.com/gilbertw1/better-jumper
 - https://github.com/emacs-evil/goto-chg
+
+## Resources
+
+- https://www.reddit.com/r/emacs/comments/uc25wx/navigating_an_enormous_code_base/
