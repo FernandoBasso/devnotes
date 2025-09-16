@@ -11,6 +11,8 @@ description: My notes, tips and ideas on the Closure programming language.
 - https://leiningen.org/
 - https://wiki.archlinux.org/title/Clojure
 - https://guide.clojure.style/
+- https://londonclojurians.org/code-dojo/
+- https://github.com/ldnclj
 
 See [Install Tools With ASDF](Install%20Tools%20With%20ASDF.md).
 

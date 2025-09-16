@@ -6,6 +6,25 @@ tags:
   - recursion
 description: Some notes, tips and examples on implementing a word count program using loops and recursion.
 ---
+## Intro
+
+Create a function `word-count` that takes a string and returns a map of each unique word to its frequency. Here, assume a word is any number of characters separated by a whitespace.
+
+Assume the input contains only lowercase characters and is not empty.
+
+Examples:
+
+```clojure
+(word-count "aa")
+;;=> {"aa" 1}
+
+(word-count "aa aa aa")
+;;=> {"aa" 3}
+
+(word-count "aa bb cc aa bb aa")
+;;=> {"aa" 3, "bb" 2, "cc" 1}
+```
+
 ## Clojure
 
 ### Solution 1 (code duplication)
