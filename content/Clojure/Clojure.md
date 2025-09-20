@@ -5,7 +5,7 @@ tags:
   - text-editor
 description: My notes, tips and ideas on the Closure programming language.
 ---
-## Intro
+## Links and Resources
 
 - https://clojure.org/guides/install_clojure
 - https://leiningen.org/
@@ -16,6 +16,9 @@ description: My notes, tips and ideas on the Closure programming language.
 
 See [Install Tools With ASDF](Install%20Tools%20With%20ASDF.md).
 
+Posts, videos and other interesting Clojure stuff:
+
+- https://www.parens-of-the-dead.com/
 
 ## Static Analyzer & Linters
 
