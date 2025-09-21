@@ -79,5 +79,7 @@ In Emacs:
   :ensure t
   :config
   (add-hook 'haskell-mode-hook #'lsp)
-  (add-hook 'haskell-literate-mode-hook #'lsp))
+  (add-hook 'haskell-literate-mode-hook #'lsp)
+  (add-hook 'inferior-haskell-mode-hook (lambda ()
+                                          (setq show-trailing-whitespace nil))))
 ```
