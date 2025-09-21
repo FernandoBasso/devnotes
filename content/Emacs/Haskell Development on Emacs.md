@@ -44,6 +44,40 @@ Emacs `simple.el` provides `(next-error)` and `(prev-error)`.
 
 We can do `describe-function` (`M-h f`) and `describe-key` (`M-h k`) to figure if a function is bound to a key, and to what function a key is bound.
 
-## Emacs and LSP
+## Emacs and LSP Haskell
 
 * http://abailly.github.io/posts/a-modern-haskell-env.html
+- https://github.com/emacs-lsp/lsp-haskell
+- https://github.com/haskell/haskell-language-server
+
+```bash
+$ ghcup install hls
+```
+
+In Emacs:
+
+```lisp
+;;;;
+;; https://emacs-lsp.github.io/lsp-mode/page/installation/#use-package
+;;
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((clojure-ts-mode . lsp)
+         (haskell-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-ui
+  :ensure t)
+  
+(use-package lsp-haskell
+  :ensure t)
+
+(use-package haskell-mode
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook #'lsp)
+  (add-hook 'haskell-literate-mode-hook #'lsp))
+```
