@@ -74,7 +74,7 @@ In Emacs:
   
 (use-package lsp-haskell
   :ensure t)
-
+pu
 (use-package haskell-mode
   :ensure t
   :config

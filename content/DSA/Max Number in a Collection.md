@@ -109,6 +109,34 @@ With this approach, instead of having multiple signatures to handle the negative
 With this approach, instead of using `first` and `rest`, we use destructuring to handle the first element, and the rest of the elements. Haskell has something like this as well:
 
 ```haskell
+go (x:xs) maxSoFar = ...
+```
+
+Where `x` is the first element, and `xs` is the rest of the collection. Very similar to Clojure's. 
+```
+go [x & xs] max-so-far ...
+```
+
+## Haskell
+
+## v1
+
+```haskell
+mymax :: [Integer] -> Integer
+mymax [] = error "Empty list has no maximum number"
+mymax (x:xs) = go x xs
+  where
+    go :: Integer -> [Integer] -> Integer
+    go maxSoFar [] = maxSoFar
+    go maxSoFar (curr:rest) =
+      if curr > maxSoFar
+      then go curr rest
+      else go maxSoFar rest
+```
+
+
+
+```haskell
 
 ```
 
