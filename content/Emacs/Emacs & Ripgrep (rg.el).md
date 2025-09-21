@@ -26,4 +26,4 @@ Let's assume we re using the default `rg.el` keybindings:
 
 Mark a region of text then type `C-c s t` and the selected text should be placed as the search text by default in the minibuffer.
 
-![](emacs-ripgrep-rgel-search-region.png)
+![Emacs Ripgrep rg.el search region example](../__assets/emacs-ripgrep-rgel-search-region.png)
