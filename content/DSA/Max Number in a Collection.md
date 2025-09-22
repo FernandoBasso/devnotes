@@ -7,19 +7,18 @@ description: Notes, tips and examples on finding the maximum number in a collect
 ---
 ## Problem statement
 
-
 ## Clojure
 
 Given a collection of numbers, return the largest one. If the collection starts empty, return some representation of negative infinity $-\infty$.
 
-## v1, recursive call, multiple signatures
+### v1, recursive call, multiple signatures
 
 **Time complexity**: $O(n)$, as the collection is traversed once.
 
 **Space complexity**: $O(1)$ as we don't use any new space besides the `max-so-far` numeric parameter.
 
 ```clojure
-(defn max
+(defn maximum
   "Return the largest nubmer in the given collection."
   ([xs]
    (max xs Double/NEGATIVE_INFINITY))
@@ -29,23 +28,23 @@ Given a collection of numbers, return the largest one. If the collection starts 
      (let [x (first xs)
            remaining (rest xs)]
        (if (> x max-so-far)
-         (max remaining x)
-         (max remaining max-so-far))))))
+         (maximum remaining x)
+         (maximum remaining max-so-far))))))
 
-(max [])
+(maximum [])
 ;;=> ##-Inf
 
-(max [-5 -1])
+(maximum [-5 -1])
 ;;=> -1
 
-(max [-5 -1 9 42])
+(maximum [-5 -1 9 42])
 ;;=> 42
 
-(max [-5 1 9 42 -42])
+(maximum [-5 1 9 42 -42])
 ;;=> 42
 ```
 
-## v2, letfn
+### v2, letfn
 
 ```clojure
 (defn maximum
@@ -117,6 +116,39 @@ Where `x` is the first element, and `xs` is the rest of the collection. Very sim
 go [x & xs] max-so-far ...
 ```
 
+### v4, loop, recur
+
+In Clojure, `loop` & `recur` are generally more performant than vanilla recursion due to the way Clojure is implemented through the JVM.
+
+```clojure
+(defn maximum
+   "Return the maximum value in the given numeric
+   collection; nil if the collection is empty."
+  [xs]
+  (if (empty? xs)
+    nil
+    (loop [max-so-far Double/NEGATIVE_INFINITY
+           [x & remaining] xs]
+      (if (nil? x)
+        max-so-far
+        (if (> x max-so-far)
+          (recur x remaining)
+          (recur max-so-far remaining))))))
+
+(maximum [])
+;;=> ##-Inf
+
+(maximum [-5 -1])
+;;=> -1
+
+(maximum [-5 -1 9 42])
+;;=> 42
+
+(maximum [-5 1 9 42 -42])
+;;=> 42
+```
+
+Note the base case inside the `loop`. It checks if `(nil? x)`. It could also be if `(empty? remaining)` as well.
 ## Haskell
 
 ## v1
@@ -134,68 +166,3 @@ mymax (x:xs) = go x xs
       else go maxSoFar rest
 ```
 
-
-
-```haskell
-
-```
-
-
-
-What improvements can be made to this implementation without switching
-to loop & recur? The goal is to make sure the code is idiomatic
-Clojure, and performance should be kept in mind as well.
-### 1. Prefer Destructuring Over `first`/`rest`
-Using sequence destructuring is more idiomatic than calling `first` and `rest` repeatedly:
-
-```clojure
-(letfn [(go [[x & xs] max-so-far]
-          (if (nil? x)
-            max-so-far
-            (go xs (if (> x max-so-far) x max-so-far))))]
-  (go xs Double/NEGATIVE_INFINITY))
-```
-
----
-
-### 2. Avoid Using `Double/NEGATIVE_INFINITY` with Integers
-
-If your numbers are all integers, returning `Double/NEGATIVE_INFINITY` might be surprising. Instead, you could use `nil` for empty collections and initialize with the first value (after checking for emptiness):
-
-```clojure
-(defn maximum [xs]
-  (cond
-    (empty? xs) nil
-    :else
-    (letfn [(go [[x & xs] max-so-far]
-              (if (nil? x)
-                max-so-far
-                (go xs (if (> x max-so-far) x max-so-far))))]
-      (go (rest xs) (first xs)))))
-```
-
----
-
-### 3. Use `apply max` for Simplicity
-
-Clojure’s standard library already provides a fast (and idiomatic) way to find a maximum:
-```clojure
-(defn maximum [xs]
-  (when (seq xs)
-    (apply max xs)))
-```
-This is both highly idiomatic and efficient.
-
----
-
-### 4. Performance Note
-
-- Your recursive implementation is already optimal (tail recursion) for what it does.
-- For very large collections, the standard library versions (`max`, `reduce`) are highly optimized in Clojure.
-
----
-
-## Summary
-
-- **Most idiomatic:** use Clojure’s built-in `max` and `apply`, returning nil if empty.
-- **If you want to stick with recursion:** use destructuring, initialize with `first`, and avoid special IEEE values when possible.
