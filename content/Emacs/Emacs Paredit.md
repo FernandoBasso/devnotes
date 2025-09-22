@@ -10,7 +10,7 @@ description: Notes, tips and examples with practical guidance on using Paredit t
 > [!NOTE] Point (cursor)
 > In these notes and examples, assume “|” represents the place where point (cursor) is.
 
-## paredit-forward-slurp-sexp
+## paredit-forward-slurp-sexp in Clojure buffer
 
 > [!TIP]
 > Run `C-h paredit-forward-slurp-sexp` to read its documentation.
@@ -34,3 +34,5 @@ Apply `paredit-forward-slurp-sexp`, and the result is:
 ```
 
 Also, even if one or more space/whitespace characters are inside the s-exp, it still doesn't work. So, it has to be some actual printable/visible characters inside the s-exp for the slurp to work.
+
+However, it all works fine even with empty s-exps in the scratch buffer. So, the problem is probably the LSP or other Clojure-related package getting in the way, or my syntax was not correct to begin with, causing paredit to not be able to do its thing.
