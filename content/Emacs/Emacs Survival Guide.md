@@ -77,6 +77,10 @@ Packages that could help jumping around:
 - https://github.com/gilbertw1/better-jumper
 - https://github.com/emacs-evil/goto-chg
 
+## Built-in search capabilities
+
+Search word under cursor, similar to Vim's `*` and `#`: Start a search with `C-s`, then `C-w` one or more times to increment the search, then `C-s` again one or more time. The search go back with `C-r`. It is also possible to start a search with `C-r` as well, and then `C-s` will “reverse” the direction of the search.
+
 ## Resources
 
 - https://www.reddit.com/r/emacs/comments/uc25wx/navigating_an_enormous_code_base/
