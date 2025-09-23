@@ -19,6 +19,10 @@ Let's assume we re using the default `rg.el` keybindings:
   (rg-enable-default-bindings))
 ```
 
+## Basics
+
+After a search is performed, maybe with `C-c s t`, it is **not** necessary for point to be in the rg results buffer to navigate the results. `M-g n` and `M-g p` will navigate the results, even if the rg results buffer is not visible (when, for example, it was hidden with `C-x 1` to focus on some other buffer exclusively).
+
 ## Search region (visual selection)
 
 > [!INFO] What are regions?
