@@ -18,11 +18,12 @@ description: Tips and examples on configuring and using Treemacs.
   :ensure t
   :after treemacs)
 
-(use-package treemacs
+(use-package treemacs-all-the-icons
   :ensure t
-  :defer t
+  :after treemacs
   :config
-  (treemacs-load-theme "all-the-icons"))
+  (treemacs-add-and-display-current-project-exclusively)
+  (treemacs-follow-mode t))
 ```
 
 Run `M-x all-the-icons-install-fonts`.

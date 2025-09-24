@@ -3,6 +3,11 @@ tags:
   - emacs
   - text-editor
 ---
+
+## Install on macOS
+
+https://github.com/d12frosted/homebrew-emacs-plus
+
 ## Lines
 
 - `M-x column-number-mode RET`
