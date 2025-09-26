@@ -44,3 +44,4 @@ $ emacs --eval '(progn (sit-for 2) (auto-package-update-now))'
 
 - https://www.nongnu.org/nethack-el/
 - https://www.nethack.org/
+- https://emacsredux.com/
