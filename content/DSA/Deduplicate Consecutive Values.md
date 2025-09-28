@@ -50,3 +50,23 @@ Note that 1 shows up again at the end because it appeared after 3, so, the secon
 (dedup [1 1 1 2 2 3 3 3 1 1 1])
 ;;=> [1 2 3 1]
 ```
+
+### v2, loop & recur
+
+```clojure
+(defn dedup
+  "De-duplicates consecutive identical elements."
+  [xs]
+  (loop [remaining-xs xs
+         deduped-xs []
+         last-seen-x nil]
+    (if (empty? remaining-xs)
+      deduped-xs
+      (recur (rest remaining-xs)
+             (if (= (first remaining-xs) last-seen-x)
+               deduped-xs
+               (conj deduped-xs (first remaining-xs)))
+             (first remaining-xs)))))
+```
+
+Note that the parameters and the whole logic is the same as with the vanilla recursion.
