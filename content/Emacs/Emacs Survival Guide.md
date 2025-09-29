@@ -60,6 +60,28 @@ Some commands take a prefix, like `C-u C-SPC` (`pop-mark`). But if we try `C-h k
 ![Emacs C-h k prefix argument help example](../__assets/emacs-c-h-k-prefix-argument-help-example.png)
 
 Also take a look at `C-h b` and `C-h w`.
+
+## Files and directories
+
+## C-x C-f (find-file)
+
+With a package like ido, help, etc., trying to `C-x C-f` to create a new file will attempt to complete similar names of files in the given directory, and open that instead of creating a new one.
+
+- https://stackoverflow.com/questions/16615253/emacs-will-not-visit-new-file-but-insists-on-opening-a-similar-one
+
+People recommend a few things, like typing `C-f` once again, or using `C-j` instead of `RET`. Those may or may not work depending on the packages and configs involved. Didn't work for me as I am using helm and vertico.
+
+One option is to disable vertico-mode, `C-x C-f` to create the new file without vertico getting in the way, then enabling it again.
+
+Another approach to do it with a shell command, either `M-x eshell` or `M-!`, and create the file with `: > newfile` or `touch > newfile`.  Both will have PWD on the directory of the current file.
+
+Fortunatelly, vertico binds `M-RET` to `vertico-exit-input`, which is what we want:
+
+> `vertico-exit` exits with the currently selected candidate, while `vertico-exit-input` exits with the minibuffer input instead. Exiting with the current input is needed when you want to create a new buffer or a new file with `find-file` or `switch-to-buffer`. As an alternative to pressing `M-RET`, move the selection up to the input prompt by pressing the `up` arrow key and then press `RET`.
+>
+> — https://github.com/minad/vertico?tab=readme-ov-file#key-bindings
+
+On my setup `arrow up` does the same as `C-p` (previous), so I don't need to have my fingers move away from the home key.
 ## Go to definition
 
 By default `M-.` is invokes `xref-find-definitions`, which is a “go to definition“. It will cause point to jump to the definition, be it in the same file or some other file (LSP may be involved to make it work depending on our emacs setup and programming language in question).
