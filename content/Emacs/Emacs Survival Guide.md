@@ -75,7 +75,7 @@ One option is to disable vertico-mode, `C-x C-f` to create the new file without 
 
 Another approach to do it with a shell command, either `M-x eshell` or `M-!`, and create the file with `: > newfile` or `touch > newfile`.  Both will have PWD on the directory of the current file.
 
-Fortunatelly, vertico binds `M-RET` to `vertico-exit-input`, which is what we want:
+Fortunately, vertico binds `M-RET` to `vertico-exit-input`, which is what we want:
 
 > `vertico-exit` exits with the currently selected candidate, while `vertico-exit-input` exits with the minibuffer input instead. Exiting with the current input is needed when you want to create a new buffer or a new file with `find-file` or `switch-to-buffer`. As an alternative to pressing `M-RET`, move the selection up to the input prompt by pressing the `up` arrow key and then press `RET`.
 >
