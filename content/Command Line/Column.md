@@ -52,7 +52,11 @@ ID  NAME     EDITOR
 3   Vader    ed
 ```
 
-## Line too long error and misalignment
+## Line to long error
+
+Sometimes the input is missing the final newline. Could happen because it doesn't have the newline, or when copying the content it gets missing.
+
+## Misalignment on Tab separator
 
 Give this input:
 
