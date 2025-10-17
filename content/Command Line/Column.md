@@ -113,3 +113,5 @@ The problem is that `\\t` becomes `\t`, just as `'\t'` becomes `\t`, and some co
 With most shells, `$'\t'` will do the trick. Also, in some combinations of terminal & shell, it is possible to type an actual tabulation character by `Ctrl+v Tab` (similar to Emacs `C-c q Tab` or Vim `C-v Tab`). I had to enclose the tabulation in quotes, that is.
 
 Hit `column -s -t` followed by open quotes, then type the literal tab with `Ctrl+v Tab`, then close the quote, then enter.
+
+A Tab can also be produced with `printf '\t'` or `printf \011`, so something like this would work too: `column -t -s "$(printf '\011')"`.
