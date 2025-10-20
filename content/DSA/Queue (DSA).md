@@ -23,7 +23,7 @@ The enqueue operation appends a new value to the end of the queue and increases 
 
 First of all, how do we determine whether the queue is empty? Two ways:
 - If `length` is 0 (zero).
-- If `head` is `null`.
+- If either `head` or `tail` is `null`.
 
 Steps:
 - Let `newNode` be a new node constructed with `val`.
