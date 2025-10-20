@@ -3,6 +3,7 @@ tags:
   - dsa
   - sort
   - bubble-sort
+description: Notes, tips and examples on implementing the bubble sorting algorithm.
 ---
 ## Intro to Bubble Sort
 
@@ -105,6 +106,8 @@ export function bubbleSort(xs: Array<number>): Array<number> {
   return xs;
 }
 ```
+
+The `- i` makes sure the inner loop stops one index before the index that was last sorted and caused the value to bubble up. It avoids unnecessary comparisons for elements we know are already sorted.
 
 Note how we write `len - 1`. That is important otherwise when we do `j + 1` we would end up in an out-of-bounds error at the end of the first iteration which would cause different problems in different languages.
 
