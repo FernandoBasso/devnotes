@@ -8,9 +8,9 @@ description: Concepts, explanations and practical code examples about the queue 
 
 Queues are a linked list behind the scenes, but it restricts what can be done with it _on purpose_ to guarantee constant time complexity for its operations, which are generally these:
 
-- enqueue
-- dequeue
-- peek 
+- enqueue: add an element to the end (tail).
+- dequeue: return and remove the element in the front of the queue (head).
+- peek: return the first element (head) without modifying the queue in any way.
 
 The space complexity of a queue is $O(n)$.
 
@@ -20,7 +20,7 @@ All the operations have $O(1)$ time complexity if the queue is implemented using
 
 To implement a queue with a linked list, we need a container type which contains at least the value and the pointer to the next item of the queue, if any:
 
-```typescript
+```typescript title="QNode in TypeScript"
 type QNode<T> = {
   val: T;
   next: QNode<T> | null;
@@ -31,7 +31,7 @@ Note that `next` points to `QNode<T>`, making the type definition recursive.
 
 We also need a way to keep the `head`, `tail` and the `length` of the queue. Let's start with this:
 
-```typescript
+```typescript title="Queue class in TypeScript"
 class Queue<T> {
   #head: QNode<T> | null;
   #tail: QNode<T> | null;
