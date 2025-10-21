@@ -45,7 +45,7 @@ class Queue<T> {
 }
 ```
 
-## enqueue(val)
+## enqueue(val): void
 
 The enqueue operation appends a new value to the end of the (side of the queue which contains the tail) queue and increases the queue length by 1.
 
@@ -72,12 +72,73 @@ Note that in this case, both `head` and `tail` point to the new node, as the que
 
 Note that the algorithm for enqueuing to a non-empty queue works whether the queue contains a single element (in which case both `head` and `tail` point to the same element), or it contains more than one element (in which case `head` and `tail` _do not_ point to the same element). It works in both cases because the algorithm only has to concern itself with fiddling with the `tail`. The `head` remains untouched.
 
-## dequeue()
+Also, note that we point `newNode` to both `tail.next` **and** `tail`. That is because `tail.next` points to `null`, and now we are adding a new node to the end, so `tail.next` has to point to that new node. Then of course, the current tail is not the tail any longer, but the new node has to become the new tail, which is why `tail` has to now point to `newNode`.
 
-The dequeue operation returns the head value, makes the next element become the new head, and decrease the queue length by 1.
+## dequeue(): T | null
 
-- If the queue is empty (`length` is 0, no `head`) return `null`.
-- Increment `length` by 1.
+The dequeue operation returns the `head` value, makes the `head.next` become the new `head`, and decrease the queue length by 1.
+
+- Return `null` if the queue is empty (`length` is 0, no `head`).
+- Decrement `length` by 1.
 - Let `headToReturn` be the current `head`.
 - Point  `head` to `head.next`
 - Return `headToReturn.value`.
+
+## peek(): T | null
+
+The peek operation just returns the head value (if any), but it does not modify the queue in any way.
+
+## TypeScript implementation
+
+```typescript title="Queue implementation in TypeScript"
+export type QNode<T> = {
+  val: T;
+  next: QNode<T> | null;
+};
+
+export class Queue<T> {
+  #head: QNode<T> | null;
+  #tail: QNode<T> | null;
+  length: number = 0;
+
+  constructor() {
+    this.#head = null;
+    this.#tail = null;
+    this.length = 0;
+  }
+
+  enqueue(val: T) {
+    const node: QNode<T> = { val, next: null };
+    ++this.length;
+
+    if (this.#tail === null) {
+      this.#head = this.#tail = node;
+      return;
+    }
+
+    this.#tail.next = node;
+    this.#tail = node;
+  }
+
+  dequeue(): T | null {
+    if (this.#head === null)
+      return null;
+
+    --this.length;
+
+    const headToReturn = this.#head;
+
+    this.#head = this.#head.next;
+
+    return headToReturn.val;
+  }
+
+  peek(): T | null {
+    if (this.#head === null)
+      return null;
+
+    return this.#head.val;
+  }
+}
+```
+
