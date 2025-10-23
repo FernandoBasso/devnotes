@@ -47,8 +47,6 @@ class Queue<T> {
 
 ## enqueue(val): void
 
-[queue-singly-linked-list-enqueue](../__assets/queue-singly-linked-list-enqueue.svg)
-
 The enqueue operation appends a new value to the end of the (side of the queue which contains the tail) queue and increases the queue length by 1.
 
 ### To an empty queue
