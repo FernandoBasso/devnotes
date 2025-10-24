@@ -6,7 +6,9 @@ description: Concepts, explanations and practical code examples about the queue 
 ---
 ## Intro to Queues
 
-Queues are a linked list behind the scenes, but it restricts what can be done with it _on purpose_ to guarantee constant time complexity for its operations, which are generally these:
+Queues can be implemented using arrays, but are more efficiently implemented using linked lists. For the rest of this document assume the implementation uses a linked list unless otherwise noted.
+
+The implementation restricts what can be done with the data structure _on purpose_ to guarantee constant time complexity for its operations, which are generally these:
 
 - enqueue: add an element to the end (tail).
 - dequeue: return and remove the element in the front of the queue (head).
@@ -56,19 +58,19 @@ First of all, how do we determine whether the queue is empty?
 - If either `head` or `tail` is `null`.
 
 Steps:
+- Increment `length`.
 - Let `newNode` be a new node constructed with `val`.
 - Make `head` point to `newNode`.
 - Make `tail` point to `newNode`.
-- Increment `length`.
 
 Note that in this case, both `head` and `tail` point to the new node, as the queue was previously empty.
 
 ### To a non-empty queue
 
+- Increment `length`.
 - Let `newNode` be a new node constructed with `val`.
 - Point `tail.next` to `newNode`.
 - Point `tail` to `newNode`.
-- Increment `length`.
 
 Note that the algorithm for enqueuing to a non-empty queue works whether the queue contains a single element (in which case both `head` and `tail` point to the same element), or it contains more than one element (in which case `head` and `tail` _do not_ point to the same element). It works in both cases because the algorithm only has to concern itself with fiddling with the `tail`. The `head` remains untouched.
 
