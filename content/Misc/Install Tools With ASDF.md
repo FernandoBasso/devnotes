@@ -40,8 +40,34 @@ Install Node.js and set it as a default for new shells:
 ```bash
 $ asdf plugin add nodejs
 $ asdf list all nodejs
+
 $ asdf install nodejs 24.3.0
 $ asdf set --home nodejs 24.3.0
+```
+
+Or, for the latest version:
+
+```bash
+$ asdf install nodejs latest
+$ asdf set --home nodejs latest
+```
+
+## Deno
+
+```shell
+asdf plugin add deno
+
+asdf install deno latest
+
+##
+# Set as the default version of Deno globally for your user.
+#
+asdf set --home deno latest
+
+##
+# Or set the default version of deno for the current project only.
+#
+asdf set deno latest
 ```
 
 ## Ruby
