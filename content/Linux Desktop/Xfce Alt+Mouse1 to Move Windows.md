@@ -21,4 +21,5 @@ Then I could do this:
 
 References:
 
+- https://www.drawio.com/blog/shortcut-select-shapes
 - https://forum.xfce.org/viewtopic.php?id=2989
