@@ -14,7 +14,7 @@ I needed `Alt+Mouse1` to drag to select multiple elements inside DrawIO box, but
 
 Then I could do this:
 
-![DrawIO Alt+Mouse1 and drag to select](draw-io-alt+mouse1-and-drag.png)
+![DrawIO Alt+Mouse1 and drag to select](draw-io-alt-mouse1-and-drag.png)
 
 > [!WARNING]
 > Disabling that also causes `Alt+Mouse2` to stop working, which is very useful to *resize* windows. Instead of simply removing "Alt", maybe replace it with "Shift" or "Ctrl" so it is still possible to move and resize windows with that "key+mouse" combo.
