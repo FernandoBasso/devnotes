@@ -16,7 +16,7 @@ The implementation restricts what can be done with the data structure _on purpos
 
 The space complexity of a queue is $O(n)$.
 
-All the operations have $O(1)$ time complexity if the queue is implemented using linked lists. If the queue is implemented using arrays, then some operations may have $O(n)$ time complexity. If for example, the head is returned and removed using an operation like `shift()` in JavaScript, which causes all the elements to be moved “to the left” by one index, which also means that operation is $O(n)$ time complexity.
+All the operations have $O(1)$ time complexity if the queue is implemented using linked lists. If the queue is implemented using arrays, then some operations may have $O(n)$ time complexity due to the nature of arrays and its operations. If for example, the head is returned and removed using an operation like `shift()` in JavaScript, which causes all the elements to be moved “to the left” by one index, which also means that operation is $O(n)$ time complexity.
 
 ## Queue with linked lists
 
