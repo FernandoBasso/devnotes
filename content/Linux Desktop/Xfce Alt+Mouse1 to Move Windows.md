@@ -3,6 +3,7 @@ tags:
   - xfce
   - window-manager
   - desktop
+description:
 ---
 
 ## Disable Alt+Mouse1 to move windows
@@ -17,3 +18,7 @@ Then I could do this:
 
 > [!WARNING]
 > Disabling that also causes `Alt+Mouse2` to stop working, which is very useful to *resize* windows. Instead of simply removing "Alt", maybe replace it with "Shift" or "Ctrl" so it is still possible to move and resize windows with that "key+mouse" combo.
+
+References:
+
+- https://forum.xfce.org/viewtopic.php?id=2989
