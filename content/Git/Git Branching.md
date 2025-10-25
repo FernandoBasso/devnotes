@@ -10,7 +10,7 @@ description: Notes,  tips and examples on git branching commands.
 ### git checkout -b
 
 > [!NOTE] remote name
-> In these examples, the remote is named `gl` because I use Gitlab a lot and name my Gitlab remote repos as `gl` instead of the default `origin`.
+> In these examples, the remote is named `gl` because I use Gitlab a lot and prefer to name my Gitlab remote repos as `gl` instead of the default `origin`.
 
 We all use `git checkout -b new-branch` to create a new branch from time to time.
 Generally, we first switch to `main` or `develop`, update it and then from there create the new branch:

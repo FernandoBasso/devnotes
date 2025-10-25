@@ -10,7 +10,7 @@ description:
 
 I needed `Alt+Mouse1` to drag to select multiple elements inside DrawIO box, but it was moving the window instead. Had to open xfce4-settings-editor and remove “Alt” from the “easy_click” setting:
 
-![Xfce4 disable Alt+Mouse1 to move window](../__assets/xfce4-settings-editor-disable-alt-mouse1-move-window.png)
+![Xfce4 disable Alt+Mouse1 to move window](__assets/xfce4-settings-editor-disable-alt-mouse1-move-window.png)
 
 Then I could do this:
 
