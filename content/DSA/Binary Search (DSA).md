@@ -130,9 +130,12 @@ export function search(
     mid = floor(lo + (hi - lo) / 2);
     val = haystack[mid];
 
-    if (needle === val) return true;
-    else if (needle < val) hi = mid;
-    else lo = mid + 1;
+    if (needle === val)
+	  return true;
+    else if (needle < val)
+	  hi = mid;
+    else
+      lo = mid + 1;
   } while (lo < hi);
 
   return false;
