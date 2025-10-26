@@ -21,7 +21,7 @@ Then I could do this:
 >
 > Remember that "Shift+Mouse" and "Ctrl+Mouse" are already also used to multi-select, or select ranges of files, so replacing "Alt" with either "Shift" or "Ctrl" is probably not the best solution.
 >
-> Arch Linux with Xfce, I replaced "Alt" with "Super" and everything has been working fine so far and I don't miss any key+mouse feature.
+> Arch Linux with Xfce, I replaced "Alt" with "Super" and everything has been working fine so far and I don't miss any key+mouse feature. I now just have to use "Super+Mouse1" and "Super+Mouse2" to move and resize windows (instead of "Alt+Mouse1" and "Alt+Mouse2").
 
 
 References:
