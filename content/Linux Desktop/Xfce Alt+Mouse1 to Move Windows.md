@@ -17,7 +17,12 @@ Then I could do this:
 ![DrawIO Alt+Mouse1 and drag to select](../__assets/draw-io-alt-mouse1-drag-to-select.png)
 
 > [!WARNING]
-> Disabling that also causes `Alt+Mouse2` to stop working, which is very useful to *resize* windows. Instead of simply removing "Alt", maybe replace it with "Shift" or "Ctrl" so it is still possible to move and resize windows with that "key+mouse" combo.
+> Disabling that also causes `Alt+Mouse2` to stop working, which is very useful to *resize* windows.
+>
+> Remember that "Shift+Mouse" and "Ctrl+Mouse" are already also used to multi-select, or select ranges of files, so replacing "Alt" with either "Shift" or "Ctrl" is probably not the best solution.
+>
+> Arch Linux with Xfce, I replaced "Alt" with "Super" and everything has been working fine so far and I don't miss any key+mouse feature.
+
 
 References:
 
