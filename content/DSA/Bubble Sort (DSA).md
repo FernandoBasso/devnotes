@@ -3,7 +3,7 @@ tags:
   - dsa
   - sort
   - bubble-sort
-description: Notes, tips and examples on implementing the bubble sorting algorithm.
+description: Notes, tips and examples on implementing the bubble sort algorithm.
 ---
 ## Intro to Bubble Sort
 
