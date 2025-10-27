@@ -6,7 +6,7 @@ tags:
 ---
 ## Intro
 
-ACID stands for Atomicity, Consitency, Isolation and Durability.
+ACID stands for Atomicity, Consistency, Isolation and Durability.
 
 ### Atomicity
 

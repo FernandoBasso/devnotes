@@ -58,5 +58,5 @@ if (import.meta.main) {
 if __name__ == "__main__":
   # This file was run directly, possibly with something like:
   #
-  #   $ python ./src/foo.ts
+  #   $ python ./src/foo.py
 ```
