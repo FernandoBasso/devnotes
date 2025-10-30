@@ -148,7 +148,7 @@ The above will result in something like this:
  left portion    right portion
 ```
 
-Then recursively call it `pivot()` to work on the left and right portions. `pivot()` always receives the entire array (not slices of the original array), but uses the indexes provided to work only on smaller portions each time. All modifications are performed _in-place_.
+Then recursively call it `pivot()` to work on the left and right portions. `pivot()` always receives the entire array (not sliced copies of the original array), but uses the indexes provided to work only on smaller portions each time. All modifications are performed _in-place_.
 
 The base case happens when the portion being worked on is less than two elements.
 
