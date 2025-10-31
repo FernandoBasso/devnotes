@@ -16,6 +16,8 @@ Free online.
 
 https://htdp.org/
 
+https://felleisen.org/matthias/Thoughts/py.html
+
 ### Structure and Interpretation of Computer Programs
 
 Free online.
