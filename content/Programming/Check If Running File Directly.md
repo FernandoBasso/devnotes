@@ -32,7 +32,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   //
   //   $ node ./src/foo.mjs  
 }
-
 ```
 
 - https://nodejs.org/api/esm.html#modules-ecmascript-modules
