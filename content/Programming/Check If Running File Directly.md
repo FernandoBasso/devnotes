@@ -1,6 +1,9 @@
 ---
 tags:
   - programming
+  - main
+  - module
+  - namespace
 description: Examples on how to check if a file was run directly in different programming languages.
 ---
 ## Intro
