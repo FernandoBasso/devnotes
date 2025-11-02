@@ -14,7 +14,7 @@ If using CommonJS modules (`require`, `module.exports`):
 ```javascript
 // file: src/foo.js
 
-if (require.man === module) {
+if (require.main === module) {
   // This file was run directly, possibly with something like:
   //
   //   $ node ./src/foo.js
