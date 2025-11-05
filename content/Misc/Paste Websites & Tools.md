@@ -33,3 +33,8 @@ https://clbin.com/
 https://termbin.com/
 
 
+## pasteboard.co
+
+Paste & upload images. E.g.:
+https://pasteboard.co/yE6Yn6ua84rk.png
+
