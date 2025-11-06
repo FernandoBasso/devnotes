@@ -22,3 +22,7 @@ $ fc-list : family | grep Noto | wc -l
 ```
 
 A lot of Google's Unicode and Emoji Noto fonts are installed by default.
+
+## Myna
+
+https://github.com/sayyadirfanali/Myna
