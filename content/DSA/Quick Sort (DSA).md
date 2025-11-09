@@ -12,7 +12,7 @@ Quick sort uses the “divide & conquer” idea.
 
 By definition, a collection with 0 or 1 elements is always sorted.
 
-Similar to merge sort, this algorithm relies on the fact that arrays of zero or one element are sorted by definition. A pivot element is selected and the and the position where it would end up in the sorted array is found. Once the pivot is placed in its proper place, quick sort can work on either side of the pivot.
+Similar to merge sort, this algorithm relies on the fact that arrays of zero or one element are sorted by definition. A pivot element is selected and the end position where it would end up in the sorted array is found. Once the pivot is placed in its proper sorting position, quick sort can work on either side of the pivot and repeat the process on ever shrinking portions of the collection.
 
 Let's sort this array of numbers in ascending order:
 

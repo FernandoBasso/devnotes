@@ -37,3 +37,4 @@ $ git config --local status.showUntrackedFiles all
 
 > [!TIP] --global or --local
 > The option `--global` applies to all repos for the current user. Use `--local` to configure per repo, or to override the global config for a given repo.
+ 
