@@ -31,3 +31,9 @@ status.showUntrackedFiles
 
 Therefore, if we want to list all new files in subdirectories, this git config will do it:
 
+```text
+$ git config --local status.showUntrackedFiles all
+```
+
+> [!TIP] --global or --local
+> The option `--global` applies to all repos for the current user. Use `--local` to configure per repo, or to override the global config for a given repo.
