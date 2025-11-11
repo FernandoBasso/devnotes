@@ -68,10 +68,12 @@ We need a helper function that arranges elements in an array on either side of t
 
 The function takes an array and designates an element as the pivot and rearranges the array so that all elements that are smaller than the pivot are on its left, and the elements that are greater than the pivot are on its right.
 
-Another way to think about the pivot element is that after the helper function finishes, the pivot element is in its proper sorting position. So, the `pivot()` or `partition()` helper performs two tasks:
+Another way to think about the pivot element is that after the helper function finishes executing, the pivot element is in its proper sorting position. So, the `pivot()` or `partition()` helper performs two tasks:
 
 - Move the pivot element to its proper sorting position.
 - Return the pivot element index (which is now in its correct sorting position) so quick sort can perform the same operation on the left and right sides of the collection.
+
+Also, this helper function doesn't actually partition anything itself. It returns the index where subsequent recursive calls of `qsort()` will slice the left and right portions of the collection.
 
 No order is required on the left and right side. The only matter of import for this step is that the pivot is at its proper position (all smaller values to its left and all larger values to its right).
 
