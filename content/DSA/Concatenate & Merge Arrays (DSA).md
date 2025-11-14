@@ -10,14 +10,14 @@ description: Notes, tips and examples on concatenating arrays.
 Imagine a given programming language does not have a `concat` or `merge` function. How would we go about implementing such functions ourselves? What about merging two arrays? 
 
 A few approaches come to mind, and their applications may depend on the programming language in question, especially when it comes to memory management, like if the language allocates memory transparently (behind the scenes) or the programmer has to do it manually.
-## Concat two arrays of the same length
+## Concat two arrays
 
 Depending on the language, we would have to allocate memory based on the sum of the sizes of both arrays.
 
+The implementation below works with arrays of same or different lengths, or empty arrays, in any order. Read the tests to get a better idea.
 ### JavaScript
 
 #### Unit tests with Jest
-
 
 ```javascript
 //
@@ -103,3 +103,4 @@ if (import.meta.main) {
 
 The first `while` loop copies the `xs` elements into `concated`. Then, on the next `while`, note we do `i + j` to perform the assignment to `concated` so we continue copying/appending elements to `concated` from the point where the first loop stopped.
 
+## Merge two arrays
