@@ -102,5 +102,3 @@ if (import.meta.main) {
 ```
 
 The first `while` loop copies the `xs` elements into `concated`. Then, on the next `while`, note we do `i + j` to perform the assignment to `concated` so we continue copying/appending elements to `concated` from the point where the first loop stopped.
-
-## Merge two arrays
