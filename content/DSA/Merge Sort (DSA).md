@@ -76,12 +76,17 @@ function merge(xs, ys) {
   var res = [];
 
   while (i < xsLen && j < ysLen) {
-    if (xs[i] < ys[j]) res.push(xs[i++]);
-    else res.push(ys[j++]);
+    if (xs[i] < ys[j])
+      res.push(xs[i++]);
+    else
+      res.push(ys[j++]);
   }
 
-  if (i === xsLen) res.push(...ys.slice(j));
-  if (j === ysLen) res.push(...xs.slice(i));
+  if (i === xsLen)
+    res.push(...ys.slice(j));
+
+  if (j === ysLen)
+    res.push(...xs.slice(i));
 
   return res;
 }
