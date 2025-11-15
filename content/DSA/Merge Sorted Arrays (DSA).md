@@ -109,6 +109,7 @@ if (import.meta.main) {
   var ys = [3, 4, 6];
   var res = merge(xs, ys);
   log(res);
+  //=> [ 3, 4, 5, 6 ]
 }
 ```
 
