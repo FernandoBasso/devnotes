@@ -125,4 +125,4 @@ We do it in one line:
 merged[i + j] = xs[i++];
 ```
 
-It works because the evaluation first computes the current value of `i` to perform the assignment, and *then* increment it. It means if we tried to use prefix increment `++i`, the logic would be wrong.
+It works because the evaluation first computes the current value of `i` to perform the assignment, and *then* increments it. It means if we tried to use prefix increment `++i`, the logic would be wrong.
