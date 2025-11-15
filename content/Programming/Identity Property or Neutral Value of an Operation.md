@@ -12,7 +12,7 @@ The identity property or the neutral value of an operation is a value that when 
 
 ## Addition
 
-When 0 is added from an expression, the value of the expression doesn't change. Observe:
+When 0 is added in an expression, the value of the expression doesn't change. Observe:
 
 $$7 + 0 = 7$$
 $$0 + 7 = 7$$
@@ -26,7 +26,7 @@ Because addition is commutative, 0 can be anywhere in the expression.
 
 ## Subtraction
 
-When 0 is subtracted from a value, the value of the expression does not change.
+When 0 is subtracted in an expression, the value of the expression does not change:
 
 $$7 - 0 = 7$$
 Which generalizes to:
