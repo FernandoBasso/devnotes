@@ -63,7 +63,7 @@ describe("concat()", () => {
 
 #### Implementation 1 with whiles
 
-This style looks a bit like C-style of doing increments in variables while using them to perform assignments.
+This implementation resembles C-style of doing increments in variables while using them to perform assignments.
 
 ```javascript
 //
