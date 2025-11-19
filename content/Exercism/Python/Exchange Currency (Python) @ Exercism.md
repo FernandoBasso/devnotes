@@ -106,10 +106,11 @@ def exchangeable_value(budget, exchange_rate, spread, denomination):
     return exchanged_bills * denomination
 ```
 
+### Explanation
 
 The functions to be implemented in this challenge are mostly easy. The last one, however, `exchangeable_value()` can be a bit tricky. But here is what it boils down to.
 
-- First, we need to treat the spread as a percentage and add it to the exchange rate. To do that, divide the spread by 100 and multiply that result by the exchange rate.
+- First, we need to treat the spread as a percentage and add it to the exchange rate. To do that, divide the spread by 100 and multiply that result by the exchange rate and add that result to the exchange rate.
 - Then, from that result, compute the amount in the target currency using the `exchange_money()` function previously implemented.
 - From the amount in the target currency, compute how many (entire) bills can be had given the denomination using the `get_number_of_bills()` function previously implemented. Some left over fractional will potentially be lost because of this.
 - Finally, multiply the number of bills in the target currency by the denomination to get the final result.
