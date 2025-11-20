@@ -77,3 +77,20 @@ Substituting and solving:
 * $60 = b$
 
 Therefore, 15 is 25% of 60.
+
+## Find out if a value is within percentage another
+
+I came across a situation where I needed to figure out if a number was within a certain percentage of another number while trying to prevent a [reactor meltdown (see step 3)](https://exercism.org/tracks/python/exercises/meltdown-mitigation):
+
+For example, is $y$ within $p\%$ of $x$?
+
+A concrete example: is $49$ within $12\%$ of $60$?
+
+How much is $12\%$ of $60$? $\frac{12}{100} \times 60 = 0.12 \times 60 = 7.2$ , so $12\%$ of $60$ is $7.2$, which means $7.2$ is the allowed difference below and/or above $60$.
+
+Let $d = \frac{12}{100} \times 60$. Therefore, $d = 7.2$ as already seen.
+
+- $lower = 60 - 7.2 = 52.8$
+- $upper = 60 + 7.2 = 72.2$
+
+Since $49 \lt 52.8$, it means $49$ is *not* within $12\%$ of $60$.
