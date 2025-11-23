@@ -5,7 +5,7 @@ tags:
   - collection
 description: Notes, tips and examples on finding the maximum number in a collection of numbers.
 ---
-[]()## Problem statement
+## Problem statement
 
 ## Clojure
 
