@@ -14,3 +14,7 @@ description: Introduction and resources to Lisp & Scheme
 
 Why CHICKEN in all caps?
 https://bugs.call-cc.org/ticket/362
+
+CHICKEN name?
+https://spin.atomicobject.com/chicken-scheme-spock-part-2/
+
