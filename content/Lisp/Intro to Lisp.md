@@ -10,6 +10,7 @@ description: Introduction and resources to Lisp & Scheme
 
 
 ## CHICKEN Scheme
+#chicken #scheme 
 
 Why CHICKEN in all caps?
 https://bugs.call-cc.org/ticket/362
