@@ -93,3 +93,61 @@ Courtesy of my friend didi, from the lisp-br IRC channel on Libera.
 ;; (calc (parse (open-input-string " 3/2 "))) => 1
 ;; (calc (parse (open-input-string " 3+5 / 2 "))) => 5
 ```
+
+
+## CHICKEN 5 solution
+
+Courtesy of Mario Goulart.
+
+```scheme
+(import srfi-13 srfi-14)
+
+(define ops/procs
+  ;; Sorted in order of precedence
+  `((#\* . ,*)
+    (#\/ . ,/)
+    (#\+ . ,+)
+    (#\- . ,-)))
+
+(define tokenize
+  ;; Example: str="1 + 2 * 3 + 4" => '(1 + 2 * 3 + 4)
+  (let ((tokenizer (char-set-union char-set:digit
+                                   (apply char-set
+                                          (map car ops/procs)))))
+    (lambda (str)
+      (let loop ((tokens (string-tokenize str tokenizer)))
+        (if (null? tokens)
+            '()
+            (let ((token (car tokens)))
+              (cons
+               (cond ((string->number token) => identity)
+                     ((string->symbol token) => identity))
+               (loop (cdr tokens)))))))))
+
+(define (resolve-op op exp)
+  ;; Examples:
+  ;;   op=*, exp='(1 + 3 * 2 + 4) => '(1 + 6 + 4)
+  ;;   op=+, exp='(1 + 6 + 4) => '(11)
+  (let ((proc (alist-ref op ops/procs char=?))
+        (op-sym (string->symbol (string op))))
+    (reverse
+     (let loop ((exp exp) (resolved '()))
+       (if (null? exp)
+           resolved
+           (let ((token (car exp)))
+             (if (eq? op-sym token)
+                 (let ((result (proc (car resolved) (cadr exp))))
+                   (loop (cddr exp) (cons result (cdr resolved))))
+                 (loop (cdr exp) (cons token resolved)))))))))
+
+(define (resolve str-exp)
+  ;; str-exp="4 + 2 * 4 + 5 - 8 / 2" => 13
+  (let loop ((ops (map car ops/procs))
+             (exp (tokenize str-exp)))
+    (if (null? ops)
+        (car exp)
+        (loop (cdr ops)
+              (resolve-op (car ops) exp)))))
+
+;; (resolve "4 + 2 * 4 + 5 - 8 / 2") => 13
+```
