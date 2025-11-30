@@ -7,6 +7,10 @@ description: A list of code pasting and sharing websites.
 
 ## List of paste websites
 
+## Debian
+
+https://paste.debian.net/
+
 ### 0x0.st
 
 https://0x0.st/
