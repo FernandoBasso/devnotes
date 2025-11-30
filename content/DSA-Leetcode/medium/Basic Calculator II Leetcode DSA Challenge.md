@@ -140,9 +140,9 @@ Second solution by didi:
 ;; (calc (parse (open-input-string " 3+5 / 2 "))) => 5
 ```
 
-## CHICKEN 5 solution
+## CHICKEN 5 solution by Mario Goulart
 
-Courtesy of Mario Goulart.
+### v1 with the help of some SRFIs
 
 ```scheme
 (import srfi-13 srfi-14)
@@ -197,6 +197,74 @@ Courtesy of Mario Goulart.
 ;; (resolve "4 + 2 * 4 + 5 - 8 / 2") => 13
 ```
 
+### v2 without SRFIs
+
+```scheme
+(define ops/procs
+  ;; Sorted in order of precedence
+  `((#\* . ,*)
+    (#\/ . ,/)
+    (#\+ . ,+)
+    (#\- . ,-)))
+
+(define ops (map car ops/procs))
+
+(define (tokenize str)
+  ;; str="1.5 + 3*9" => '(1.5 #\+ 3 #\* 9)
+  (let ((p (open-input-string str)))
+    (let loop ()
+      (let ((c (read-char p)))
+        (if (eof-object? c)
+            '()
+            (cond ((char-numeric? c)
+                   (let ((num
+                          (cons c
+                                (let read-num ()
+                                  (let ((next-c (peek-char p)))
+                                    (if (eof-object? next-c)
+                                        '()
+                                        (if (or (char-numeric? next-c)
+                                                (char=? next-c #\.))
+                                            (cons (read-char p) (read-num))
+                                            '())))))))
+                     (cons (string->number (list->string num))
+                           (loop))))
+                  ((memq c ops)
+                   (cons c (loop)))
+                  ((memq c '(#\space #\tab))
+                   (loop))
+                  (else
+                   (error 'tokenize "Unexpected character:" c))))))))
+
+(define (resolve-op op exp)
+  ;; Examples:
+  ;;   op=*, exp='(1 #\+ 3 #\* 2 #\+ 4) => '(1 #\+ 6 #\+ 4)
+  ;;   op=+, exp='(1 #\+ 6 #\+ 4) => '(11)
+  (let ((proc (cdr (assq op ops/procs))))
+    (reverse
+     (let loop ((exp exp) (resolved '()))
+       (if (null? exp)
+           resolved
+           (let ((token (car exp)))
+             (if (eq? op token)
+                 (let ((result (proc (car resolved) (cadr exp))))
+                   (loop (cddr exp) (cons result (cdr resolved))))
+                 (loop (cdr exp) (cons token resolved)))))))))
+
+(define (resolve str-exp)
+  ;; str-exp="4 + 2 * 4 + 5 - 8 / 2" => 13
+  (let loop ((ops ops)
+             (exp (tokenize str-exp)))
+    (if (null? ops)
+        (car exp)
+        (loop (cdr ops)
+              (resolve-op (car ops) exp)))))
+
+;; (resolve "4 + 2 * 4 + 5 - 8 / 2") => 13
+;; (resolve "1.5 * 7 / 2 + 7 - 3") => 9.25
+```
+
+
 ## CHICKEN Scheme by ttybitnik
 
 ```scheme
@@ -240,3 +308,4 @@ Courtesy of Mario Goulart.
 
 (eval-expr '(10 / 5 / 1)) => 2
 ```
+
