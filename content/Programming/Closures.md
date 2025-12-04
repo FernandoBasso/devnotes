@@ -7,6 +7,13 @@ tags:
 
 A closure is a scope that is created when a function is declared inside another function, which means the inner function can access and manipulate variables from the external scope even after the outer function has returned.
 
+## When are closures useful?
+
+- Encapsulation and data hiding.
+- Remember state.
+- Implement memoization.
+- Create function factories.
+
 ## Closures for data encapsulation
 
 ### Counter factory example
