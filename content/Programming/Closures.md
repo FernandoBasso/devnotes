@@ -5,7 +5,7 @@ tags:
 ---
 ## Intro
 
-A closure is a scope that is created when a function is declared inside another function, which means the inner function can access and manipulate variables from the external scope even after the outer function has returned.
+A closure is a scope that is created when a function is declared inside another function, which means the inner function can access and manipulate state from the outer's function scope even after the outer function has returned.
 
 ## When are closures useful?
 
