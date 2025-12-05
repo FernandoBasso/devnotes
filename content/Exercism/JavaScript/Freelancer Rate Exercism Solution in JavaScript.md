@@ -111,7 +111,7 @@ return Math.ceil(fullMonthsRateWithDiscount + remainingDaysRate);
 Here's the entire function:
 
 ```javascript
-export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
+function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
   const fullMonths = Math.floor(numDays / 22);
   const remainingDays = numDays % 22;
   const fullMonthsRate = fullMonths * 22 * dayRate(ratePerHour);
@@ -132,12 +132,58 @@ But leaving these intermediate variables with good names helps to understand the
 
 Note that we are working with remaining days and full months, and that may have come directly as a result of reading the description what this particular function is supposed to do. And we had to multiply full months by 22 and so on... But another approach is also possible. Read on.
 
-### Approach 2
+#### Approach 2
 
 Instead of doing the division with floor to calculate the full months, first calculate the remaining days and use that to calculate the number of days that would make up the full months, but don't convert any thing to months, instead working with days only.
 
 Get the remaining days *first*:
 
 ```javascript
+const remainingDays =  numDays % 22;
+```
 
+And derive the full days that would fit entire months:
+
+```javascript
+const fullDays = numDays - remainingDays;
+```
+
+Note that we now have a simple subtraction without needing to floor down the result of the division like we did in the other approach.
+
+Compute the full days rate:
+
+```javascript
+const fullDaysRate = fullDays * dayRate(ratePerHour);
+```
+
+And from that apply the discount:
+
+```javascript
+const fullDaysRateWithDiscount = fullDaysRate * (1 - discount);
+```
+
+Calculate the remaining days rate (exactly as in approach 1):
+
+```javascript
+const remainingDaysRate = remainingDays * dayRate(ratePerHour);
+```
+
+And add both rates and round up, again, exactly like in approach1:
+
+```javascript
+return Math.ceil(remainingDaysRate + fullDaysRateWithDiscount);
+```
+
+The entire function:
+
+```javascript
+function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
+  const remainingDays =  numDays % 22;
+  const fullDays = numDays - remainingDays;
+  const fullDaysRate = fullDays * dayRate(ratePerHour);
+  const fullDaysRateWithDiscount = fullDaysRate * (1 - discount);
+  const remainingDaysRate = remainingDays * dayRate(ratePerHour);
+
+  return Math.ceil(remainingDaysRate + fullDaysRateWithDiscount);
+}
 ```
