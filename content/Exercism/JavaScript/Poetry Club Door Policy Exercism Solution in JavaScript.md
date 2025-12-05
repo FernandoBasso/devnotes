@@ -47,3 +47,13 @@ function frontDoorResponse(line) {
 >
 > The above will silently fail or with an error if strict mode is active (and ES Modules are in strict mode by default).
 
+### frontDoorPassword()
+
+```javascript
+function frontDoorPassword(word) {
+  const first = word.slice(0, 1).toUpperCase();
+  const rest = word.slice(1).toLowerCase();
+  return first + rest;
+}
+```
+
