@@ -162,6 +162,10 @@ And from that apply the discount:
 const fullDaysRateWithDiscount = fullDaysRate * (1 - discount);
 ```
 
+> [!TIP] About percentages
+>
+>Read the [[Percentages]] article to get a better understanding of how and why it works.
+
 Calculate the remaining days rate (exactly as in approach 1):
 
 ```javascript
@@ -185,5 +189,24 @@ function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
   const remainingDaysRate = remainingDays * dayRate(ratePerHour);
 
   return Math.ceil(remainingDaysRate + fullDaysRateWithDiscount);
+}
+```
+
+#### Approach 3
+
+The whole thing should be renamed to more precisely convey intent:
+
+```javascript
+export 
+function costWithMonthlyDiscount(hourlyRate, projectDays, montlyDiscount) {
+  const BILLABLE_DAYS_PER_MONT = 22;
+
+  const remainingDays =  projectDays % BILLABLE_DAYS_PER_MONT;
+  const fullMonthDays = projectDays - remainingDays;
+  const fullMonthsCost = fullMonthDays * dayRate(hourlyRate);
+  const fullMonthsCostwithDiscount = fullMonthsCost * (1 - montlyDiscount);
+  const remainingDaysCost = remainingDays * dayRate(hourlyRate);
+
+  return Math.ceil(remainingDaysCost + fullMonthsCostwithDiscount);
 }
 ```
