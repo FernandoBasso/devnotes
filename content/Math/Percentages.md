@@ -17,17 +17,17 @@ In these examples we will use:
 
 ## Add or subtract p% of a quantity
 
-Suppose something costs 80 (whatever currency). How would add 12% extra fee on top of that amount? Or how could we give a discount of 12% on that amount?
+Suppose something costs 80 (whatever currency). How could we add 12% extra fee on top of that amount? Or how could we give a discount of 12% on that amount?
 
-Remember that if we multiply a number by 1 we are getting 100% of that amount, so, $80 \times 1 = 80$. So 1 is 100%. And 12% is 0.12.
+Remember that if we multiply a number by 1 we are getting 100% of that number, so, $80 \times 1 = 80$. So 1 is 100%. And 12% is 0.12.
 
 To add 12% to 80, we multiply 80 by $1 + 0.12$:
 
-$$80 * (1 + 0.12) = 89.6$$
+$$80 \times (1 + 0.12) = 89.6$$
 
 To subtract 12% from 80, multiply 80 by $1 - 0.12$:
 
-$$80 * (1 - 0.12) = 70.4$$
+$$80 \times (1 - 0.12) = 70.4$$
 
 $1 + 0.12$ can be thought of 100% of a number plus 12% of that number. 100 % of 80 is 80, and 12% of 80 is 9.6, therefore, 100% of 80 plus 12% of 80 is 80 + 96, which is 89.6.
 
@@ -42,7 +42,7 @@ What is 25% of 60? We know 25 the percent $p$, 60 is the base $b$, and we want t
 Then, the formula is:
 
 $$
-\frac{n}{100} \times {x} = p
+\frac{n}{100} \times b = p
 $$
 
 Substituting and solving:
