@@ -35,3 +35,17 @@ s[s.length - 1];
 ```
 
 Again we have to use `length - 1`.
+
+### RegExp
+
+```javascript
+const jedi = "Yoda";
+
+const result = jedi.match(/.$/);
+// Result is an array:
+// [ 'a', index: 3, input: 'Yoda', groups: undefined ]
+
+// The first element of that array is the matched portion, if any.
+result[0];
+//=> a
+```
