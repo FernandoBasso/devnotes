@@ -97,3 +97,23 @@ function backDoorResponse(line) {
 }
 ```
 
+
+### backDoorPassword()
+
+```javascript
+function backDoorPassword(word) {
+  return frontDoorPassword(word) + ", please";
+}
+```
+
+We already have a function that capitalizes a word, so we use that, and concatenate with `+ ", please"`.
+
+There are other ways to do it, using interpolation with template strings, for instance:
+
+```javascript
+function backDoorPassword(word) {
+  return `${frontDoorPassword(word)}, please`;
+}
+```
+
+But honestly, that seems overkill for this simple scenario. The `+` string concatenation is good enough and does the job.
