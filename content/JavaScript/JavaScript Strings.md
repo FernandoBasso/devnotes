@@ -7,13 +7,15 @@ description: Notes, tips and examples on common string operations in JavaScript.
 ## Last element
 
 ### .at(idx)
+#at #index
 
 ```javascript
 "Yoda".at(-1);
 //=> a
 ```
 
-### .slice()
+### .slice(idx)
+#slice #index
 
 ```javascript
 const s = "Yoda";
@@ -24,6 +26,7 @@ s.slice(s.length - 1);
 Beware that `s.length` says the length of a string, but because both strings and arrays indexes start at 0 (zero), to access the index of the last element, it should be `length - 1`.
 
 ### subscript \[idx\] notation
+#subscript #index
 
 ```javascript
 "Yoda"[3];
@@ -36,7 +39,8 @@ s[s.length - 1];
 
 Again we have to use `length - 1`.
 
-### RegExp
+### RegEx
+#regex #match
 
 ```javascript
 const jedi = "Yoda";
