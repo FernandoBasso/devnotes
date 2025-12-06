@@ -44,12 +44,14 @@ Then we use `tar` with these options:
 #tar #stdin #stdout #directory
 
 ```bash
+$ mkdir -pv ~/Public/thing
+
 $ wget \
-    https://example.org/downloads/file.tar.gz \
+    https://example.org/downloads/thing.tar.gz \
     -O - \
-    | tar -xzvf - -C ~/Public/
+    | tar -xzvf - -C ~/Public/thing
 ```
 
 The `wget` command downloads a `.tar.gz` file and dumps it to STDIN. That result is then piped to `tar`, that reads the STDIN and un-tar the contents.
 
-The `-C ~/Public/` means ”change directory to `$HOME/Public/`, so that the contents will be extracted to that directory. It requires that the directory already exists.
+The `-C ~/Public/thing` means ”change directory to `$HOME/Public/thing`, so that the contents will be extracted to that directory. It requires that the directory already exists.

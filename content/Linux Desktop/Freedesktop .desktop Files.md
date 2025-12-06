@@ -17,22 +17,44 @@ description: Notes, tips and examples on working with .desktop files on Linux.
 Here a sample `.desktop` file for Firefox Developer Edition that I run from `~/bin`:
 
 ```
-$ cat ~/.local/share/applications/firefox-developer-edition.desktop 
 [Desktop Entry]
 Version=1.0
 Type=Application
 Name=Firefox Developer Edition
-Comment=Firefox Developer Edition
-Exec=/home/deveng/bin/firefox-developer-edition/firefox %u
+Exec=/home/devy/bin/firefox-dev/firefox
+Icon=/home/devy/bin/firefox-dev/browser/chrome/icons/default/default128.png
 Terminal=false
 X-MultipleArgs=false
-Icon=/home/deveng/Pictures/firefox-developer-edition.png
 StartupWMClass=firefox-dev
 DBusActivatable=false
 Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/json;application/pdf;application/rdf+xml;application/rss+xml;application/x-xpinstall;application/xhtml+xml;application/xml;audio/flac;audio/ogg;audio/webm;image/avif;image/gif;image/jpeg;image/png;image/svg+xml;image/webp;text/html;text/xml;video/ogg;video/webm;x-scheme-handler/chrome;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/mailto;
 StartupNotify=true
-Actions=new-window;new-private-window;open-profile-manager;
+Actions=new-window;new-private-window;open-profile-manager
+
+[Desktop Action new-window]
+Name="Firefox Dev New Window"
+Exec=/home/devy/bin/firefox-dev/firefox --new-window
+
+[Desktop Action new-private-window]
+Name=Firefox Dev New Private Window
+Exec=/home/devy/bin/firefox-dev/firefox --private-window
+
+[Desktop Action open-profile-manager]
+Name=Firefox Dev Open Profile Manager
+Exec=/home/devy/bin/firefox-dev/firefox --ProfileManager
+```
+
+To validate the file and install it, run this:
+
+```bash
+$ sudo desktop-file-install ./firefox-dev.desktop
+```
+
+Its final destination, after installed, is:
+
+```
+/usr/share/applications/firefox-dev.desktop
 ```
 
 For the `StartupWMClass`, on Xorg we can type `xprop WM_CLASS` and then click on the application we want to discover the WM_CLASS for.
