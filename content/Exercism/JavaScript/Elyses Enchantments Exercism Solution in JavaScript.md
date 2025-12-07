@@ -88,3 +88,15 @@ function removeItemFromTop(cards) {
   return cards;
 }
 ```
+
+
+### insertItemAtBottom()
+
+`unshift(val)` inserts the new value at the beginning of the array. It causes the array to have all elements moved one index to the right, thus, `unshift()` time complexity is $O(n)$.
+
+```javascript
+function insertItemAtBottom(cards, newCard) {
+  cards.unshift(newCard);
+  return cards;
+}
+```
