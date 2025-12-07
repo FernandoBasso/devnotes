@@ -3,8 +3,9 @@ tags:
   - exercism
   - javascript
   - dsa
-description: Notes and solutions for the [title] Exercism challenge in Python
+description: Notes and solutions for the TITLE Exercism challenge in Python
 ---
+
 ## Intro
 
 Challenge URL in Exercism:
