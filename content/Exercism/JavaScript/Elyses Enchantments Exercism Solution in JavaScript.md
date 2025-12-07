@@ -65,3 +65,26 @@ function insertItemAtTop(cards, newCard) {
 }
 ```
 
+
+### removeItem()
+
+`splice()` returns an array with zero or more removed elements (not the modified array). Therefore, first splice and *then* return the array which is now modified.
+
+```javascript
+function removeItem(cards, position) {
+  cards.splice(position, 1);
+  return cards;
+}
+```
+
+
+### removeItemFromTop()
+
+`.pop()` drops the last element of the array the value removed. Again, first perform operation and *then* return the array.
+
+```javascript
+function removeItemFromTop(cards) {
+  cards.pop();
+  return cards;
+}
+```
