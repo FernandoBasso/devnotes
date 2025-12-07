@@ -39,4 +39,13 @@ function canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) {
 }
 ```
 
+### canSignalPrisoner()
+
+We can signal the prisoner if the archer *is not* awake and the prisoner *is* awake. That is why we *negate* (with the `!` NOT operator) the `archerIsAwake`.
+
+```javascript
+function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
+  return !archerIsAwake && prisonerIsAwake;
+}
+```
 
