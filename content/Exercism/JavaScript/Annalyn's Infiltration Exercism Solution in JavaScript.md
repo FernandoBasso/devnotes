@@ -49,3 +49,34 @@ function canSignalPrisoner(archerIsAwake, prisonerIsAwake) {
 }
 ```
 
+### canFreePrisoner()
+
+Just a matter of negating some of the boolean parameters and using `&&` correctly.
+
+```javascript
+export function canFreePrisoner(
+  knightIsAwake,
+  archerIsAwake,
+  prisonerIsAwake,
+  petDogIsPresent,
+) {
+  if (!archerIsAwake && petDogIsPresent)
+    return true;
+  
+  return !knightIsAwake && !archerIsAwake && prisonerIsAwake;
+}
+```
+
+The code can be shortened a little bit without the if, with a single `return` statement and using `||` operator:
+
+```javascript
+return !archerIsAwake && petDogIsPresent ||
+       !knightIsAwake && !archerIsAwake && prisonerIsAwake;
+```
+
+Because `&&` has higher precedence than `||`, the above is the same as this:
+
+```javascript
+  return (!archerIsAwake && petDogIsPresent) ||
+         (!knightIsAwake && !archerIsAwake && prisonerIsAwake);
+```
