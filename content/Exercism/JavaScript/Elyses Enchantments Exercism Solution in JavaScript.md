@@ -53,3 +53,15 @@ function setItem(cards, position, replacementCard) {
 Here too, `splice()` returns the removed elements, which is why we first call `splice()` to update the array, and *then* return the modified array.
 
 But again, we should probably stick with the simpler subscript notation.
+
+### insertItemAtTop()
+
+`.push()` returns the new length, so again, we first have to modify the array and *then* return it.
+
+```javascript
+function insertItemAtTop(cards, newCard) {
+  cards.push(newCard);
+  return cards;
+}
+```
+
