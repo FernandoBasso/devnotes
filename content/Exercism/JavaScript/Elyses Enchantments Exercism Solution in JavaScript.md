@@ -100,3 +100,26 @@ function insertItemAtBottom(cards, newCard) {
   return cards;
 }
 ```
+
+
+### removeItemAtTheBottom
+
+`shift()` removes the first element of the array and return its value. *Then* we can return the modified array.
+
+```javascript
+ function removeItemAtBottom(cards) {
+  cards.shift();
+  return cards;
+}
+```
+
+
+### checkSizeOfStack()
+
+Simply compare if the length is the same as `stackSize`.
+
+```javascript
+function checkSizeOfStack(cards, stackSize) {
+  return cards.length === stackSize;
+}
+```
