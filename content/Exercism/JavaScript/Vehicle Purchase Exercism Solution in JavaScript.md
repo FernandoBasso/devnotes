@@ -57,3 +57,40 @@ function needsLicense(kind) {
   return ["car", "truck"].includes(kind);
 }
 ```
+
+
+### chooseVehicle()
+
+Compare which string “comes first in dictionary order” with the the “less than” `<` operator and concatenate the better choice with the string.
+
+```javascript
+function chooseVehicle(option1, option2) {
+  const choice = option1 < option2
+    ? option1
+    : option2;
+
+  return choice + " is clearly the better choice.";
+}
+```
+
+We can avoid the intermediate `choice` variable and do the condition *and* the concatenation in the return expression:
+
+```javascript
+function chooseVehicle(option1, option2) {
+  return (
+    option1 < option2
+      ? option1
+      : option2
+  ) + " is clearly the better choice.";
+}
+```
+
+But honestly, even though it may look a little more clever, it makes the code less readable and understandable. For example, we had to surround the ternary condition with parentheses otherwise the `+ ...` concatenation would only apply to `option2`, or we would have to do the same concatenation twice:
+
+```javascript
+function chooseVehicle(option1, option2) {
+  return  option1 < option2
+    ? option1 + " is clearly the better choice."
+    : option2 + " is clearly the better choice.";
+}
+```
