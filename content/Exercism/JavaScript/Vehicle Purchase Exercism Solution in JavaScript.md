@@ -112,7 +112,7 @@ function calculateResellPrice(originalPrice, age) {
 }
 ```
 
-The solution works fine. The `else` could be removed and simply return the 70% price directly.
+The solution works fine. The `else` could be removed and simply return the 70% price directly. Also, note we are applying the same multiplication logic three times. That is not DRY.
 
 Another approach can be to have a helper function that gets the correct percentage given the age of the vehicle, and then the main function simply applies the discount on the original price:
 
@@ -128,5 +128,22 @@ function getDiscountPercentage(age) {
 
 function calculateResellPrice(originalPrice, age) {
   return originalPrice * getDiscountPercentage(age);
+}
+```
+
+Note that it better follows the DRY principle as this time we perform the multiplication only once. And observe the 70% case is like the default case if the other two cases don't match.
+
+Yet another get the percentage in a variable in the main function itself. Start setting the percentage to a “default case”, like 0.7 in this case, and then reassign the variable if any of the other cases match. Again, perform the multiplication logic only once, which is good:
+
+```javascript
+function calculateResellPrice(originalPrice, age) {
+  let percentage = 0.7;
+
+  if (age < 3)
+    percentage = 0.8;
+  else if (age > 10)
+    percentage = 0.5;
+
+  return originalPrice * percentage;
 }
 ```
