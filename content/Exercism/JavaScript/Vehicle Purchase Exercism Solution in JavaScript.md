@@ -94,3 +94,39 @@ function chooseVehicle(option1, option2) {
     : option2 + " is clearly the better choice.";
 }
 ```
+
+### calculateResellPrice()
+
+> [!NOTE] Percentages
+>
+> Take a look at the [[Percentages]] article to get a better idea about how to calculate percentages in different situations.
+
+```javascript
+function calculateResellPrice(originalPrice, age) {
+  if (age < 3)
+    return originalPrice * 0.8;
+  else if (age > 10)
+    return originalPrice * 0.5;
+  else
+    return originalPrice * 0.7;
+}
+```
+
+The solution works fine. The `else` could be removed and simply return the 70% price directly.
+
+Another approach can be to have a helper function that gets the correct percentage given the age of the vehicle, and then the main function simply applies the discount on the original price:
+
+```javascript
+function getDiscountPercentage(age) {
+  if (age < 3)
+    return 0.8;
+  else if (age > 10)
+    return 0.5;
+
+  return 0.7;
+}
+
+function calculateResellPrice(originalPrice, age) {
+  return originalPrice * getDiscountPercentage(age);
+}
+```
