@@ -20,6 +20,8 @@ My own repo with solutions:
 
 ### totalBirdCount()
 
+Simply sum all the numbers in the array.
+
 ```javascript
 function totalBirdCount(birdsPerDay) {
   let total = 0;
@@ -36,6 +38,8 @@ There are other ways to do it with `forEach()` or `reduce()`, but since the exer
 
 ### birdsInWeek()
 
+For this solution, we need to sum the number of birds for a given week, which means, a given 7-day portion of the array.
+
 ```javascript
 function birdsInWeek(birdsPerDay, week) {
   let totalForWeek = 0,
@@ -51,3 +55,18 @@ function birdsInWeek(birdsPerDay, week) {
 
 This is not the most elegant solution, but it more performant than if we first sliced our portion of the array for the given week or something. With this approach, we simply access the elements within the given week without extra copying or slicing of the input array.
 
+
+### fixBirdCountLog()
+
+Increment the counts at position 0, 2, 4, etc. That is, increment the first, don't increment the second, increment the third, don't increment the fourth, and so on...
+
+```javascript
+function fixBirdCountLog(birdsPerDay) {
+  for (let i = 0; i < birdsPerDay.length; i += 2)
+    ++birdsPerDay[i];
+
+  return birdsPerDay;
+}
+```
+
+Note that instead of incrementing `i` by 1 each time and then using a conditional do do the skipping, we can be more clever and increment `i` by 2 instead, avoid the conditional, and do half of the loop iterations we would have done if `i` was incremented by 1!
