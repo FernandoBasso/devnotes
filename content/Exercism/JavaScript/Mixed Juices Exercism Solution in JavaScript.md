@@ -42,6 +42,8 @@ function timeToMixJuice(name) {
 
 ### limesToCut()
 
+#### Switch case
+
 For this one, we loop over the limes, and increment `wedges` based now many wedges the lime contains based on its size. When the number of needed wedges is reached, stop the loop and return the number of wedges to cut.
 
 ```javascript
@@ -74,6 +76,8 @@ function limesToCut(wedgesNeeded, limes) {
   return toCut;
 }
 ```
+
+#### Lookup table
 
 From many other ways to implement this, one interesting one would be to create a map or lookup table of number of wedges per lime size and avoid the switch case statement altogether. If other sizes of limes were to be introduced, simply adding it to the lookup table would be enough and no other code changes would be necessary. Here's how we would do it:
 
