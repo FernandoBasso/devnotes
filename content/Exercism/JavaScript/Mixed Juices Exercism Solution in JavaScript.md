@@ -40,6 +40,40 @@ function timeToMixJuice(name) {
 }
 ```
 
+### limesToCut()
+
+For this one, we loop over the limes, and increment `wedges` based now many wedges the lime contains based on its size. When the number of needed wedges is reached, stop the loop and return the number of wedges to cut.
+
+```javascript
+function limesToCut(wedgesNeeded, limes) {
+  if (wedgesNeeded === 0)
+    return 0;
+
+  let wedges = 0,
+       toCut = 0;
+
+  for (const lime of limes) {
+    toCut += 1;
+
+    switch (lime) {
+      case "small":
+        wedges += 6;
+        break;
+      case "medium":
+        wedges += 8;
+        break;
+      case "large":
+        wedges += 10;
+        break;
+    }
+
+    if (wedges >= wedgesNeeded)
+      break;
+  }
+
+  return toCut;
+}
+```
 
 ### remainingOrders()
 
