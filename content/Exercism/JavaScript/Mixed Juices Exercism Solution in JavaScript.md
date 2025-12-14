@@ -75,6 +75,35 @@ function limesToCut(wedgesNeeded, limes) {
 }
 ```
 
+From many other ways to implement this, one interesting one would be to create a map or lookup table of number of wedges per lime size and avoid the switch case statement altogether. If other sizes of limes were to be introduced, simply adding it to the lookup table would be enough and no other code changes would be necessary. Here's how we would do it:
+
+```javascript
+const WEDGES_BY_SIZE = {
+  "small": 6,
+  "medium": 8,
+  "large": 10,
+};
+
+function limesToCut(wedgesNeeded, limes) {
+  if (wedgesNeeded === 0)
+    return 0;
+
+  let wedges = 0,
+       toCut = 0;
+
+  for (const lime of limes) {
+    toCut += 1;
+    wedges += WEDGES_BY_SIZE[lime];
+
+    if (wedges >= wedgesNeeded)
+      break;
+  }
+
+  return toCut;
+}
+```
+
+
 ### remainingOrders()
 
 Loop over each order and subtract the amount each order takes from `timeLeft` until there are no more time left, or no more orders to prepare.
