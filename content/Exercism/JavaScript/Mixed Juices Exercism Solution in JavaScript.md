@@ -39,3 +39,23 @@ function timeToMixJuice(name) {
   }
 }
 ```
+
+
+### remainingOrders()
+
+Loop over each order and subtract the amount each order takes from `timeLeft` until there are no more time left, or no more orders to prepare.
+
+Even if an order takes 2.5 minutes, but Li's shift ens in 1 minute, she will work a bit extra to finish the current order nonetheless.
+
+In the end, return the slice of the array with the remaining orders, that is, from the current `i` to the end of the array. If the array `i` already points to the last order, it will simply slice an empty array, which satisfies the requirements of this function.
+
+```javascript
+function remainingOrders(timeLeft, orders) {
+  let i = 0;
+
+  while (timeLeft > 0 && orders.length > 0)
+    timeLeft -= timeToMixJuice(orders[i++]);
+
+  return orders.slice(i);
+}
+```

@@ -69,22 +69,3 @@ function fixBirdCountLog(birdsPerDay) {
 ```
 
 Note that instead of incrementing `i` by 1 each time and then using a conditional do do the skipping, we can be more clever and increment `i` by 2 instead, avoid the conditional, and do half of the loop iterations we would have done if `i` was incremented by 1!
-
-### remainingOrders()
-
-Loop over each order and subtract the amount each order takes from `timeLeft` until there are no more time left, or no more orders to prepare.
-
-Even if an order takes 2.5 minutes, but Li's shift ens in 1 minute, she will work a bit extra to finish the current order nonetheless.
-
-In the end, return the slice of the array with the remaining orders, that is, from the current `i` to the end of the array. If the array `i` already points to the last order, it will simply slice an empty array, which satisfies the requirements of this function.
-
-```javascript
-function remainingOrders(timeLeft, orders) {
-  let i = 0;
-
-  while (timeLeft > 0 && orders.length > 0)
-    timeLeft -= timeToMixJuice(orders[i++]);
-
-  return orders.slice(i);
-}
-```
