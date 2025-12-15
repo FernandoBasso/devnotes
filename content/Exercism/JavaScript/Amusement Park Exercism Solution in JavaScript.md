@@ -78,3 +78,32 @@ function ticketStatus(tickets, ticketId) {
 ```
 
 In general, the less nesting, the better. Almost always, the better, more elegant, and most importantly, *readable* approach is to handle unhappy and error scenarios earlier and do early returns instead of deeply nesting conditionals and loops.
+
+### simpleTicketStatus()
+
+There are some tickets with whose "name" are values like the empty string "" or 0 (zero), which are falsey in ECMAscript. But remember that the nullish coalescing operator only considers `null` and `undefined` as nullish and falsey, thus, this is enough to satisfy the requirements for this function:
+
+```javascript
+function simpleTicketStatus(tickets, ticketId) {
+  return tickets[ticketId] ?? "invalid ticket !!!";
+}
+```
+
+
+### gtcVersion()
+
+The goal for this one is to use the optional chaining operator `?.`.
+
+```javascript
+function gtcVersion(visitor) {
+  return visitor.gtc?.version;
+}
+```
+
+Before `?.` existed in ECMAScript, the same outcome was possible with the guard operator approach, albeit a bit more verbose:
+
+```javascript
+function gtcVersion(visitor) {
+  return visitor.gtc && visitor.gtc.version;
+}
+```
