@@ -47,3 +47,34 @@ function revokeTicket(visitor) {
   };
 }
 ```
+
+### ticketStatus()
+
+Check if the ticket ID exists in our tickets DB. If not, return the unknown ticket ID message and be done with it. If that is not the case, there *is* a ticket with that ID. So we just handle the case when it is sold or not.
+
+```javascript
+function ticketStatus(tickets, ticketId) {
+  if (!(ticketId in tickets))
+    return "unknown ticket id";
+
+  return tickets[ticketId] !== null
+    ? "sold to " + tickets[ticketId]
+    : "not sold";
+}
+```
+
+The approach shown above is not so hard to understand, but not as common as we would like it to be. Most of the time, people would solve similar problems nesting conditionals like this:
+
+```javascript
+function ticketStatus(tickets, ticketId) {
+  if (ticketId in tickets)
+    if (tickets[ticketId] !== null)
+      return "sold to " + tickets[ticketId];
+    else
+      return "not sold";
+
+  return "unknown ticket id";
+}
+```
+
+In general, the less nesting, the better. Almost always, the better, more elegant, and most importantly, *readable* approach is to handle unhappy and error scenarios earlier and do early returns instead of deeply nesting conditionals and loops.
