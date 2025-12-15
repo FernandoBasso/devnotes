@@ -144,3 +144,18 @@ $ asdf list all clj-kondo
 $ asdf install clj-kondo latest
 $ asdf set --home clj-kondo latest
 ```
+
+## Install several tools with a loop
+
+Some may have to be compiled and could take several minutes to complete.
+
+```text
+for lang in golang \
+  nodejs \
+  ruby \
+do
+  asdf plugin add "$lang"
+  asdf install "$lang" latest
+  asdf set --home "$lang" latest"
+done
+```
