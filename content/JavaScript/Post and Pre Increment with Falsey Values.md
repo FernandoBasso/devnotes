@@ -7,7 +7,7 @@ tags:
   - expression
 description: JavaScript explanation on incrementing a numeric property on an object.
 ---
-## Post-increment a frequency counter.
+## Post-increment a frequency counter
 
 ```text
 > var f = {};
@@ -31,13 +31,11 @@ Why always 1? Explain
 
 Initialize `f` to an empty object.
 
-Assign the result of `f['z']++ || 1` to `f['z']`.
+`f['z']++ || 1` evaluates to `1` because `f['z']` is `undefiend` and `undefined || 1` evals to `1`. The `++` postfix increment happens *after* `|| 1`. `undefined++` is `NaN`, but is discarded (as it happens after `|| 1`). `1` is assigned to `f['z']`.
 
-Subscript property access and happens *after* postfix increment `++` kicks in. As `f` doesn't contain a property `z`, it returns `undefined`. Apply post `++` to `undefined` and get `NaN` as result.
+Now `f['z']` is `1`, and `f['z'] || 1` evals to the `1` in `f['z']`, which is truthy. Again, the postfix increment `++` (being postfix) happens *after* the whole expression and assignment is performed, so the `f['z']++`, which would now increment to `2` gets discarded, and `f['z']` is simply assigned the `1` that is already in `f['z']`.
 
-Increment `NaN` with `++` and get back `NaN` as the result. `f['z']` gets assigned `NaN`.
-
-Next time, it is the same ideas, but now `f['z']` is `NaN` rather than `undefined`, but `NaN++` is `NaN`, so, assign `NaN` to `f['z']` again. And the circle of life (or the circle of poisonous `NaN`) continues.
+And from now on, `f['z'] = f['z']++ || 1` will continually cause the `f['z']` to be assigned to `f['z']`, and the result is always `1`. 
 
 ## Pre-increment a frequency counter.
 
