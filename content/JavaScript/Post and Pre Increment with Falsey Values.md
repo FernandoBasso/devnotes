@@ -31,9 +31,9 @@ Why always 1? Explain
 
 Initialize `f` to an empty object.
 
-`f['z']++ || 1` evaluates to `1` because `f['z']` is `undefiend` and `undefined || 1` evals to `1`. The `++` postfix increment happens *after* `|| 1`. `undefined++` is `NaN`, but is discarded (as it happens after `|| 1`). `1` is assigned to `f['z']`.
+`f['z']++ || 1` evaluates to `1` because `f['z']` is `undefiend` and `undefined || 1` evals to `1`. The `++` postfix increment happens *after* `|| 1`. `undefined++` is `NaN`, but is discarded (as it happens after `|| 1`). The outcome is that `1` is assigned to `f['z']`.
 
-Now `f['z']` is `1`, and `f['z'] || 1` evals to the `1` in `f['z']`, which is truthy. Again, the postfix increment `++` (being postfix) happens *after* the whole expression and assignment is performed, so the `f['z']++`, which would now increment to `2` gets discarded, and `f['z']` is simply assigned the `1` that is already in `f['z']`.
+Now `f['z']` is `1`, and `f['z']++ || 1` evals to the `1` in `f['z']`, which is truthy. Again, the postfix increment `++` (being postfix) happens *after* the whole expression and assignment is performed, so the `f['z']++`, which would now increment to `2` gets discarded, and `f['z']` is simply assigned the `1` that is already in `f['z']`.
 
 And from now on, `f['z'] = f['z']++ || 1` will continually cause the `f['z']` to be assigned to `f['z']`, and the result is always `1`. 
 
