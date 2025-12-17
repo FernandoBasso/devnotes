@@ -48,11 +48,20 @@ For this one we receive a number and must assert it is a palindrome or not. Do d
 > [!TIP] Number Digits
 > Take a look at [[Number Digits (DSA)]] for more info about converting a number into a collection of its constituent digits.
 
-### v1 with a while loop
-
-Decompose the number into a collection of its digits and then loop comparing the first with the last element, the second with the last but one element, etc., until we either find a pair that is not equal, in which case the number is not a palindrome and return false. Else, return true as all the pairs were equal (or the number contains zero or one digit only).
+We'll use this helper function in some of the solutions for `luckyNumber()`:
 
 ```javascript
+/**
+ * Converts a number to an array of its digit constituents.
+ *
+ * @sig number -> [number]
+ * @param {number} num
+ * @returns {number[]}
+ *
+ * @example
+ * toDigits(749);
+ * /=> [7, 4, 9]
+ */
 function toDigits(num) {
   let digits = [];
 
@@ -65,7 +74,13 @@ function toDigits(num) {
 
   return digits;
 }
+```
 
+### v1 with a while loop
+
+Decompose the number into a collection of its digits and then loop comparing the first with the last element, the second with the last but one element, etc., until we either find a pair that is not equal, in which case the number is not a palindrome and return false. Else, return true as all the pairs were equal (or the number contains zero or one digit only).
+
+```javascript
 function luckyNumber(value) {
   const digits = toDigits(value);
   let i = 0,
@@ -76,5 +91,22 @@ function luckyNumber(value) {
       return false;
 
   return true;
+}
+```
+
+### v2 with recursion
+
+```javascript
+function luckyNumber(value) {
+  const digits = toDigits(value);
+
+  return (function loop(xs, ini, end) {
+    if (ini >= end)
+      return true;
+
+    return xs[ini] === xs[end]
+      ? loop(xs, ++ini, --end)
+      : false;
+  }(digits, 0, digits.length - 1));
 }
 ```
