@@ -240,8 +240,8 @@ function digitsToNum(digits) {
 Now we derive the exponent with `digits.length - 1 - i`. As `i` increases, the derived exponent decreases, which is what we want.
 
 ```text
-num = 0
  xs = [5, 7, 4]
+num = 0
 len = 3
   i = 0
   
@@ -280,6 +280,57 @@ Increment i so that i is 3. At this point, i < len is false
 and the loop stops.
 ```
 
+### JavaScript v3
+
+It is possible to even do it without the exponent, just always multiplying by 10 and adding each digit in turn.
+
+```javascript
+function digitsToNum(digits) {
+  let num = 0,
+        i = 0;
+
+  while (i < digits.length)
+    num = num * 10 + digits[i++];
+
+  return num;
+}
+
+log(digitsToNum([5, 3, 7]));
+//=> 537
+```
+
+```text
+ xs = [5, 7, 4]
+num = 0
+len = 3
+  i = 0
+  
+num = num * 10 + xs[i]
+num = 0   * 10 + xs[0]
+num = 0   * 10 + 5
+num = 0        + 5
+num = 5
+
+Increment i to 1.
+
+num = num * 10 + xs[i]
+num = 5   * 10 + xs[1]
+num = 5   * 10 + 7
+num = 5   * 10 + 7
+num = 50       + 7
+num = 57
+
+Increment i to 2.
+
+num = num * 10 + xs[i]
+num = 57  * 10 + xs[2]
+num = 57  * 10 + 4
+num = 570      + 4
+num = 574
+
+Increment i to 3, which causes the test in the loop to
+be false and the loop stops.
+```
 
 ## Take first digit from number
 
