@@ -182,7 +182,7 @@ function numToDigits(num) {
 
 ## Array of integers to a single integer
 
-For example, `[7, 5, 3]` is 253. The logic is to use the positional system concepts and do something like this:
+For example, `[7, 5, 3]` is 753. The logic is to use the positional system concepts and do something like this:
 
 - $7 \times 10 ^ 2 = 700$
 - $5 \times 10 ^ 1 = 50$
