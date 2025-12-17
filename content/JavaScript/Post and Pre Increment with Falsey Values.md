@@ -63,6 +63,6 @@ Initialize `f` to an empty object.
 
 Assign the result of `++f['z'] || 1` to `f['z']`.
 
-Apply prefix increment `++` to `f['z']`, but `f['z']` is `undefined`, which is falsey, so , `1` is the result of `++f['z'] || 1`. Therefore, assign `1` to `f['z']`.
+Apply prefix increment `++` to `f['z']`, but `f['z']` is `undefined`, and `++undefined` is `NaN`, which is falsey, so the expression reaches `|| 1` is the result of `++f['z'] || 1`. Therefore, assign `1` to `f['z']`.
 
 Next time, a similar thing happens. `f['z']` evals to `1` (it is not `undefined` any longer), so, `++f['z']`  increments `1` to `2`, and assigns `2` to `f['z']`. And so on and so forth.
