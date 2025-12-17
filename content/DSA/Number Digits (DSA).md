@@ -190,13 +190,13 @@ For example, `[7, 5, 3]` is 253. The logic is to use the positional system conce
 
 Therefore, $700 + 50 + 3 = 753$.
 
-### JavaScript
+### JavaScript v1
 
 ```javascript
 function digitsToNum(digits) {
   let num = 0,
-        e = digits.length - 1,
-        i = 0;
+        i = 0,
+        e = digits.length - 1;
 
   while (e >= 0)
     num += digits[i++] * 10 ** e--; 
@@ -219,6 +219,67 @@ log(digitsToNum([7, 0]));
 log(digitsToNum([8, 0, 9, 6]));
 //=> 8096
 ```
+
+Two variables `i` and `e` are used to control the current digit index and the exponent.
+
+### JavaScript v2
+
+But because in the previous solution, both `i` and `e` are derived related or derived from the length of the input array of digits, we can make do with simply `i`:
+
+```javascript
+function digitsToNum(digits) {
+  let num = 0;
+
+  for (let i = 0; i < digits.length; ++i)
+    num += digits[i] * 10 ** (digits.length - 1 - i);
+
+  return num;
+}
+```
+
+Now we derive the exponent with `digits.length - 1 - i`. As `i` increases, the derived exponent decreases, which is what we want.
+
+```text
+num = 0
+ xs = [5, 7, 4]
+len = 3
+  i = 0
+  
+xs[i] * 10 ** (len - 1 - i)
+xs[0] * 10 ** (3   - 1 - 0) (because i is 0)
+5     * 10 ** (3   - 1)
+5     * 10 ** 3
+500
+
+num += 500
+num is 500
+
+Increment i so that i = 1.
+
+xs[i] * 10 ** (len - 1 - i)
+xs[1] * 10 ** (3   - 1 - 1) (because i is now 1)
+7     * 10 ** (3   - 2) 
+7     * 10 ** 1
+70
+
+num += 70
+num = 570
+
+Increment i so that i = 2.
+
+xs[i] * 10 ** (len - 1 - i)
+xs[2] * 10 ** (3   - 1 - 2) (because i is now 2)
+4     * 10 ** (3   - 3)
+4     * 10 ** 0
+4
+
+num += 4
+num = 574
+
+Increment i so that i is 3. At this point, i < len is false
+and the loop stops.
+```
+
 
 ## Take first digit from number
 
