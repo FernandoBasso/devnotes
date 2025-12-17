@@ -204,6 +204,10 @@ function digitsToNum(digits) {
   return num;
 }
 
+/*
+
+*/
+
 log(digitsToNum([0]));
 //=> 0
 
@@ -221,6 +225,38 @@ log(digitsToNum([8, 0, 9, 6]));
 ```
 
 Two variables `i` and `e` are used to control the current digit index and the exponent.
+
+```text
+num = 0
+ xs = [5, 7, 4]
+ i  = 0
+ e  = 2
+
+num += xs[i] * 10 ** e
+num += xs[0] * 10 ** 2
+num += 5     * 100
+num += 500
+num is 0 so num = 500
+
+Increment i to 1, decrement e to 1.
+
+num += xs[i] * 10 ** e
+num += xs[1] * 10 ** 1
+num += 7     * 10
+num += 70
+num is 500, 500 + 70, num = 570
+
+Increment i to 2, decrement e to 0.
+
+num += xs[i] * 10 ** e
+num += xs[2] * 10 ** 0
+num += 4     * 10 ** 0
+num += 4     * 1
+num += 4
+num is 570, 570 + 4, num = 574
+
+Increment i to 3, decrement e to -1. Loop test is false. Stop.
+```
 
 ### JavaScript v2
 
