@@ -111,7 +111,7 @@ function luckyNumber(value) {
 }
 ```
 
-## errorMessage()
+### errorMessage()
 
 ```javascript
 function errorMessage(input) {
