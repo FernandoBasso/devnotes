@@ -114,7 +114,7 @@ export function countDigits(num) {
 }
 ```
 
-## Turn number into array of its digits
+## umber into array of its digits
 
 Using the modulo operation to keep getting the last digit and adding it to the **front** of the array.
 
@@ -180,7 +180,7 @@ function numToDigits(num) {
 ```
 
 
-## Turn array of integers to a single integer
+## Array of integers to a single integer
 
 For example, `[7, 5, 3]` is 253. The logic is to use the positional system concepts and do something like this:
 
