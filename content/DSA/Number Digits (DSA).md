@@ -114,7 +114,7 @@ export function countDigits(num) {
 }
 ```
 
-## umber into array of its digits
+## Number into array of its digits
 
 Using the modulo operation to keep getting the last digit and adding it to the **front** of the array.
 
