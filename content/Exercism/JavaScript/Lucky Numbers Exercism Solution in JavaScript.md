@@ -133,3 +133,31 @@ If we use the non-strict comparison `==`, we can reduce the `undefined` and `nul
 if (input == null || input == "")
   return "Required field";
 ```
+
+Even further than that, both `undefined`, `null` and `""` (empty string) are falsey in JavaScript, so we can simplify it even further:
+
+```javascript
+if (!input)
+  return "Required field";
+```
+
+For the `NaN` and zero, we can do this instead:
+
+```javascript
+return Number(input)
+  ? ""
+  : "Must be a number besides 0";
+```
+
+So the final result could be like this:
+
+```javascript
+function errorMessage(input) {
+  if (!input)
+    return "Required field";
+
+  return Number(input)
+    ? ""
+    : "Must be a number besides 0";
+}
+```
