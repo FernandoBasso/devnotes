@@ -161,3 +161,5 @@ function errorMessage(input) {
     : "Must be a number besides 0";
 }
 ```
+
+`Number("")` returns 0 (zero), which is falsey, so the control jumps to the `:` expression. If `Number(input)` is a non-zero and non-`NaN` number, then return the empty string.
