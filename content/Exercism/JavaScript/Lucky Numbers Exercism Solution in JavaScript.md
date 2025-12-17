@@ -76,7 +76,7 @@ function toDigits(num) {
 }
 ```
 
-### v1 with a while loop
+#### v1 with a while loop
 
 Decompose the number into a collection of its digits and then loop comparing the first with the last element, the second with the last but one element, etc., until we either find a pair that is not equal, in which case the number is not a palindrome and return false. Else, return true as all the pairs were equal (or the number contains zero or one digit only).
 
@@ -94,7 +94,7 @@ function luckyNumber(value) {
 }
 ```
 
-### v2 with recursion
+#### v2 with recursion
 
 ```javascript
 function luckyNumber(value) {
@@ -109,4 +109,27 @@ function luckyNumber(value) {
       : false;
   }(digits, 0, digits.length - 1));
 }
+```
+
+## errorMessage()
+
+```javascript
+function errorMessage(input) {
+  if (input === undefined || input === null || input === "")
+    return "Required field";
+
+  const num = Number(input);
+
+  if (Number.isNaN(num) || num === 0)
+    return "Must be a number besides 0";
+
+  return "";
+}
+```
+
+If we use the non-strict comparison `==`, we can reduce the `undefined` and `null` to a single check:
+
+```javascript
+if (input == null || input == "")
+  return "Required field";
 ```
