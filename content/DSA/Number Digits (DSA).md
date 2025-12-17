@@ -146,17 +146,6 @@ Add remaining 7 in front of [9, 3]
 ```
 
 At each iteration of the loop, `n` is relieved of its last digit, and `digits` gets that digit added to is beginning.
-
-## Turn array of integers to a single integer.
-
-For example, `[7, 5, 3]` is 253. The logic is to use the positional system concepts and do something like this:
-
-- $7 \times 10 ^ 2 = 700$
-- $5 \times 10 ^ 1 = 50$
-- $3 \times 10 ^ 0 = 3$
-
-Therefore, $700 + 50 + 3 = 753$.
-
 ### JavaScript
 
 ```javascript
@@ -188,6 +177,47 @@ function numToDigits(num) {
 
   return digits;
 }
+```
+
+
+## Turn array of integers to a single integer
+
+For example, `[7, 5, 3]` is 253. The logic is to use the positional system concepts and do something like this:
+
+- $7 \times 10 ^ 2 = 700$
+- $5 \times 10 ^ 1 = 50$
+- $3 \times 10 ^ 0 = 3$
+
+Therefore, $700 + 50 + 3 = 753$.
+
+### JavaScript
+
+```javascript
+function digitsToNum(digits) {
+  let num = 0,
+        e = digits.length - 1,
+        i = 0;
+
+  while (e >= 0)
+    num += digits[i++] * 10 ** e--; 
+
+  return num;
+}
+
+log(digitsToNum([0]));
+//=> 0
+
+log(digitsToNum([7]));
+//=> 7
+
+log(digitsToNum([0, 7]));
+//=> 7
+
+log(digitsToNum([7, 0]));
+//=> 7
+
+log(digitsToNum([8, 0, 9, 6]));
+//=> 8096
 ```
 
 ## Take first digit from number
