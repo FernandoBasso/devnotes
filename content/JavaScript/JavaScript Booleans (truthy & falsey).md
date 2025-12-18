@@ -74,4 +74,23 @@ else
   log("Here is your number: ", num);
 ```
 
+## isNaN() vs Number.isNaN()
+
+The global `isNaN()` performs coercion before checking if the value is not a number. That is, if passed a string, like `"0xff"` instead of the number `0xff`, it first converts the string to a number.
+
+But `Number.isNaN()` requires that its argument type be `number`, and it must be precisely the value `NaN`, like the result of `Number("0xHF")` or `0 / 0` or `NaN` it self. So, maybe surprisingly:
+
+```javascript
+const input = "0xHF";
+
+if (Number.isNaN(input))
+  log("Input is NOT a number:", input);
+else
+  log("Input IS a number:", input);
+//=> Input IS a number: 0xHF
+```
+
+It executes the `else` block, even though "0xHF" is not a valid (hexadecimal) number since "H" doesn't exist in the hexadecimal number system.
+
+
 
