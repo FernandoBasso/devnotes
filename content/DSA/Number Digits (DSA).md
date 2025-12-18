@@ -192,6 +192,8 @@ Therefore, $700 + 50 + 3 = 753$.
 
 ### JavaScript v1
 
+Translate the logic described above to code.
+
 ```javascript
 function digitsToNum(digits) {
   let num = 0,
@@ -203,10 +205,6 @@ function digitsToNum(digits) {
 
   return num;
 }
-
-/*
-
-*/
 
 log(digitsToNum([0]));
 //=> 0
@@ -260,7 +258,7 @@ Increment i to 3, decrement e to -1. Loop test is false. Stop.
 
 ### JavaScript v2
 
-But because in the previous solution, both `i` and `e` are derived related or derived from the length of the input array of digits, we can make do with simply `i`:
+But because in the previous solution, both `i` and `e` are both related or derived from the length of the input array of digits, we can make do with simply `i`:
 
 ```javascript
 function digitsToNum(digits) {
