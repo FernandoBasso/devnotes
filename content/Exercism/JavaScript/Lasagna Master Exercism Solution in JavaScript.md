@@ -30,3 +30,14 @@ function cookingStatus(timer) {
     : "Not done, please wait.";
 }
 ```
+
+Note that we cannot simply do:
+
+```javascript
+if (!timer)
+  return "You forgot to set the timer.";
+```
+
+Why not? Because 0 is falsey in a boolean context, so when `timer` is 0, `!timer` becomes `!0`, which is `true`, so we would return the wrong message when `timer` is 0.
+
+
