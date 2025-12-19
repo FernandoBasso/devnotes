@@ -142,3 +142,25 @@ function quantities(layers) {
 ```
 
 This one looks less elegant and FP-ish as it uses an imperative loop, and if/else conditionals. Despite that, it avoids looping twice over the input array, and is able to perform the task with a single loop!
+
+### addSecretIngredient()
+
+Simply push the last ingredient from the friend's list to the end of my list. We should not create new references to the arrays or return new arrays. It should all be done in place, and we cannot modify our friends list, like doing `firendsList.pop()`, for instance.
+
+To add an new element to the end of an array (by the way, JavaScript has *dynamic arrays*, not traditional arrays in which the length cannot be increased), simply use `arr.push(val)`.
+
+To get the last element of an array, use the index `[arr.length - 1]`.
+
+```javascript
+function addSecretIngredient(friendsList, myList) {
+  myList.push(friendsList[friendsList.length - 1]);
+}
+```
+
+As of 2025, `Array.prototype.at()` is supported across all major JS engines. It accepts negative indexes to go backwards from the end of an array, so `.at(-1)` is the last element, `.at(-2)` is the last but one (penultimate) element, and so on and so forth. So here's the solution with `.at(-1)`:
+
+```javascript
+function addSecretIngredient(friendsList, myList) {
+  myList.push(friendsList.at(-1));
+}
+```
