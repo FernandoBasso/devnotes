@@ -77,3 +77,17 @@ function preparationTime(
 ```
 
 Here we define a constant with the average preparation time and use it as a default value for the parameter `prepTimePerLayer`. If `preparationTime()` and passed the second parameter, use it. Otherwise, use `AVG_PREP_TIME_PER_LAYER` as a default value for that parameter.
+
+### quantities()
+
+```javascript
+function quantities(layers) {
+  const noodles = layers.filter(l => l === "noodles").length;
+  const sauce = layers.filter(l => l === "sauce").length;
+
+  return {
+    noodles: noodles * 50,
+    sauce: sauce * 0.2,
+  };
+}
+```
