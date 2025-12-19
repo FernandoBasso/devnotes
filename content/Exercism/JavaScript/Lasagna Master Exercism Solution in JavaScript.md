@@ -80,6 +80,8 @@ Here we define a constant with the average preparation time and use it as a defa
 
 ### quantities()
 
+#### v1 two filter loops
+
 ```javascript
 function quantities(layers) {
   const noodles = layers.filter(l => l === "noodles").length;
@@ -91,3 +93,52 @@ function quantities(layers) {
   };
 }
 ```
+
+Here we loop over the `layers` array **twice** to count `nooldes` and `sauce`. Then, multiply their count by the appropriate number of grams or litters as mentioned in the challenge description. It works, but we are looping twice.
+
+#### v2 more FP style
+#filter #functional-programming 
+
+```javascript
+function makeEq(expected) {
+  return function isEqToExpected(actual) {
+    return expected === actual;
+  };
+}
+
+const eqNoodles = makeEq("noodles");
+const eqSauce = makeEq("sauce");
+
+function quantities(layers) {
+  const noodles = layers.filter(eqNoodles).length;
+  const sauce = layers.filter(eqSauce).length;
+
+  return {
+    noodles: noodles * 50,
+    sauce: sauce * 0.2,
+  };
+}
+```
+
+Here we write a manually curried function `makeEq()` that takes the expected value. Then it returns function that takes the actual value. We then partial-apply `makeEq()` to create specialized functions that know how to compare if the given param is equal "noddles" or "sauce". Finally, pass those functions to `.filter()` callback. Very neat, elegant FP style. Still looping twice over the input array, though.
+
+#### v3 more performant single loop
+
+```javascript
+function quantities(layers) {
+  const info = {
+    noodles: 0,
+    sauce: 0,
+  };
+
+  for (const layer of layers)
+    if (layer === "noodles")
+      info.noodles += 50;
+    else if (layer === "sauce")
+      info.sauce += 0.2;
+
+  return info;
+}
+```
+
+This one looks less elegant and FP-ish as it uses an imperative loop, and if/else conditionals. Despite that, it avoids looping twice over the input array, and is able to perform the task with a single loop!
