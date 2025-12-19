@@ -169,7 +169,7 @@ function addSecretIngredient(friendsList, myList) {
 ### scaleRecipe()
 #for-in #scale #factor
 
-Since the original recipe is for two people, when we have to divide the factor parameter by 2 to get the correct results.
+Since the original recipe is for *two* people, we have to divide the factor parameter by 2 to get the amount of ingredients for *one* person.
 
 Loop over each ingredient on the input recipe object, and simply add each ingredient to the new object to be returned and multiply is value by the amount per one person.
 
@@ -185,4 +185,4 @@ function scaleRecipe(recipe, factor) {
 }
 ```
 
-Noe we could simply do `factor / 2` inside the loop itself, but we chose to use a variable for it for two reasons: avoid the division over and over again on each iteration of t he loop, and to give it a self-documenting name.
+Note we could simply do `factor / 2` inside the loop itself, but we chose to use a variable for it for two reasons: avoid the division over and over again on each iteration of t he loop, and to give it a self-documenting name.
