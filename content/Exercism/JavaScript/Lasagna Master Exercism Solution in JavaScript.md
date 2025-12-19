@@ -164,3 +164,25 @@ function addSecretIngredient(friendsList, myList) {
   myList.push(friendsList.at(-1));
 }
 ```
+
+
+### scaleRecipe()
+#for-in #scale #factor
+
+Since the original recipe is for two people, when we have to divide the factor parameter by 2 to get the correct results.
+
+Loop over each ingredient on the input recipe object, and simply add each ingredient to the new object to be returned and multiply is value by the amount per one person.
+
+```javascript
+function scaleRecipe(recipe, factor) {
+  const scaledRecipe = {};
+  const amountForOnePerson = factor / 2;
+
+  for (const ingredient in recipe)
+    scaledRecipe[ingredient] = recipe[ingredient] * amountForOnePerson;
+
+  return scaledRecipe;
+}
+```
+
+Noe we could simply do `factor / 2` inside the loop itself, but we chose to use a variable for it for two reasons: avoid the division over and over again on each iteration of t he loop, and to give it a self-documenting name.
