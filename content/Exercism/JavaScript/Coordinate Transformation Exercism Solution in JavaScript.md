@@ -79,7 +79,7 @@ Call `g(-8, 21)`, which evals to `[-10 + -8, 20 + 21]`, which is `[-18, 41]`.
 
 In this implementation, we first destructure the return values of `f()` and `g()` to have one identifier per value. For example, we destructure `f(x, y)` into `newX` and `newY` so we can pass those to `g()`, which is a function that also takes two params.
 
-### v2 with spread params
+#### v2 with spread params
 
 ```javascript
 function composeTransform(f, g) {
@@ -90,3 +90,41 @@ function composeTransform(f, g) {
 ```
 
 Here, the same logic applies, but we are using spread instead of destructuring.  `f()` returns `[val1, val2]`, but `...[val1, val2]` becomes two individual params to `g()` because of the use of the spread operator `...`.
+
+### memoizeTransform()
+
+This function requires that only the last result is memoized (so it is not “true”, full-blown memoization).
+
+```javascript
+function memoizeTransform(f) {
+  const memo = {};
+
+  return function memoized(x, y) {
+    if (memo.x === x && memo.y === y)
+      return memo.res;
+
+    memo.x = x;
+    memo.y = y;
+    memo.res = f(x, y);
+
+    return memo.res;
+  };
+}
+```
+
+So I implemented it using a memo object, but other people simply used three variables instead of an object:
+
+```javascript
+function memoizeTransform(f) {
+  let lastX, lastY, lastResult;
+
+  return function memoized(x, y) {
+    if (lastX === x && lastY === y)
+      return lastResult;
+
+    lastX = x;
+    lastY = y;
+    return lastResult = f(x, y);
+  };
+}
+```
