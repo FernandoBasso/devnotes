@@ -128,3 +128,5 @@ function memoizeTransform(f) {
   };
 }
 ```
+
+Here we could probably replace the word “last” with “prev” or “previous”.
