@@ -3,6 +3,8 @@ tags:
   - exercism
   - javascript
   - dsa
+  - clojure
+  - scope
 description: Notes and solutions for the Coordinate Transformation Exercism challenge in Python
 ---
 
@@ -32,3 +34,16 @@ function translate2d(dx, dy) {
 ```
 When `translate2d(dx, dy)` is called, it returns a function that takes two numbers representing a point in the coordinate plane. The returned function still has access to the the parameters that were passed when calling the first/outer function. This is possible due to the closure that is created when the outer function *closes over* the inner function that is returned. The inner function “remembers” the scope of the outer function.
 
+### scale2d
+
+```javascript
+function scale2d(sx, sy) {
+  return function scalePoints(x, y) {
+    return [
+      sx * x,
+      sy * y,
+    ];
+  };
+}
+```
+Exactly the same situation as in `translate2d()`, just replacing `+` with `*`.
