@@ -47,3 +47,46 @@ function scale2d(sx, sy) {
 }
 ```
 Exactly the same situation as in `translate2d()`, just replacing `+` with `*`.
+
+### composeTransform()
+
+#### v1 with destructuring
+
+```javascript
+function composeTransform(f, g) {
+  return function transform(x, y) {
+    const [newX, newY] = f(x, y);
+    const [finalX, finalY] = g(newX, newY);
+	
+    return [finalX, finalY];
+  };
+}
+```
+
+Example:
+
+```text
+const f = translate2d(-10, 20);
+const g = translate2d(-10, 20);
+const tr = composeTransform(f, g);
+log(tr(2, 1));
+//=> -8, 21
+```
+
+`tr(2, 1)` internally calls `f(2, 1)`,  which evals to `[-10 + 2, 20 + 1]`, which is `[-8, 21]`. Then we destructure that into `newX = -8` and `newY = 21`.
+
+Call `g(-8, 21)`, which evals to `[-10 + -8, 20 + 21]`, which is `[-18, 41]`.
+
+In this implementation, we first destructure the return values of `f()` and `g()` to have one identifier per value. For example, we destructure `f(x, y)` into `newX` and `newY` so we can pass those to `g()`, which is a function that also takes two params.
+
+### v2 with spread params
+
+```javascript
+function composeTransform(f, g) {
+  return function transform(x, y) {
+    return g(...f(x, y));
+  };
+}
+```
+
+Here, the same logic applies, but we are using spread instead of destructuring.  `f()` returns `[val1, val2]`, but `...[val1, val2]` becomes two individual params to `g()` because of the use of the spread operator `...`.
