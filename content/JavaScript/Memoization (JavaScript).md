@@ -54,3 +54,22 @@ Since ES6 introduced computed properties, we can store the value of a variable a
 memo[x] = x;
 memo[y] = y;
 ```
+
+That said, the solution for that particular function, and because they just want only the last result to be remembered (not the full-blown, true memoization thing), is this [Coordinate Transformation Exercism Solution in JavaScript](Coordinate%20Transformation%20Exercism%20Solution%20in%20JavaScript.md):
+
+```javascript
+function memoizeTransform(f) {
+  const memo = [];
+
+  return function memoized(x, y) {
+    if (memo.x === x && memo.y === y)
+      return memo.res;
+
+    memo.x = x;
+    memo.y = y;
+    memo.res = f(x, y);
+
+    return memo.res;
+  };
+}
+```
