@@ -48,8 +48,7 @@ function randomStardate() {
 
 ### randomPlanetClass()
 
-#### v1 
-
+#### v1  with inline random logic
 ```javascript
 function randomPlanetClass() {
   const classes = ["D", "H", "J", "K", "L", "M", "N", "R", "T", "Y"];
