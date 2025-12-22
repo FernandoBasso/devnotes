@@ -89,3 +89,12 @@ function randomPlanetClass() {
   return classes[randInt(0, classes.length)];
 }
 ```
+
+But remember that strings can also be accessed by index. Therefore, `classes` above can be a string instead of an array:
+
+```javascript
+function randomPlanetClass() {
+  const classes = "DHJKLMNRTY";
+  return "DHJKLMNRTY"[randInt(0, classes.length)];
+}
+```
