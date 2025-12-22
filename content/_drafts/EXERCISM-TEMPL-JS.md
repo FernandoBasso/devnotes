@@ -44,3 +44,21 @@ function randomStardate() {
   return (min + Math.random() * (max - min));
 }
 ```
+
+
+### randomPlanetClass()
+
+#### v1 
+
+```javascript
+function randomPlanetClass() {
+  const classes = ["D", "H", "J", "K", "L", "M", "N", "R", "T", "Y"];
+
+  const ini = 0,
+        end = classes.length;
+
+  const idx = (ini + Math.random() * (end - ini)) | 0;
+
+  return classes[idx];
+}
+```
