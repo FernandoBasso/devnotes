@@ -90,7 +90,7 @@ function randomPlanetClass() {
 }
 ```
 
-But remember that strings can also be accessed by index. Therefore, `classes` above can be a string instead of an array:
+But remember that string characters can also be accessed by index. Therefore, `classes` above can be a string instead of an array:
 
 ```javascript
 function randomPlanetClass() {
