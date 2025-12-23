@@ -18,13 +18,14 @@ My own repo with solutions:
 
 ## Solution
 
-Because the input to all functions are tuples of two, three, etc. elements, we can simply destructure those elements into variables to satisfy the requirements of this specific challenge.
+The first four functions receive tuples of two, three, etc. elements as parameter, so we can simply destructure those elements into variables.
 
 The last two functions are passed an object with two properties, which can also be destructured and renamed, like in the case of the last function.
 
-We destructure only the things we need, sometimes ignoring tuple elements or keys in the objects.
+We destructure only the stuff we need, sometimes ignoring tuple elements or keys in the objects.
 
 The goal is to use destructuring to allow the body of the functions always be a single return statement and the logic is done only manipulating the position of the destructured or renamed elements.
+
 
 ```javascript
 /// <reference path="./global.d.ts" />
