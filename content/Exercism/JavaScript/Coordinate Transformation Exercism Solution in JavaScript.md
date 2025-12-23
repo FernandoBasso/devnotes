@@ -5,7 +5,7 @@ tags:
   - dsa
   - clojure
   - scope
-description: Notes and solutions for the Coordinate Transformation Exercism challenge in Python
+description: Notes and solutions for the Coordinate Transformation Exercism challenge in JavaScript
 ---
 
 ## Intro

@@ -3,7 +3,7 @@ tags:
   - exercism
   - javascript
   - dsa
-description: Notes and solutions for the Poetry Club Door Policy Exercism challenge in Python
+description: Notes and solutions for the Poetry Club Door Policy Exercism challenge in JavaScript
 ---
 ## Intro
 

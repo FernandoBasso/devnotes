@@ -4,7 +4,7 @@ tags:
   - javascript
   - dsa
   - boolean
-description: Notes and solutions for the Annalyn's Infilration Exercism challenge in Python
+description: Notes and solutions for the Annalyn's Infilration Exercism challenge in JavaScript
 ---
 ## Intro
 

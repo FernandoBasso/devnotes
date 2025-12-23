@@ -3,7 +3,7 @@ tags:
   - exercism
   - javascript
   - dsa
-description: Notes and solutions for the Mixed Juices Exercism challenge in Python
+description: Notes and solutions for the Mixed Juices Exercism challenge in JavaScript
 ---
 
 ## Intro
