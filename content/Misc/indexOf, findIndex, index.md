@@ -66,4 +66,3 @@ log(nums.findIndex(num => num >= 100));
 ### References
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
-- 
