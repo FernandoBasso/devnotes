@@ -104,3 +104,10 @@ Congrats! We are all set up and ready to code! 🎉
 Search for identifiers on this page:
 
 * [Cheecadee](https://api.call-cc.org/5/doc/)
+
+## Other resources on CHICKEN Scheme
+
+- [Why the name CHICKEN Scheme](https://mail.gnu.org/archive/html/chicken-users/2010-08/msg00044.html).
+- https://en.wikipedia.org/wiki/Chicken_(Scheme_implementation)
+- [What to expect from CHICKEN 6](https://www.more-magic.net/posts/chicken-6.html)
+
