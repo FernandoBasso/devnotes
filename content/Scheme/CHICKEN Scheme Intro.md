@@ -40,14 +40,14 @@ But if we have .NET Mono installed (I had once because it was a dependency of so
 $ mkdir -pv ~/local/build
 $ cd !$
 
-$ wget http://code.call-cc.org/releases/5.3.0/chicken-5.3.0.tar.gz
-$ tar xzvf chicken-5.3.0.tar.gz
-$ cd chicken-5.3.0
+$ wget http://code.call-cc.org/releases/5.4.0/chicken-5.4.0.tar.gz
+$ tar xzvf chicken-5.4.0.tar.gz
+$ cd chicken-5.4.0
 
-$ make PREFIX=$HOME/local/chicken-5.3.0 -j$(nproc)
-$ make PREFIX=$HOME/local/chicken-5.3.0 install
+$ make PREFIX=$HOME/local/chicken-5.4.0 -j$(nproc)
+$ make PREFIX=$HOME/local/chicken-5.4.0 install
 
-$ export PATH="$HOME/local/chicken-5.3.0/bin:$PATH"
+$ export PATH="$HOME/local/chicken-5.4.0/bin:$PATH"
 ```
 
 Note we add the local chicken bin path first when exporting.
