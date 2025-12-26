@@ -45,7 +45,7 @@ $ tar xzvf chicken-5.4.0.tar.gz
 $ cd chicken-5.4.0
 
 $ make PREFIX=$HOME/local/chicken-5.4.0 -j$(nproc)
-$ make PREFIX=$HOME/local/chicken-5.4.0 install
+$ F
 
 $ export PATH="$HOME/local/chicken-5.4.0/bin:$PATH"
 ```
