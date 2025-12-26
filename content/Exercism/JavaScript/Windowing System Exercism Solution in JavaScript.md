@@ -34,3 +34,18 @@ Size.prototype.resize = function resize(width, height) {
 
 Just for kicks, we are using the “default operator” idea  `val || defaultVal` to handle default values for properties.
 
+### Position() and move()
+
+```javascript
+function Position(x = 0, y = 0) {
+  this.x = x;
+  this.y = y;
+}
+
+Position.prototype.move = function move(x, y) {
+  this.x = x;
+  this.y = y;
+}
+```
+
+Here we are using the more modern default assignment for missing function/method parameters.
