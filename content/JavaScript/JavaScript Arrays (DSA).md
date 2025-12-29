@@ -14,8 +14,6 @@ An array is a contiguous memory space.
 arr = int[3]
 ```
 
-## Intro
-
 An array is a contiguous memory space.
 
 A 32-bit is 4 bytes * 8 = 32.
