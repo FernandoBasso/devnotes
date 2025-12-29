@@ -267,10 +267,8 @@ This works because the anonymous arrow function is invoked each for each one of 
 
 And note it creates an array containing `length` arrays.
 
-<dl><dt><strong>💡 TIP</strong></dt><dd>
-
-Did you know we can write 100_000_000 instead of 100000000 in ECMAScript to make large numbers more readable‽
-</dd></dl>
+> [!TIP]
+> Did you know we can write 100_000_000 instead of 100000000 in ECMAScript to make large numbers more readable‽
 
 ## Concatenate (flatten) arrays
 
