@@ -154,3 +154,20 @@ resize(newSize) {
   this.size.resize(newWidth, newHeight);
 }
 ```
+
+And if we *shorten* the code this much, we can do away with the private helper methods:
+
+```javascript
+/**
+ * @param {Size} newSize
+ */
+resize(newSize) {
+  const remainingWidth = this.screenSize.width - this.position.x;
+  const remainingHeight = this.screenSize.height - this.position.y;
+
+  const newWidth = Math.max(1, Math.min(remainingWidth, newSize.width));
+  const newHeight = Math.max(1, Math.min(remainingHeight, newSize.height))
+
+  this.size.resize(newWidth, newHeight);
+}
+```
