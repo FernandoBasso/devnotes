@@ -16,6 +16,29 @@ My own repo with solutions:
 
 - https://github.com/FernandoBasso/coding-studies/tree/devel/exercism/javascript
 
+```text
+                  <------------------- screenSize.width ---------------->
+
+       ^          ┌──────────────────────────────────────────────────────┐
+       |          │                                                      │
+       |          │       position.x, _                                  │
+       |          │       position.y   \                                 │
+       |          │                     \<----- size.width ----->        │
+       |          │               ^      *──────────────────────┐        │
+       |          │               |      │        title         │        │
+       |          │               |      ├──────────────────────┤        │
+screenSize.height │               |      │                      │        │
+       |          │          size.height │                      │        │
+       |          │               |      │       contents       │        │
+       |          │               |      │                      │        │
+       |          │               |      │                      │        │
+       |          │               v      └──────────────────────┘        │
+       |          │                                                      │
+       |          │                                                      │
+       v          └──────────────────────────────────────────────────────┘
+```
+```
+
 ## Solution
 
 ### Size() and resize()
