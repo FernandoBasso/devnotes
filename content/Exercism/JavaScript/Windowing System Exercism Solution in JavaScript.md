@@ -249,3 +249,92 @@ move(newPosition) {
   this.position.move(newX, newY);
 }
 ```
+
+#### v1
+
+All in all, this is one possible implementation of the `ProgramWindow` class:
+
+```javascript
+class ProgramWindow {
+  screenSize = new Size(800, 600);
+  size = new Size();
+  position = new Position();
+
+  /**
+   * @param {number} width
+   * @returns {number}
+   */
+  #width(width) {
+    if (width < 1)
+      return 1;
+
+    const remainingWidth = this.screenSize.width - this.position.x;
+
+    return Math.min(remainingWidth, width);
+  }
+
+  /**
+   * @param {number} height
+   * @returns {number}
+   */
+  #height(height) {
+    if (height < 1)
+      return 1;
+
+    const remainingHeight = this.screenSize.height - this.position.y;
+
+    return Math.min(remainingHeight, height);
+  }
+
+  /**
+   * @param {Size} newSize
+   */
+  resize(newSize) {
+    const width = this.#width(newSize.width);
+    const height = this.#height(newSize.height);
+
+    this.size.resize(width, height);
+  }
+
+  /**
+   * @param {number} newX
+   */
+  #x(newX) {
+    if (newX < 0)
+      return 0;
+
+    const newWinXEnd = this.position.x + this.size.width + newX;
+
+    if (newWinXEnd > this.screenSize.width)
+      return newX - (newWinXEnd - this.screenSize.width);
+
+    return newX;
+  }
+
+  /**
+   * @param {number} newY
+   */
+  #y(newY) {
+    if (newY < 0)
+      return 0;
+
+    const newWinYEnd = this.position.y + this.size.height + newY;
+
+    if (newWinYEnd > this.screenSize.height)
+      return newY - (newWinYEnd - this.screenSize.height);
+
+    return newY;
+  }
+
+  /**
+   * @param {Position} newPosition
+   */
+  move(newPosition) {
+    const newX = this.#x(newPosition.x);
+    const newY = this.#y(newPosition.y);
+
+    this.position.move(newX, newY);
+  }
+}
+```
+
