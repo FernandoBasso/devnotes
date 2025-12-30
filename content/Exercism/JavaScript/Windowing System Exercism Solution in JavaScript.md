@@ -338,3 +338,19 @@ class ProgramWindow {
 }
 ```
 
+### changeWindow()
+
+```javascript
+/**
+ * @param {ProgramWindow} programWindow
+ */
+function changeWindow(programWindow) {
+  const size = new Size(400, 300);
+  const position = new Position(100, 150);
+
+  programWindow.resize(size);
+  programWindow.move(position);
+
+  return programWindow;
+}
+```
