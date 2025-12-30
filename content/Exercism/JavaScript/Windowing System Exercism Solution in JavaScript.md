@@ -69,9 +69,9 @@ To resize the window, the challenge requires that the new size doesn't fall of t
 
 One approach is to have the `resize()` method delegate the calculation of the width and height to dedicated private methods.
 
-The logic for with goes like this:
+The logic for width goes like this (and a similar idea works for height too):
 
-- If the requested new witdh is less than 1, default to 1.
+- If the requested new width is less than 1, default to 1.
 - If the requested new width is greater than the screen width, make the new width as large as the remaining width. In this case, we adapt the new width to be as large as possible, but not as large as it was originally requested.
 - Otherwise, the requested new width is OK (fits the screen width).
 
@@ -169,5 +169,83 @@ resize(newSize) {
   const newHeight = Math.max(1, Math.min(remainingHeight, newSize.height))
 
   this.size.resize(newWidth, newHeight);
+}
+```
+
+#### move()
+
+To move a window, we must make sure neither of its sides go off the screen. Here is the outline of the logic involved for the $x$ axis (a similar piece of logic works for the $y$ axis as well):
+
+- Let `new_x` be the new `x` position the user wants.
+- If the `new_x` is less than `0`, return `0`;
+- Let `x_end` be the  `x` position of the right end of the window, which is calculated with:
+	- `x_end = current_x + window_width + new_x`.
+- If `x_end` is greater than the right screen edge, deduct the amount it would go over:
+	- `new_max_x = new_x - (x_end - screen_width)
+ - Return `new_max_x`.
+ - Otherwise, `new_x` was within the limits. Just return it.
+
+Translating to code:
+
+```javascript
+/**
+ * @param {number} newX
+ */
+#x(newX) {
+  if (newX < 0)
+    return 0;
+
+  const newWinXEnd = this.position.x + this.size.width + newX;
+
+  if (newWinXEnd > this.screenSize.width)
+    return newX - (newWinXEnd - this.screenSize.width);
+
+  return newX;
+}
+```
+
+And of course, there are ways to make it shorter:
+
+```javascript
+/**
+ * @param {number} newX
+ */
+#x(newX) {
+  const maxX = this.screenSize.width - this.size.width;
+
+  return Math.max(0, Math.min(maxX, newX));
+}
+
+/**
+ * @param {number} newY
+ */
+#y(newY) {
+  const maxY = this.screenSize.height - this.size.height;
+
+  return Math.max(0, Math.min(maxY, newY));
+}
+
+/**
+ * @param {Position} newPosition
+ */
+move(newPosition) {
+  const newX = this.#x(newPosition.x);
+  const newY = this.#y(newPosition.y);
+
+  this.position.move(newX, newY);
+}
+```
+
+And because the private methods are now way smaller, maybe we can do away with them and write the whole logic inside the `move()` method:
+
+```javascript
+move(newPosition) {
+  const maxX = this.screenSize.width - this.size.width;
+  const maxY = this.screenSize.height - this.size.height;
+
+  const newX = Math.max(0, Math.min(maxX, newPosition.x));
+  const newY = Math.max(0, Math.min(maxY, newPosition.y));
+
+  this.position.move(newX, newY);
 }
 ```
