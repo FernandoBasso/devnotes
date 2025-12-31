@@ -188,76 +188,73 @@ It is possible to position the app window `x` at most on `300`, as anything larg
 
 With that information, we can think about the rest of the logic. If the new `x` is less than `0` (off the left edge of the screen), make it `0`. If it is greater than `max_x`, cap it to `max_x` to not cause the app window right edge fall off the screen right edge. Otherwise, the new requested `x` position is fine.
 
-#### changeWindow()
-
-## Putting it all together
+Translating to code:
 
 ```javascript
-const max = Math.max.bind(Math);
-const min = Math.min.bind(Math);
-
-function Size(width = 80, height = 60) {
-  this.width = width;
-  this.height = height;
-}
-
 /**
- * @param {number} width
- * @param {number} height
+ * @param {Position} pos
  */
-Size.prototype.resize = function resize(width, height) {
-  this.width = width;
-  this.height = height;
-};
+move(pos) {
+  let { x: newX, y: newY } = pos;
 
-function Position(x = 0, y = 0) {
-  this.x = x;
-  this.y = y;
+  if (newX < 0)
+    newX = 0;
+
+  if (newY < 0)
+    newY = 0;
+
+  const maxX = this.screenSize.width - this.size.width;
+  const maxY = this.screenSize.height - this.size.height;
+
+  if (newX > maxX)
+    newX = maxX;
+
+  if (newY > maxY)
+    newY = maxY;
+
+  this.position.move(newX, newY);
 }
+```
 
+We can translate those `if` conditions to `min()` and `max()` (compare with the previous code):
+
+```javascript
+move(pos) {
+  let { x: newX, y: newY } = pos;
+
+  newX = max(newX, 0);
+  newY = max(newY, 0);
+
+  const maxX = this.screenSize.width - this.size.width;
+  const maxY = this.screenSize.height - this.size.height;
+
+  newX = min(newX, maxX);
+  newY = min(newY, maxY);
+
+  this.position.move(newX, newY);
+}
+```
+
+And of course, instead of the reassignments, we can make a more clever use of `min()` and `max()`:
+
+```javascript
 /**
- * @param {number} x
- * @param {number} y
+ * @param {Position} pos
  */
-Position.prototype.move = function move(x, y) {
-  this.x = x;
-  this.y = y;
-};
+move({ x: requestedX, y: requestedY }) {
+  const maxX = this.screenSize.width - this.size.width;
+  const maxY = this.screenSize.height - this.size.height;
 
-class ProgramWindow {
-  constructor() {
-    this.screenSize = new Size(800, 600);
-    this.size = new Size();
-    this.position = new Position();
-  }
+  const newX = max(0, min(maxX, requestedX));
+  const newY = max(0, min(maxY, requestedY));
 
-  /**
-   * @param {Size} newSize
-   */
-  resize(newSize) {
-    const maxW = this.screenSize.width - this.position.x;
-    const maxH = this.screenSize.height - this.position.y;
-
-    let newW = max(1, min(newSize.width, maxW));
-    let newH = max(1, min(newSize.height, maxH));
-
-    this.size.resize(newW, newH);
-  }
-
-  /**
-   * @param {Position} newPos
-   */
-  move(newPos) {
-    const maxX = this.screenSize.width - this.size.width;
-    const maxY = this.screenSize.height - this.size.height;
-
-    const newX = max(0, min(maxX, newPos.x));
-    const newY = max(0, min(maxY, newPos.y));
-
-    this.position.move(newX, newY);
-  }
+  this.position.move(newX, newY);
 }
+```
 
+#### changeWindow()
+
+```javascript
 /**
  * @param {ProgramWindow} programWindow
  */
@@ -270,6 +267,10 @@ function changeWindow(programWindow) {
 
   return programWindow;
 }
+```
 
-export { Size, Position, ProgramWindow, changeWindow };
+
+## Putting it all together
+
+```javascript
 ```
