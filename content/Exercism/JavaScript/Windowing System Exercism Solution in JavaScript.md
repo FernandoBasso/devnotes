@@ -269,7 +269,7 @@ function changeWindow(programWindow) {
 }
 ```
 
-## Putting it all together
+### Putting it all together
 
 ```javascript
 const max = Math.max.bind(Math);
