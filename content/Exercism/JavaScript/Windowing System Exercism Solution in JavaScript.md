@@ -173,7 +173,20 @@ For example, `max(1, min(maxWidth, requestedWidth))` will return `1` in case the
 
 #### move()
 
+To move the window, we have to consider the screen width and the app window width. Based on those, we can determine the max x and y we can move the window to. Let's examine an example for moving the app window on the `x` axis, as it is the same logic for `y`.
 
+```text
+screen_width = 800
+app_window_width = 500
+
+max_x = screen_width - app_window_width
+max_x =          800 - 500
+max_x =             300
+```
+
+It is possible to position the app window `x` at most on `300`, as anything larger than that causes the right edger of the app window to fall of the right edge of the screen, e.g.: `300 + 500 = 800`. But `301 + 500 = 801`. `801` is one pixel off the screen edge.
+
+With that information, we can think about the rest of the logic. If the new `x` is less than `0` (off the left edge of the screen), make it `0`. If it is greater than `max_x`, cap it to `max_x` to not cause the app window right edge fall off the screen right edge. Otherwise, the new requested `x` position is fine.
 
 #### changeWindow()
 
