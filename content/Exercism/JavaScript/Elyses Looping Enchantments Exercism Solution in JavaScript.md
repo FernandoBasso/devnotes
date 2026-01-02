@@ -147,3 +147,17 @@ export function determineOddEvenCards(stack, type) {
 ```
 
 This is possibly one of the best approaches. Only increment the one counter and the `if` condition  together with `restType` does the main magic!
+
+Maybe we can do the `type ? 0 : 1` logic “inline” in the `if` condition and do away with the `restType` variable:
+
+```javascript
+function determineOddEvenCards(stack, type) {
+  let count = 0;
+
+  for (const card of stack)
+    if (card % 2 === (type ? 0 : 1))
+      ++count;
+
+  return count;
+}
+```
