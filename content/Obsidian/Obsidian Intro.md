@@ -103,7 +103,7 @@ GNUPGHOME=/Users/your-user/.gnupg
 
 Quit and reopen Obsidian. After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
 
-> [!NOTE]
+> [!NOTE] Commit from the terminal once
 > One time it only worked after I did a commit from the terminal first.
 
 ## Push to multiple remotes
