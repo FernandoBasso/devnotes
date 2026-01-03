@@ -89,7 +89,6 @@ function simpleTicketStatus(tickets, ticketId) {
 }
 ```
 
-
 ### gtcVersion()
 
 The goal for this one is to use the optional chaining operator `?.`.

@@ -101,7 +101,7 @@ It may also be necessary to set “Additional environment variables” in the Gi
 GNUPGHOME=/Users/your-user/.gnupg
 ```
 
-Quit and repon Obsidian. After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
+Quit and reopen Obsidian. After this, committing from Obsidian Git plugin worked fine and with my GPG signature.
 
 ## Push to multiple remotes
 
