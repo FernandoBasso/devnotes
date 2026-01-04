@@ -153,9 +153,11 @@ Some may have to be compiled and could take several minutes to complete.
 for lang in golang \
   nodejs \
   ruby \
+  haskell \
+  stack
 do
   asdf plugin add "$lang"
   asdf install "$lang" latest
-  asdf set --home "$lang" latest"
+  asdf set --home "$lang" latest
 done
 ```
