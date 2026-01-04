@@ -89,7 +89,8 @@ $ grep gpg .git/config
 Then install `pinentry-mac`, and set it to `~/.gnupg/gpg-agent.conf`:
 
 ```text
-echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent
+echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" \
+  >> ~/.gnupg/gpg-agent.conf
 
 killall gpg-agent
 ```
