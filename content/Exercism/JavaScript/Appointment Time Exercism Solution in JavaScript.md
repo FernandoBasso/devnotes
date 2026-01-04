@@ -109,7 +109,7 @@ function getAppointmentDetails(timestamp) {
  *                | 'hour'
  *                | 'minute', number>} the appointment details
  */
-export function updateAppointment(timestamp, {
+function updateAppointment(timestamp, {
   year,
   month,
   date,
@@ -133,3 +133,60 @@ Update the fields that were passed in. We cannot simply do something like `year 
 Also note we deconstructed the `options` parameter into its constituent fields so we can have shorter lines than with dot notation, which would be like `options.year !== undefined && d.setFullYear(options.year)`.
 
 We then use the existing `getAppointmentDetails()` to return the required object.
+
+### timeBetween()
+
+```javascript
+/**
+ * Get available time in seconds (rounded) between two appointments
+ *
+ * @param {string} timestampA (ISO 8601)
+ * @param {string} timestampB (ISO 8601)
+ *
+ * @returns {number} amount of seconds (rounded)
+ */
+function timeBetween(timestampA, timestampB) {
+  const dateAMillis = new Date(timestampA).getTime();
+  const dateBMillis = new Date(timestampB).getTime();
+
+  return Math.round(Math.abs((dateAMillis - dateBMillis)) / 1000);
+}
+```
+
+We have to use `Math.abs()` for cases when the date A is earlier than date B to prevent the return of negative number of seconds. What we care about is the difference in number of seconds, despite which date was “less” than the other.
+
+We created those “millis” variables to self-document what `.getTime()` returns.
+
+And, we divide by 1000 as each second is 1000 milliseconds.
+
+Let's create a few smaller helper functions to try to make the code more readable and self-documenting and avoid some of those longer dot-notation.
+
+```javascript
+/**
+ * Converts milliseconds to seconds
+ *
+ * @param {number} millis
+ * @return {number} The amount of milliseconds converted to seconds
+ */
+function millisToSeconds(millis) {
+  return millis / 1000;
+}
+
+const round = Math.round.bind(Math);
+const abs = Math.abs.bind(Math);
+
+/**
+ * Get available time in seconds (rounded) between two appointments
+ *
+ * @param {string} timestampA (ISO 8601)
+ * @param {string} timestampB (ISO 8601)
+ *
+ * @returns {number} amount of seconds (rounded)
+ */
+function timeBetween(timestampA, timestampB) {
+  const dateAMillis = new Date(timestampA).getTime();
+  const dateBMillis = new Date(timestampB).getTime();
+
+  return round(abs(millisToSeconds(dateAMillis - dateBMillis)));
+}
+```
