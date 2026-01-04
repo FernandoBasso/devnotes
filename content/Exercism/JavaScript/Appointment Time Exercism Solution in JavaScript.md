@@ -18,6 +18,8 @@ My own repo with solutions:
 
 ## Solution
 
+### createAppointment()
+
 ```javascript
 /**
  * Create an appointment
@@ -27,7 +29,7 @@ My own repo with solutions:
  *
  * @returns {Date} the appointment
  */
-export function createAppointment(days, now = undefined) {
+function createAppointment(days, now = undefined) {
   const today = new Date(now === undefined ? Date.now() : now);
   const nDaysFromToday = today.setDate(today.getDate() + days);
   
@@ -45,5 +47,21 @@ function createAppointment(days, now = Date.now()) {
   const nDaysFromToday = today.setDate(today.getDate() + days);
   
   return new Date(nDaysFromToday);
+}
+```
+
+
+### getAppointmentTimestamp()
+
+```javascript
+/**
+ * Generate the appointment timestamp
+ *
+ * @param {Date} appointmentDate
+ *
+ * @returns {string} timestamp
+ */
+function getAppointmentTimestamp(appointmentDate) {
+  return appointmentDate.toISOString();
 }
 ```
