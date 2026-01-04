@@ -22,4 +22,4 @@ function datefmt () {
   date +"%a, %b the $(day_with_suffix), %Y at %H:%M"
 }
 
-git commit -m "Save notes on $(datefmt)"
+git commit -am "Save notes on $(datefmt)"
