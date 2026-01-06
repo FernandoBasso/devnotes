@@ -22,3 +22,13 @@ Print lua code on nvim's command line without the need of `print()`. E.g.:
 := vim.fn.getjumplist()
 := vim.fn.getline('.')
 ```
+
+## Open cmdline on a buffer
+
+This is similar to `C-x C-e` on the shell, which allows typing the command on `$EDITOR` and run it when closing the buffer and quitting vim.
+
+```
+:set listchars<C-f>
+
+:%s /foo/<C-f>
+```
