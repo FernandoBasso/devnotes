@@ -112,3 +112,65 @@ We could also get the artist without destructuring, and using `pop()` instead:
 ```javascript
 const artist track.split(" - ").pop();
 ```
+
+If we want to optimize and avoid doing two iterations (`map()` then `filter()`),  we could use  `reduce()` or a more traditional loop.
+
+### Single loop with reduce()
+
+```javascript
+/**
+ * Lists the unique artists in a playlist.
+ *
+ * @param {string[]} playlist
+ * @returns {string[]} list of artists
+ */
+export function listArtists(playlist) {
+  return [...new Set(
+    playlist.reduce(
+      /**
+       * @param {string[]} artistsAcc
+       * @param {string} track
+       * @returns {string[]}
+       */
+      function parseArtists(artists, track) {
+        const artist = track.split(" - ").pop();
+
+        if (artist)
+          artists.push(artist);
+
+        return artists;
+    }, [])
+  )];
+}
+```
+
+Now instead of doing an extra loop to filter, we do a conditional inside the single reduce iteration. The `artist` in `if (artist)` has a type of `string | undefined`, so the condition is true only when `artist` is a (non-empty) string. So we know we are not pushing `undefined` to `artists`.
+
+JSDoc was added in the callback function to satisfy `// @ts-check`.
+
+And, we are using `[... new Set(/* etc */)]` to turn the set into an array. It is an alternative to using`Array.from()`.
+
+And remember we are making a set out of the array as a quick means of deduplicating the elements, which is why we convert to array again when returning the final result.
+
+### For of loop
+
+```javascript
+/**
+ * Lists the unique artists in a playlist.
+ *
+ * @param {string[]} playlist
+ * @returns {string[]} list of artists
+ */
+export function listArtists(playlist) {
+  const artists = [];
+
+  for (const track of playlist) {
+    const artist = track.split("- ").pop();
+
+    artist && artists.push(artist);
+  }
+
+  return [...new Set(artists)];
+}
+```
+
