@@ -177,4 +177,4 @@ export function listArtists(playlist) {
 
 > [!NOTE]
 >
-> See [Array map() pop() to array of string undefined problem](Array%20map()%20pop()%20to%20array%20of%20string%20undefined%20problem.md) for extra explanation on the types.
+> See [Array map, split, pop undefined type problem](Array%20map,%20split,%20pop%20undefined%20type%20problem.md) for extra explanation on the types.
