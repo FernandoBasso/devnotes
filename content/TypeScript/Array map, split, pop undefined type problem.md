@@ -28,7 +28,6 @@ function listArtists(playlist) {
   );
 
   return Array.from(set);
-  ~~~~~~
   //~ Type '(string | undefined)[]' is not assignable to type 'string[]'.
   //~   Type 'string | undefined' is not assignable to type 'string'.
   //~    Type 'undefined' is not assignable to type 'string'.ts(2322)
