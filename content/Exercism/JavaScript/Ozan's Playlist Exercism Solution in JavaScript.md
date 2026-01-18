@@ -78,8 +78,8 @@ export function deleteTrack(playlist, track) {
 export function listArtists(playlist) {
   const artists = new Set();
 
-  for (const item of playlist) {
-    const [, artist] = item.split(" - ");
+  for (const track of playlist) {
+    const [, artist] = track.split(" - ");
 
     artists.add(artist);
   }
@@ -94,8 +94,8 @@ In `listArtists()`, not we simply add the artist without even doing any conditio
 function listArtists(playlist) {
   const artists = new Set();
 
-  for (const item of playlist) {
-    const [, artist] = item.split(" - ");
+  for (const track of playlist) {
+    const [, artist] = track.split(" - ");
 
     if (!artists.has(artist))
       artists.add(artist);
@@ -103,4 +103,12 @@ function listArtists(playlist) {
 
   return Array.from(artists);
 }
+```
+
+Note the `[, artist]` syntax. Because our split will result in an array with the two portions of the string, we use the lonely comma to ignore the first substring, and then assign the second substring to `artist`.
+
+We could also get the artist without destructuring, and using `pop()` instead:
+
+```javascript
+const artist track.split(" - ").pop();
 ```
