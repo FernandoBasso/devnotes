@@ -89,4 +89,4 @@ function listArtists(playlist) {
 
 If we want to optimize and avoid doing two iterations (`map()` then `filter()`),  we could use a more traditional loop or `reduce()`.
 
-See [Ozan's Playlist Exercism Solution in JavaScript](Ozan's%20Playlist%20Exercism%20Solution%20in%20JavaScript.md) for extra whole solution.
+See [Ozan's Playlist Exercism Solution in JavaScript](Ozan's%20Playlist%20Exercism%20Solution%20in%20JavaScript.md) for the reduce and for loop solutions.
