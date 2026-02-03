@@ -67,7 +67,7 @@ So you see, even though we start with an array containing only strings, we ended
 
 ## Solution
 
-The solution involves filtering out the `undefined` values from the result so the types we end up with the type `string[]`, as required by the return JSDoc annotation of `listArtists()`.
+The solution involves filtering out the `undefined` values from the result so we end up with the type `string[]`, as required by the return JSDoc annotation of `listArtists()`.
 
 ```javascript
 /**
