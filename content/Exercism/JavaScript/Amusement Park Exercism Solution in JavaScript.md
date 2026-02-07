@@ -81,7 +81,7 @@ In general, the less nesting, the better. Almost always, the better, more elegan
 
 ### simpleTicketStatus()
 
-There are some tickets with whose "name" are values like the empty string "" or 0 (zero), which are falsey in ECMAscript. But remember that the nullish coalescing operator only considers `null` and `undefined` as nullish and falsey, thus, this is enough to satisfy the requirements for this function:
+There are some tickets whose "name" are values like the empty string "" or 0 (zero), which are falsey in ECMAscript. But remember that the nullish coalescing operator only considers `null` and `undefined` as nullish and falsey, thus, this is enough to satisfy the requirements for this function:
 
 ```javascript
 function simpleTicketStatus(tickets, ticketId) {

@@ -5,6 +5,16 @@ tags:
   - nvim
 description: Notes and resources on vim and nvim text editors.
 ---
+
+# Lazy.nvim delete everything
+
+```text
+rm -rvf \
+  ~/.local/state/nvim \
+  ~/.local/share/nvim \
+  ~/.cache/nvim
+```
+
 ## Resources
 
 - https://neovim.io/, the official Neovim website.
