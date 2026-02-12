@@ -113,7 +113,7 @@ fmt.Printf("%#v\n", ys)
 //=> []int{1, 2, 3}
 ```
 
-### slice operator ‘ini:end’
+### Slice operator ‘ini:end’
 
 Using the `[ini:end]` syntax, it is possible to retrieve a slice from index `ini` up to, but not including, index `end`:
 
@@ -143,6 +143,59 @@ ys := xs[:3]
 fmt.Println(ys)
 //=> [1 2 3]
 ```
+
+### Remove one or more elements
+
+Given the slice:
+
+```go
+xs := []int{10, 20, 30, 40, 50, 60, 70}
+```
+
+#### Remove the first element
+
+```go
+func main() {
+	xs := []int{10, 20, 30, 40, 50, 60, 70}
+	ys = xs[1:]
+	fmt.Printf("%#v\n", xs)
+}
+
+// go run ./main.go
+//=> []int{20, 30, 40, 50, 60, 70}
+```
+
+Start at index 1 (thus ignoring index 0) up to the end of the slice (no index *after* the `:` operator means “until the end”)
+
+#### Remove the last element
+
+```go
+func main() {
+	xs := []int{10, 20, 30, 40, 50, 60, 70}
+	xs = xs[:len(xs)-1]
+	fmt.Printf("%#v\n", xs)
+}
+
+// go run ./main.go
+//=> []int{10, 20, 30, 40, 50, 60}
+```
+
+Start at index 0 (no index *before* the `:` operator means “start from the zeroth index”).
+
+#### Remove the element at index 2
+
+```go
+func main() {
+	xs := []int{10, 20, 30, 40, 50, 60, 70}
+	xs = append(xs[:2], xs[3:]...)
+	fmt.Printf("%#v\n", xs)
+}
+
+// go run ./main.go
+//=> []int{10, 20, 40, 50, 60, 70}
+```
+
+Here we have to use `append()`. To remove index 2, get from 0 to 2. Like in most languages, collection ranges are inclusive in the first index, and exclusive in the last index. So `[:2]` means, start at index 0 and up to 2, *but not including 2*. So `xs[:2]` returns a slice of indexes 0 and 1. Then, `xs[3:]` means, start at index three until the end of the array.  The whole thing so far means we managed to skip index 2. Finally, we need `...` because `append()` takes an slice of time T and zero or more individual values of type T. But because the `[:]` syntax returns a slice, we use `...` (similar to ECMAScript spread operator) to turn the result into individual arguments as required by `append()` signature.
 
 ## Multi-dimensional slices
 
@@ -178,6 +231,8 @@ fmt.Println(twoD)
 fmt.Printf("%#v\n", twoD)
 // => [][]int{[]int{0}, []int{1, 2}, []int{2, 3, 4}}
 ```
+
+
 
 ## References
 
