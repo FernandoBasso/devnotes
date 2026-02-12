@@ -3,7 +3,7 @@ tags:
   - go
   - unit-test
 ---
-Go ships with the 'testing' package. Example:
+'Go ships with the 'testing' package. Example:
 
 ```go
 :filename: hello_test.go
