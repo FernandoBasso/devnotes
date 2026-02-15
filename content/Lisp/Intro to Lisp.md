@@ -7,7 +7,11 @@ description: Introduction and resources to Lisp & Scheme
 ## History
 
 - https://howardism.org/Technical/Clojure/origin-of-car-and-cdr.html
+- https://media.simple.photo/12M3xnh3VhDMUgCs8DVhkTBI6OgDGGIX/common-lisp-screenshots/kina2-4jf6eul9981lwr2c.png
 
+## Lisp resources
+
+- https://www.lisp-screenshots.org/
 
 ## CHICKEN Scheme
 #chicken #scheme 
