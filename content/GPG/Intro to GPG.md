@@ -3,6 +3,10 @@ tags:
   - gpg
   - gnupg
 ---
+## Resources on GnuPG
+
+- https://wiki.archlinux.org/title/GnuPG
+
 ## Error screen or window too small
 #gpg #gnupg #pinentry #gpg-agent
 
