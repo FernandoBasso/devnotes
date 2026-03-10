@@ -29,6 +29,9 @@ Install Go and set it as a default for new shells:
 $ asdf plugin add golang
 $ asdf install golang 1.24.4
 $ asdf set --home golang 1.24.4
+
+$ asdf install golang latest
+$ asdf set --home golang latest
 ```
 
 ## Node.js
