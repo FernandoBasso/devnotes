@@ -124,4 +124,4 @@ A piece of config to allow us to run the current built file in debug mode, while
 
 In VS Code, make sure the `msg.c` file is the active one, then press `Ctrl+Shift+d` to open the debug panel. From there, select “C: Debug with args” and click the triangle to start the process. A terminal and a few other UI things should show up, like in the screenshot below.
 
-![VS code debug C program with STDIN args](vscode-debug-c-program-with-stdin-args.png)
+![VS code debug C program with STDIN args](../__assets/vscode-debug-c-program-with-stdin-args.png)
