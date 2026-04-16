@@ -21,6 +21,7 @@ Note, especially, this line:
 > "If the command name matches the name of a utility listed in the following table, **the results are unspecified**."
 
 ![Shell POSIX spec on builtins](__assets/posix-spec-builtins.png)
+
 ## Shells implementation of builtin
 
 Shells have implemented that utility called `builtin` (*builtin* here is the actual name of the command) for their (the shell's) specific purposes. For example, in Bash:
