@@ -16,3 +16,10 @@ We are on `$HOME/work/project-x/`. We now want to get the full path to `./src/li
 $ ls "$PWD/src/libfoo.c"
 /home/devy/source/project-x/src/libfoo.c
 ```
+
+There is also `realpath` from GNU coreutils:
+
+```text
+$ realpath ./src/libfoo.c
+/home/devy/source/project-x/src/libfoo.c
+```
