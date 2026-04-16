@@ -10,4 +10,9 @@ description: Tips, ideas and examples about directory structure, paths and filen
 ---
 ## ls full path of file
 
-We are on `$HOME/work/project-x/`. We now want to get the full path to `./src/libfoo.c`
+We are on `$HOME/work/project-x/`. We now want to get the full path to `./src/libfoo.c`:
+
+```text
+$ ls "$PWD/src/libfoo.c"
+/home/devy/source/project-x/src/libfoo.c
+```
