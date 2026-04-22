@@ -15,6 +15,20 @@ rm -rvf \
   ~/.cache/nvim
 ```
 
+
+## Update with vim.pack.update()
+#nvim #update #pack
+
+```text
+nvim \
+  --headless \
+  -c 'lua vim.pack.update(nil, {force = true})' \
+  -c qa
+```
+
+> [!TIP]
+>`vim.pack.update()` **is** *synchronous*, so `-c qa` will naturally execute only after the update finishes.
+
 ## Resources
 
 - https://neovim.io/, the official Neovim website.
