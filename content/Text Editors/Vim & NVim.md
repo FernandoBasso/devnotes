@@ -19,6 +19,9 @@ rm -rvf \
 ## Update with vim.pack.update()
 #nvim #update #pack
 
+> [!NOTE]
+> Works on nvim 0.12.
+
 ```text
 nvim \
   --headless \
