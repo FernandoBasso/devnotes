@@ -55,6 +55,11 @@ BuildID[sha1]=c645e0eabbbe09afc9cade8ba6715aadd1ffbe2b,
 for GNU/Linux 3.2.0, with debug_info, not stripped
 ```
 
+References:
+
+- https://neovim.io/doc/install/
+- https://github.com/neovim/neovim/releases
+
 # Lazy.nvim delete everything
 
 ```text
