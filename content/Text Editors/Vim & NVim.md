@@ -69,7 +69,6 @@ rm -rvf \
   ~/.cache/nvim
 ```
 
-
 ## Update with vim.pack.update()
 #nvim #update #pack
 
