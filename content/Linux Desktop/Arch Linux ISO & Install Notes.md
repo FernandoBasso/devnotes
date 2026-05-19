@@ -40,11 +40,6 @@ do
   printf -v url '%s/%s' "$url" "$file"
   wget "$url"
 done
-
-2> /dev/null \
-    b2sum --check ./b2sums.txt \
-    | grep archlinux-x86_64.iso \
-    &&
 ```
 
 Then:
@@ -119,7 +114,6 @@ Good signature from 76A5EF9054449A5C ("Pierre Schmitz <pierre@archlinux.org>")
 ## Single script
 
 
-
 ```bash
 #!/usr/bin/env bash
 
@@ -127,6 +121,7 @@ set -euo pipefail
 
 ##
 # E.g.:
+#
 # https://mirrors.edge.kernel.org/archlinux/iso/2026.01.01
 #
 readonly base_url="$1"
@@ -256,7 +251,7 @@ nvme0n1      259:0    0 953.9G  0 disk
   └─homedirs 254:0    0 905.9G  0 crypt /home
 ```
 
-1. It doesn’t show as mounted anywhere.
+1. It doesn’t show as mounted anymore .
 
 Check the name of your USB flash device:
 
