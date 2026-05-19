@@ -32,3 +32,5 @@ This is similar to `C-x C-e` on the shell, which allows typing the command on `$
 
 :%s /foo/<C-f>
 ```
+
+
