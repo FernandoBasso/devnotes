@@ -6,6 +6,78 @@ tags:
   - dsa
 description: Tips, notes, gotchas and examples about Go maps data structure.
 ---
+## Map assignment
+
+```go
+type task struct {
+  ID          uuid.UUID
+  Title       string
+  CreatedAt   time.Time
+  CompletedAt time.Time
+}
+
+type todo struct {
+  Tasks map[uuid.UUID]task
+}
+
+func New() *todo {
+  return &todo{
+    Tasks: make(map[uuid.UUID]task, 32),
+  }
+}
+
+func (t *todo) Complete(id uuid.UUID) (task, error) {
+  taskToComplete := t.FindByID(id)
+  if taskToComplete.IsZero() {
+    return task{},
+      fmt.Errorf("could not find task with id %s", id)
+  }
+
+  t.Tasks[id].CompletedAt = time.Now()
+  //~~~~~~~~~~~~~~~~~~~~~
+  //~ 1. cannot assign to struct field t.Tasks[id].CompletedAt
+  //~ in map [UnaddressableFieldAssign]
+
+  return t.Tasks[id], nil
+}
+```
+
+
+Maps in Go are hash tables that rehash and relocate entries when they grow. If `&t.Tasks[id]` were a real pointer, that pointer could be invalidated the next time anyone inserted into the map and you’d have a dangling reference to memory that now holds a different key’s value, or nothing at all. Rather than introduce some pinning mechanism or pretend the pointer is stable when it isn’t, Go just says: map elements aren’t addressable.
+
+When we say “map elements are not addressable”, this consider this example:
+
+```go
+    p := &t.Tasks[id]
+//  ~    ~~~~~~~~~~~~
+//~ invalid operation: cannot take address of t.Tasks[id]
+//~ (map index expression of struct type task) [UnaddressableOperand]
+```
+
+The map implementation can and will perform its internal lookup to retrieve the element at the given key, but it is not addressable.
+
+This is a recurring theme in the Go community. A tiny bit of extra work on the developer's part makes the compiler many orders of magnitude easier to maintain and fast.
+
+We first have to extract the item, update the field we want, and then reassign the whole item back into the map:
+
+```go
+func (t *todo) Complete(id uuid.UUID) (task, error) {
+  taskToComplete := t.FindByID(id)
+  if taskToComplete.IsZero() {
+    return task{},
+      fmt.Errorf("could not find task with id %s", id)
+  }
+
+  item := t.Tasks[id]
+  item.CompletedAt = time.Now()
+  t.Tasks[id] = item
+
+  return item, nil
+}
+```
+
+If map elements are not addressable, how then is it possible to do this: `t.Tasks[id] = item`? Because the map implementation will do its internal lookup to assign `item` to the key `id`. 
+
 ## Extra keys gotcha
 
 Consider this example:
