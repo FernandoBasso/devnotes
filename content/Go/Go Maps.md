@@ -78,6 +78,13 @@ func (t *todo) Complete(id uuid.UUID) (task, error) {
 
 If map elements are not addressable, how then is it possible to do this: `t.Tasks[id] = item`? Because the map implementation will do its internal lookup to assign `item` to the key `id`. 
 
+So in short:
+
+- Get a reference to the map item.
+- Hold on to the key.
+- Update the item.
+- Use the key to assign the updated item back into the map.
+
 ## Extra keys gotcha
 
 Consider this example:
