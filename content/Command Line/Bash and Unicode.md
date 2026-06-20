@@ -4,8 +4,7 @@ tags:
   - unicode
 ---
 
-Bash (and sure, other shells as well) can work with Unicode just fine.
-In this article, we'll explore some use cases and examples on the topic.
+Bash (and sure, other shells as well) can work with Unicode just fine (better than most languages, actually). In this article, we'll explore some use cases and examples on the topic.
 
 > [!NOTE] Set your bash PS1 prompt
 > To follow along with thise examples, set your bash PS1 prompt to this:
@@ -33,10 +32,9 @@ echo: echo [-neE] [arg ...]
     ...
 ```
 
-Of importance for the topic of Unicode in this post is the combination of `-e` and the `\u...` and `\U...` backslashe escape sequences.
+Of importance for the topic of Unicode in this post is the combination of `-e` and the `\u...` and `\U...` backslash escape sequences.
 
-In short, we can use `-e` to enable `echo` to interpret `\u` and `\U`.
-`\u` takes at most four hex digits, while `\U` can take up to eight` hex digits, thus allowing us to echo the full range of Unicode characters and symbols.
+In short, we can use `-e` to enable `echo` to interpret `\u` and `\U`. `\u` takes at most four hex digits, while `\U` can take up to eight hex digits, thus allowing us to output the full range of Unicode characters and symbols.
 
 So once we know the unicode hex sequences, we can easily display them:
 
@@ -55,8 +53,7 @@ And heres a screenshot in case your OS/browser is not set up to use and display 
 
 ![bash echo unicode](../__assets/bash-echo-unicode.png)
 
-When using those backslash escape sequences, it is not necessary to type the leading zeroes, as the last command above illustrates.
-That is, instead of having to type something like `0001f4a9`, it is possible to shorten it to `1f4a9`, which are the significant bits.
+When using those backslash escape sequences, it is not necessary to type the leading zeroes, as the last command above illustrates. That is, instead of having to type something like `0001f4a9`, it is possible to shorten it to `1f4a9`, which are the significant bits.
 
 And just to be clear, we can echo any char, even the good old ASCII friends (which in UTF-8, have the same internal representation, so valid ASCII is also valid UTF-8).
 
@@ -64,7 +61,7 @@ And just to be clear, we can echo any char, even the good old ASCII friends (whi
 $ echo -e '\u41 \u5a \u61 \u7a'
 A Z a z
 
-$ echo -e '\ua0'
+$ echo -e '\u0a'
 (prints a newline)
 ```
 
