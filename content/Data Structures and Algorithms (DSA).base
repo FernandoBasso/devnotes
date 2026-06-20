@@ -1,9 +1,9 @@
+filters:
+  and:
+    - file.inFolder("DSA-Leetcode")
 views:
   - type: table
     name: Table
-    filters:
-      and:
-        - file.name.contains("help")
     order:
       - file.name
       - tags
