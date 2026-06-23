@@ -36,7 +36,7 @@ function nDaysFrom(fromDate: Date, days: number): Date {
 const today = new Date();
 const sevenDaysFromToday = nDaysFrom(today, 7);
 
-for (const date of [today, sevenDaysFromToday])
+- [ ] for (const date of [today, sevenDaysFromToday])
   log(date);
 ```
 
