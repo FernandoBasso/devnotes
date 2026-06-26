@@ -65,3 +65,9 @@ vim.cmd [[
   nnoremap gpp :silent %!npx prettier --stdin-filepath %<CR>
 ]]
 ```
+
+## Format with deno fmt
+
+```text
+:%!deno fmt %
+```
