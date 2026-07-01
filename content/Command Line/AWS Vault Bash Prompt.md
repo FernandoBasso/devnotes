@@ -23,7 +23,7 @@ My prompt also shows a lot of Git information (new files, changed files, push/pu
 
 Anyway, how can we have Bash’s prompt to display aws-vault profile information?
 
-## Adding aws-vault profile info to bash’s prompt
+## Add aws-vault profile info to bash’s prompt
 
 It so happens that when we authenticate to one of the configured AWS Vault profiles, aws-vault fills in some environment variables for the subshell
 that gets created, as described in their readme:
@@ -99,10 +99,9 @@ Then simply call `ps1aws` function from a bash session (and log into some AWS Va
 > [!NOTE]
 > Of course you can have your bash's PS1 prompt _always_ already include that function in `~/.bashrc`, for example.
 
-## Adding an icon ☁️
+## Add an icon ☁️
 
-If text-only is too dull for you, it is possible to include an icon to the prompt as well.
-Simply pick an icon from your favorite emoji picker, or use an hex escape sequence:
+If text-only is too dull for you, it is possible to include an icon to the prompt as well. Simply pick an icon from your favorite emoji picker, or use an hex escape sequence:
 
 <!--
 Somehow these unicode symbols render on the terminal, but not on mystmd or
