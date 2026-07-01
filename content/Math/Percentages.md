@@ -89,7 +89,7 @@ Therefore, 16 is 20% of 80.
 ## Find out if a value is within percentage another
 
 While trying to prevent a [reactor meltdown (see step 3)](https://exercism.org/tracks/python/exercises/meltdown-mitigation) I came across a percentage problem: I needed to know if a given number was within a certain percentage of another number.
-
+ 
 For example, is $y$ within $p\%$ of $x$?
 
 A concrete example: is $49$ within $12\%$ of $60$?

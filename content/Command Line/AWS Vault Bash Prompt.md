@@ -1,6 +1,6 @@
 ## Introduction
 
-The onboarding documentation for one of the projects I joined some time ago suggested the following setup:
+The onboarding documentation for one of the projects I joined some time ago (2025) suggested the following setup:
 
 1. Use ZSH as the default shell.
 2. Install oh-my-zsh which comes with many useful plugins, including displaying the current active AWS Vault profile in use.
