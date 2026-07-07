@@ -28,6 +28,28 @@ $ for file in ./*.md ; do
 $ rm -vi ./*.md
 ```
 
+Or, if you want to convert all `.md` to `.adoc` in a given directory, a script like this will help, and handles sub-directories:
+
+```shell
+#!/usr/bin/bash
+
+##
+# filename: to_adoc.sh
+#
+# $ gem install kramdown kramdown-asciidoc
+##
+
+find . -name '*.md' -exec bash -c '
+  echo "Converting $1..."
+  kramdoc \
+    --format=GFM \
+    --output="${1%.md}.adoc" \
+    --wrap=ventilate "$1"
+' bash {} \;
+```
+
+Then run it: `bash ./to_adoc.sh`.
+
 ## Convert AsciiDoc to Markdown
 
 * https://github.com/opendevise/downdoc
@@ -36,6 +58,45 @@ In short:
 
 ```bash
 $ npx downdoc -o ./intro.md ./intro.adoc
+```
+
+## Insert filename as title
+
+```bash
+##
+# Create an array of all .adoc files.
+#
+mapfile -d $'\0' adocs < <(find . -name '*.adoc' -print0)
+
+##
+# Get the filename (without extension) and make it the title
+# of the AsciiDoc file. For example: foo/bar/Jedi Tux.adoc will be
+# inserted the “= Jedi Tux” title AsciiDoc title on line 1.
+#
+for adoc in "${adocs[@]}" ; do
+  file="${adoc##*/}"
+  title="${file%.*}"
+
+  sed -i "1 i= $title\\
+  :favicon: https://fernandobasso.dev/cmdline.png\\
+  :icons: font\\
+  :sectlinks:\\
+  :sectnums!:\\
+  :toclevels: 6\\
+  :source-highlighter: highlight.js\\
+  :experimental:\\
+  :stem: latexmath\\
+  :toc: left\\
+  :imagesdir: __assets\\
+  ifdef::env-github[]\\
+  :tip-caption: :bulb:\\
+  :note-caption: :information_source:\\
+  :important-caption: :heavy_exclamation_mark:\\
+  :caution-caption: :fire:\\
+  :warning-caption: :warning:\\
+  endif::[]" $file
+done
+
 ```
 
 ## Source Highlighter
