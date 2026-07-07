@@ -12,6 +12,30 @@ $ go install golang.org/x/tools/gopls@latest
 $ gopls -help
 ```
 
+When updating go with `asdf`, and you get a problem similar to this (and lsp doesn't work in nvim, vscode, etc.):
+
+```
+$ go version
+go version go1.26.4 linux/amd64
+
+$ go install golang.org/x/tools/gopls@latest
+
+$ gopls -help
+No version is set for command gopls
+Consider adding one of the following versions in your config file at /home/devy/source/adocwiki/.tool-versions
+golang 1.26.1
+
+$ cat .tool-versions
+golang 1.26.4
+```
+
+The solution is to “reshim”:
+
+```text
+$ asdf reshim golang
+```
+
+Then run the  `go install ...` again, and it should work.
 
 ## lint
 

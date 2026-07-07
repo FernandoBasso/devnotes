@@ -9,7 +9,7 @@ description: Notes, tips and examples on AsciiDoc and Asciidoctor
 
 ## Introduction
 
-AsciiDoc is the best non-html-like markup language. It is simpler as Markdown for the simple things, while also offering way more useful, powerful and advanced features if when they are needed.
+AsciiDoc is the best non-html-like markup language. It is simpler as Markdown for the simple things, while also offering way more useful, powerful and advanced features if they are needed.
 
 ## Convert Markdown to AsciiDoc
 
