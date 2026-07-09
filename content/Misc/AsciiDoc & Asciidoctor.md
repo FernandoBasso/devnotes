@@ -151,6 +151,48 @@ One can preview AsciiDoc rendered document in many ways, including editors, brow
 
 Do follow the [one sentence per line](https://asciidoctor.org/docs/asciidoc-recommended-practices/#one-sentence-per-line) approach.
 
+## Tags
+
+Discussion on antora.zulipchat.com:
+
+- [#users > Tagging Content](https://antora.zulipchat.com/#narrow/channel/282400-users/topic/Tagging.20Content/with/305558072)
+
+For the whole document use:
+
+```text
+= Doc Title
+:page-tags: tag1 tag2
+```
+
+To add tags to a specific section, there is no mechanism to do that currently. However, you could use roles that either start with tag- or are understood to be tags:
+
+```text
+[.tag-foo.tag-bar.tag-baz]
+== Intro
+```
+
+And something Dan Allen hopes to get into the language spec is `data-tags`:
+
+```text
+[data-tags="foo bar baz"]
+== Intro
+```
+
+> I like this approach rather than yet another built-in attribute. That's because one person will want tags, then someone will want categories, then someone will want subjects, then someone will want authors, and the list goes on...
+> 
+> So having a generic data passthrough facility I think is the right approach.
+>
+> -- Dan Allen
+
+And we can have additional attributes on a block:
+
+```text
+[tags="foo bar baz"]
+== Intro
+```
+
+But for them to have any effect, we'd need to extend the HTML convert.
+
 ## AsciiDoc on Emacs
 
 Check [adoc-mode](https://github.com/bbatsov/adoc-mode).
